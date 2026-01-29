@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福井・越前ガニと恐竜満喫の旅 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f0f2f5;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Material Design Colors */
+        :root {
+            --primary: #3f51b5; /* Indigo 500 */
+            --primary-dark: #303f9f;
+            --accent: #ff5252; /* Crab Red */
+            --secondary: #00bcd4; /* Ocean Blue */
+            --surface: #ffffff;
+            --background: #f0f2f5;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+        }
+
+        .material-card {
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: 0 2px 4px -1px rgba(0,0,0,0.1), 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .material-card.active {
+            border-left: 6px solid var(--accent);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-color: #fff8f8;
+            transform: scale(1.02);
+        }
+
+        .material-card.past {
+            opacity: 0.6;
+            filter: grayscale(0.8);
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e0e0e0;
+            z-index: 0;
+        }
+
+        .timeline-dot {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Sticky Date Header */
+        .sticky-header {
+            position: sticky;
+            top: 60px; /* Below Main Header */
+            z-index: 20;
+            background-color: rgba(240, 242, 245, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 8px 0;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Animation for current item */
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 82, 82, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); }
+        }
+        
+        .status-badge {
+            animation: pulse-border 2s infinite;
+        }
+
+        /* Sim Mode Controls */
+        #sim-controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(33, 33, 33, 0.95);
+            color: white;
+            padding: 16px;
+            z-index: 100;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-out;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+        #sim-controls.open {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="pb-32">
+
+    <!-- App Bar -->
+    <header class="fixed top-0 left-0 right-0 bg-[#3f51b5] text-white h-[60px] flex items-center px-4 shadow-lg z-50">
+        <h1 class="text-lg font-bold flex items-center gap-2">
+            <i data-lucide="map" class="w-5 h-5"></i>
+            福井・越前ガニと恐竜の旅
+        </h1>
+        <div class="ml-auto text-xs opacity-90 text-right">
+            <div id="header-date">2026.02.13</div>
+            <div id="header-time" class="font-mono text-lg font-bold">11:00</div>
+        </div>
+    </header>
+
+    <!-- Content Spacer -->
+    <div class="h-[60px]"></div>
+
+    <!-- Hero Image / Title Area -->
+    <div class="relative bg-gradient-to-r from-indigo-800 to-blue-600 h-40 flex flex-col justify-center items-center text-white p-4 shadow-inner">
+        <h2 class="text-2xl font-bold mb-1">2泊3日 旅のしおり</h2>
+        <p class="text-sm opacity-90 mb-3">2026年2月13日(金) - 15日(日)</p>
+        <div class="flex gap-2">
+            <span class="bg-red-500 px-3 py-1 rounded-full text-xs font-bold shadow-sm">🦀 越前ガニ</span>
+            <span class="bg-green-600 px-3 py-1 rounded-full text-xs font-bold shadow-sm">🦖 恐竜博物館</span>
+            <span class="bg-orange-500 px-3 py-1 rounded-full text-xs font-bold shadow-sm">♨️ 温泉</span>
+        </div>
+    </div>
+
+    <!-- Main Itinerary Container -->
+    <main id="itinerary-container" class="max-w-2xl mx-auto p-4 relative">
+        <!-- Events will be injected here by JS -->
+    </main>
+
+    <!-- FAB: Jump to Current -->
+    <button onclick="scrollToActive()" id="fab-current" class="fixed bottom-24 right-4 bg-[#ff5252] text-white p-4 rounded-full shadow-lg z-40 transform transition hover:scale-110 active:scale-95 hidden">
+        <i data-lucide="navigation" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Simulation Controls Toggle -->
+    <button onclick="toggleSim()" class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-full text-xs font-bold z-50 opacity-80 hover:opacity-100 shadow-lg">
+        ⚙️ 時刻操作シミュレーション
+    </button>
+
+    <!-- Simulation Controls Panel -->
+    <div id="sim-controls">
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-sm font-bold text-gray-300">時刻シミュレーションモード</span>
+            <button onclick="toggleSim()" class="text-gray-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+        
+        <div class="mb-2 flex justify-between text-xs text-gray-400">
+            <span>Day 1 開始</span>
+            <span>Day 3 終了</span>
+        </div>
+        <input type="range" id="sim-slider" min="0" max="100" value="0" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer mb-4">
+        
+        <div class="flex justify-center gap-4">
+            <button onclick="setSimTime('2026-02-13T14:40')" class="px-3 py-1 bg-indigo-700 rounded text-xs">Day1 バス際</button>
+            <button onclick="setSimTime('2026-02-14T18:00')" class="px-3 py-1 bg-indigo-700 rounded text-xs">Day2 夕食</button>
+            <button onclick="setSimTime('2026-02-15T10:00')" class="px-3 py-1 bg-indigo-700 rounded text-xs">Day3 恐竜</button>
+            <button onclick="resetToRealTime()" class="px-3 py-1 bg-green-700 rounded text-xs">現在時刻に戻す</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Data Definitions ---
+
+            const tripStart = new Date("2026-02-13T00:00:00").getTime();
+            const tripEnd = new Date("2026-02-15T23:59:59").getTime();
+
+            const itinerary = [
+                // --- Day 1 ---
+                {
+                    id: "d1-start",
+                    day: 1,
+                    date: "2026-02-13",
+                    time: "11:24",
+                    endTime: "14:36",
+                    title: "東京駅 出発",
+                    location: "東京駅",
+                    desc: "北陸新幹線 はくたか561号・敦賀行<br><span class='text-xs text-gray-500'>Tip: 駅弁を買って乗車しましょう🍱</span>",
+                    type: "transport",
+                    icon: "train-front"
+                },
+                {
+                    id: "d1-arrive",
+                    day: 1,
+                    date: "2026-02-13",
+                    time: "14:36",
+                    endTime: "14:45",
+                    title: "芦原温泉駅 到着",
+                    location: "JR芦原温泉駅",
+                    desc: "改札を出て「西口（1階）」へ移動してください。",
+                    type: "transport",
+                    icon: "map-pin"
+                },
+                {
+                    id: "d1-mission",
+                    day: 1,
+                    date: "2026-02-13",
+                    time: "14:45",
+                    endTime: "15:00",
+                    title: "🎫 必須ミッション：きっぷ購入",
+                    location: "京福バスチケットセンター（西口）",
+                    desc: "<strong>「東尋坊2日フリーきっぷ」</strong>（大人1,500円）を購入。<br><span class='text-red-600 text-xs font-bold'>⚠️ 通常乗り換え(4分)では間に合いません。1時間後のバスに乗る「賢いルート」を選択中。</span>",
+                    type: "important",
+                    icon: "ticket"
+                },
+                {
+                    id: "d1-break",
+                    day: 1,
+                    date: "2026-02-13",
+                    time: "15:00",
+                    endTime: "15:35",
+                    title: "休憩タイム",
+                    location: "駅西口施設「アフレア」",
+                    desc: "お土産チェック、または駅近くの足湯（要タオル）でリラックス♨️",
+                    type: "activity",
+                    icon: "coffee"
+                },
+                {
+                    id: "d1-bus",
+                    day: 1,
+                    date: "2026-02-13",
+                    time: "15:40",
+                    endTime: "16:16",
+                    title: "バス移動（時間厳守）",
+                    location: "西口2番乗り場",
+                    desc: "京福バス85系統（東尋坊線）。<br>降車時にフリーきっぷを提示。",
+                    type: "transport",
+                    icon: "bus"
+                },
+                {
+                    id: "d1-hotel",
+                    day: 1,
+                    date: "2026-02-13",
+                    time: "16:30",
+                    endTime: "17:59",
+                    title: "チェックイン",
+                    location: "休暇村越前三国",
+                    desc: "フロントで<strong>フリーきっぷを提示</strong>してください（優待適用のため必須）。<br>夕食前に露天風呂へ！",
+                    type: "hotel",
+                    icon: "bed-double"
+                },
+                {
+                    id: "d1-dinner",
+                    day: 1,
+                    date: "2026-02-13",
+                    time: "18:00",
+                    endTime: "20:00",
+                    title: "🦀 夕食：越前ガニコース",
+                    location: "ホテル内レストラン",
+                    desc: "冬の味覚の王様を堪能。",
+                    type: "food",
+                    icon: "utensils"
+                },
+
+                // --- Day 2 ---
+                {
+                    id: "d2-out",
+                    day: 2,
+                    date: "2026-02-14",
+                    time: "10:00",
+                    endTime: "10:15",
+                    title: "チェックアウト",
+                    location: "休暇村越前三国",
+                    desc: "バスまたは徒歩で東尋坊へ移動。",
+                    type: "hotel",
+                    icon: "log-out"
+                },
+                {
+                    id: "d2-tojinbo",
+                    day: 2,
+                    date: "2026-02-14",
+                    time: "10:30",
+                    endTime: "12:00",
+                    title: "東尋坊 観光",
+                    location: "東尋坊",
+                    desc: "☀️ 晴れ：遊覧船で海上から絶壁鑑賞<br>☔ 雨天：越前松島水族館へ",
+                    type: "activity",
+                    icon: "camera"
+                },
+                {
+                    id: "d2-lunch",
+                    day: 2,
+                    date: "2026-02-14",
+                    time: "12:15",
+                    endTime: "14:00",
+                    title: "三国港エリア散策＆ランチ",
+                    location: "三国港・三國湊座",
+                    desc: "レトロ建築巡り。ハンバーガーやローカルフード。",
+                    type: "food",
+                    icon: "utensils"
+                },
+                {
+                    id: "d2-train",
+                    day: 2,
+                    date: "2026-02-14",
+                    time: "14:37",
+                    endTime: "15:26",
+                    title: "えちぜん鉄道 移動",
+                    location: "三国港駅 → 福井駅",
+                    desc: "⚠️ ここから先の運賃はフリーきっぷ対象外です。",
+                    type: "transport",
+                    icon: "train-front"
+                },
+                {
+                    id: "d2-checkin",
+                    day: 2,
+                    date: "2026-02-14",
+                    time: "16:00",
+                    endTime: "17:45",
+                    title: "チェックイン",
+                    location: "ドーミーインPREMIUM福井",
+                    desc: "夕食まで少し休憩。",
+                    type: "hotel",
+                    icon: "bed-double"
+                },
+                {
+                    id: "d2-dinner-res",
+                    day: 2,
+                    date: "2026-02-14",
+                    time: "18:00",
+                    endTime: "20:00",
+                    title: "🐟 夕食：海鮮居酒屋",
+                    location: "魚河岸直営いけす海鮮 ろ組（くるふ福井駅店）",
+                    desc: "【予約済】予約時間厳守。",
+                    type: "food",
+                    icon: "beer"
+                },
+                {
+                    id: "d2-soba",
+                    day: 2,
+                    date: "2026-02-14",
+                    time: "21:30",
+                    endTime: "22:30",
+                    title: "夜のお楽しみ",
+                    location: "ドーミーイン",
+                    desc: "名物「夜鳴きそば」無料サービス🍜",
+                    type: "food",
+                    icon: "moon"
+                },
+
+                // --- Day 3 ---
+                {
+                    id: "d3-out",
+                    day: 3,
+                    date: "2026-02-15",
+                    time: "08:40",
+                    endTime: "08:50",
+                    title: "チェックアウト",
+                    location: "ドーミーイン",
+                    desc: "荷物はJR福井駅のコインロッカーへ預ける👜",
+                    type: "hotel",
+                    icon: "log-out"
+                },
+                {
+                    id: "d3-ticket",
+                    day: 3,
+                    date: "2026-02-15",
+                    time: "08:50",
+                    endTime: "09:08",
+                    title: "🎫 チケット購入",
+                    location: "えちぜん鉄道 福井駅",
+                    desc: "Buy: 「恐竜博物館セット券（交通セット券）」を購入。<br>1日フリーきっぷ+勝山市内バスなど。",
+                    type: "important",
+                    icon: "ticket"
+                },
+                {
+                    id: "d3-move-dino",
+                    day: 3,
+                    date: "2026-02-15",
+                    time: "09:08",
+                    endTime: "10:25",
+                    title: "博物館へ移動",
+                    location: "福井駅 → 勝山駅 → バス",
+                    desc: "10:03 勝山駅着、直通バスへ乗り換え。",
+                    type: "transport",
+                    icon: "train-front"
+                },
+                {
+                    id: "d3-museum",
+                    day: 3,
+                    date: "2026-02-15",
+                    time: "10:30",
+                    endTime: "14:00",
+                    title: "🦖 恐竜博物館 見学",
+                    location: "福井県立恐竜博物館",
+                    desc: "【チケット確保済 10:00枠】<br>世界三大恐竜博物館のスケールを堪能。",
+                    type: "activity",
+                    icon: "search"
+                },
+                {
+                    id: "d3-return",
+                    day: 3,
+                    date: "2026-02-15",
+                    time: "14:00",
+                    endTime: "15:23",
+                    title: "福井駅へ戻る",
+                    location: "博物館 → 福井駅",
+                    desc: "バス→勝山駅→電車",
+                    type: "transport",
+                    icon: "train-front"
+                },
+                {
+                    id: "d3-shop",
+                    day: 3,
+                    date: "2026-02-15",
+                    time: "15:30",
+                    endTime: "16:10",
+                    title: "ラストショッピング",
+                    location: "くるふ福井駅",
+                    desc: "羽二重餅、水ようかん、焼き鯖寿司を購入🛍️",
+                    type: "shopping",
+                    icon: "shopping-bag"
+                },
+                {
+                    id: "d3-shinkansen",
+                    day: 3,
+                    date: "2026-02-15",
+                    time: "16:22",
+                    endTime: "20:00",
+                    title: "帰路",
+                    location: "福井駅発",
+                    desc: "北陸新幹線 かがやき512号・東京行<br>19:20 東京着 → 20:00 横浜着<br>お疲れ様でした！🏠",
+                    type: "transport",
+                    icon: "home"
+                }
+            ];
+
+            // --- Logic ---
+
+            let simMode = false;
+            let simTimeOffset = 0; // Difference between real time and sim time
+            let currentSimTime = new Date(); // Holds the simulated time
+
+            window.getNow = function() {
+                if (simMode) {
+                    return currentSimTime;
+                }
+                return new Date();
+            };
+
+            function formatTime(date) {
+                return date.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+            }
+
+            function formatDate(date) {
+                return date.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'short' });
+            }
+
+            // Render the itinerary
+            function renderItinerary() {
+                const container = document.getElementById('itinerary-container');
+                container.innerHTML = '';
+                
+                let currentDay = 0;
+
+                itinerary.forEach((item, index) => {
+                    // Determine item status based on Simulated/Real time
+                    const now = window.getNow();
+                    const itemStart = new Date(`${item.date}T${item.time}:00`);
+                    const itemEnd = item.endTime ? new Date(`${item.date}T${item.endTime}:00`) : new Date(itemStart.getTime() + 60*60*1000);
+                    
+                    let statusClass = "";
+                    let badge = "";
+                    
+                    if (now > itemEnd) {
+                        statusClass = "past";
+                    } else if (now >= itemStart && now <= itemEnd) {
+                        statusClass = "active";
+                        badge = `<span class="status-badge absolute top-2 right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm z-10">NOW</span>`;
+                    } else {
+                        statusClass = "future";
+                        // Check if this is the VERY NEXT event
+                        const prevItemEnd = index > 0 ? new Date(`${itinerary[index-1].date}T${itinerary[index-1].endTime}:00`) : new Date(0);
+                        if (now < itemStart && now > prevItemEnd) {
+                             statusClass = "next ring-2 ring-blue-300";
+                             badge = `<span class="absolute top-2 right-2 bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm z-10">NEXT</span>`;
+                        }
+                    }
+
+                    // Add Day Header if changed
+                    if (item.day !== currentDay) {
+                        currentDay = item.day;
+                        const dayHeader = document.createElement('div');
+                        dayHeader.className = "sticky-header flex items-center justify-between text-indigo-900 font-bold px-4 rounded-lg shadow-sm";
+                        dayHeader.innerHTML = `
+                            <span>Day ${item.day}</span>
+                            <span class="text-sm font-normal text-gray-500">${item.date}</span>
+                        `;
+                        container.appendChild(dayHeader);
+                    }
+
+                    // Create Card
+                    const card = document.createElement('div');
+                    card.className = `material-card relative p-4 mb-6 ml-6 ${statusClass}`;
+                    card.id = `event-${index}`;
+                    
+                    // Icon Color Logic
+                    let iconColor = "text-gray-500";
+                    let iconBg = "bg-gray-100";
+                    if (item.type === "transport") { iconColor = "text-blue-500"; iconBg = "bg-blue-50"; }
+                    if (item.type === "food") { iconColor = "text-orange-500"; iconBg = "bg-orange-50"; }
+                    if (item.type === "hotel") { iconColor = "text-indigo-500"; iconBg = "bg-indigo-50"; }
+                    if (item.type === "important") { iconColor = "text-red-600"; iconBg = "bg-red-50"; }
+                    if (item.type === "activity") { iconColor = "text-green-600"; iconBg = "bg-green-50"; }
+
+                    card.innerHTML = `
+                        ${badge}
+                        <!-- Timeline connector -->
+                        <div class="absolute -left-[33px] top-6 flex flex-col items-center">
+                             <div class="timeline-dot w-4 h-4 rounded-full border-2 border-white shadow-sm ${statusClass === 'active' ? 'bg-red-500 scale-125' : 'bg-gray-400'}"></div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 text-center">
+                                <div class="text-lg font-bold text-gray-800 leading-none">${item.time}</div>
+                                <div class="text-xs text-gray-400 mt-1">~${item.endTime || ''}</div>
+                            </div>
+                            
+                            <div class="flex-grow">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="p-1.5 rounded-full ${iconBg} ${iconColor}">
+                                        <i data-lucide="${item.icon}" class="w-4 h-4"></i>
+                                    </div>
+                                    <h3 class="font-bold text-gray-800 text-lg leading-tight">${item.title}</h3>
+                                </div>
+                                
+                                <div class="text-sm text-indigo-600 font-medium mb-2 flex items-center gap-1">
+                                    <i data-lucide="map-pin" class="w-3 h-3"></i> ${item.location}
+                                </div>
+                                
+                                <div class="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    ${item.desc}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(card);
+                });
+
+                // Add Vertical Line
+                const line = document.createElement('div');
+                line.className = "timeline-line";
+                container.prepend(line);
+
+                // Re-initialize icons
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+            }
+
+            function updateClock() {
+                const now = window.getNow();
+                const dateEl = document.getElementById('header-date');
+                const timeEl = document.getElementById('header-time');
+                if(dateEl && timeEl) {
+                    dateEl.innerText = formatDate(now);
+                    timeEl.innerText = formatTime(now);
+                }
+                
+                // Only re-render if minute changed (optimization)
+                if (now.getSeconds() === 0 || simMode) {
+                   renderItinerary();
+                }
+            }
+
+            window.scrollToActive = function() {
+                const active = document.querySelector('.active') || document.querySelector('.next') || document.querySelector('.future');
+                if (active) {
+                    active.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            };
+
+            // --- Simulation Logic ---
+            const slider = document.getElementById('sim-slider');
+            const totalDuration = tripEnd - tripStart;
+
+            window.toggleSim = function() {
+                const controls = document.getElementById('sim-controls');
+                controls.classList.toggle('open');
+                simMode = true; // Activate sim mode when opened
+                updateSimFromSlider();
+            };
+
+            window.resetToRealTime = function() {
+                simMode = false;
+                document.getElementById('sim-controls').classList.remove('open');
+                updateClock();
+                renderItinerary();
+                setTimeout(window.scrollToActive, 300);
+            };
+
+            window.setSimTime = function(isoString) {
+                simMode = true;
+                currentSimTime = new Date(isoString);
+                // Update slider position
+                const percent = ((currentSimTime.getTime() - tripStart) / totalDuration) * 100;
+                slider.value = percent;
+                updateClock();
+                renderItinerary();
+                window.scrollToActive();
+            };
+
+            function updateSimFromSlider() {
+                if (!simMode) return;
+                const percent = slider.value;
+                const time = tripStart + (totalDuration * (percent / 100));
+                currentSimTime = new Date(time);
+                updateClock();
+                renderItinerary();
+            }
+
+            if (slider) {
+                slider.addEventListener('input', updateSimFromSlider);
+            }
+
+            // --- Initialization ---
+            setInterval(updateClock, 1000); // Clock tick
+            
+            // Initial Render
+            // Default to Real Time, but since 2026 is far, let's start Simulation at Day 1 Start for better UX
+            // Unless we are actually IN 2026.
+            if (new Date().getFullYear() < 2026) {
+                window.setSimTime("2026-02-13T14:30:00"); // Start just before arrival
+                setTimeout(() => {
+                     const ctrl = document.getElementById('sim-controls');
+                     if(ctrl) ctrl.classList.add('open');
+                }, 1000);
+            } else {
+                renderItinerary();
+                window.scrollToActive();
+            }
+
+            // Show FAB on scroll
+            window.addEventListener('scroll', () => {
+                const fab = document.getElementById('fab-current');
+                if (fab) {
+                    if (window.scrollY > 200) {
+                        fab.classList.remove('hidden');
+                    } else {
+                        fab.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
