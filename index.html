@@ -3,898 +3,874 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GW 2026 ツーリングプラン</title>
+<title>青森2泊3日 カップル旅プラン｜奥入瀬・十和田湖満喫コース</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&display=swap');
- 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
- 
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background: #f0f2f5;
-    color: #2d3436;
-    line-height: 1.7;
+  :root{
+    --bg:#f6f4ee;
+    --paper:#ffffff;
+    --ink:#2b2a26;
+    --sub:#5a574d;
+    --accent:#0f5e3c;       /* 奥入瀬の苔 */
+    --accent-2:#1e6a8d;     /* 十和田湖 */
+    --accent-3:#c0392b;     /* りんご・ねぶた */
+    --line:#e2ddcd;
+    --warn-bg:#fff5e6;
+    --warn-border:#e0a566;
+    --note-bg:#eef5ee;
+    --note-border:#9bbf9b;
   }
- 
-  /* Hero */
-  .hero {
-    background: linear-gradient(135deg, #0c2461 0%, #1e3799 40%, #4a69bd 100%);
-    color: #fff;
-    padding: 60px 24px 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
   }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: #f0f2f5;
-    clip-path: ellipse(55% 100% at 50% 100%);
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 80px}
+  header.hero{
+    background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);
+    color:#fff;
+    padding:48px 28px;
+    border-radius:14px;
+    box-shadow:0 6px 24px rgba(0,0,0,.08);
   }
-  .hero h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+  header.hero h1{margin:0 0 8px;font-size:28px;letter-spacing:.04em}
+  header.hero .sub{opacity:.9;font-size:14px}
+  .badges{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+  .badge{
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;border-radius:999px;
+    padding:4px 12px;font-size:12px;
   }
-  .hero .subtitle {
-    margin-top: 8px;
-    font-size: 1rem;
-    font-weight: 300;
-    opacity: 0.85;
+  section{
+    background:var(--paper);
+    margin-top:28px;
+    padding:28px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.04);
   }
-  .hero .dates {
-    display: inline-block;
-    margin-top: 16px;
-    padding: 6px 20px;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 30px;
-    font-size: 0.9rem;
-    letter-spacing: 0.08em;
+  h2{
+    margin:0 0 16px;
+    color:var(--accent);
+    border-left:5px solid var(--accent);
+    padding-left:12px;
+    font-size:22px;
   }
- 
-  .container { max-width: 800px; margin: 0 auto; padding: 32px 16px 60px; }
- 
-  /* Summary Cards */
-  .summary {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
-    margin-bottom: 36px;
+  h3{margin:24px 0 10px;color:var(--accent-2);font-size:18px}
+  h4{margin:16px 0 6px;color:var(--ink);font-size:15px}
+  p{margin:6px 0}
+  .meta-table{
+    width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;
   }
-  .summary-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 18px 14px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  .meta-table th,.meta-table td{
+    border:1px solid var(--line);
+    padding:10px 12px;text-align:left;vertical-align:top;
   }
-  .summary-card .icon { font-size: 1.6rem; }
-  .summary-card .label { font-size: 0.75rem; color: #636e72; margin-top: 4px; }
-  .summary-card .value { font-size: 1.05rem; font-weight: 600; margin-top: 2px; }
- 
-  /* Section Title */
-  .section-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin: 36px 0 16px;
-    padding-left: 14px;
-    border-left: 4px solid #1e3799;
-    line-height: 1.4;
+  .meta-table th{background:#faf7ec;width:30%;color:var(--sub);font-weight:600}
+  .timeline{position:relative;margin:18px 0 0;padding-left:28px;border-left:3px solid var(--accent)}
+  .tl-item{position:relative;padding:0 0 22px 18px}
+  .tl-item::before{
+    content:"";position:absolute;left:-31px;top:6px;
+    width:14px;height:14px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 3px #fff;
   }
- 
-  /* Day Card */
-  .day-card {
-    background: #fff;
-    border-radius: 14px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    overflow: hidden;
+  .tl-time{
+    display:inline-block;background:var(--accent);color:#fff;
+    border-radius:6px;padding:2px 10px;font-size:13px;margin-right:8px;
   }
-  .day-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 20px;
-    color: #fff;
-    font-weight: 600;
+  .tl-title{font-weight:bold;font-size:16px}
+  .tl-desc{color:var(--sub);font-size:14px;margin-top:4px}
+  .day-header{
+    background:var(--accent-2);color:#fff;padding:10px 16px;
+    border-radius:8px;font-weight:bold;display:inline-block;margin-bottom:8px;
   }
-  .day-header .day-num {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
+  .note{
+    background:var(--note-bg);border-left:5px solid var(--note-border);
+    padding:14px 18px;border-radius:6px;margin:16px 0;font-size:14px;
   }
-  .day-header .day-info { display: flex; flex-direction: column; }
-  .day-header .day-date { font-size: 0.8rem; opacity: 0.85; font-weight: 400; }
-  .day-header .day-route { font-size: 1rem; }
- 
-  .day1 .day-header { background: linear-gradient(135deg, #0c2461, #1e3799); }
-  .day2 .day-header { background: linear-gradient(135deg, #1e3799, #3c6382); }
-  .day3 .day-header { background: linear-gradient(135deg, #3c6382, #38ada9); }
-  .day4 .day-header { background: linear-gradient(135deg, #38ada9, #78e08f); }
-  .day5 .day-header { background: linear-gradient(135deg, #78e08f, #b8e994); color: #2d3436; }
-  .day5 .day-header .day-num { background: rgba(0,0,0,0.1); }
- 
-  .day-body { padding: 18px 20px; }
- 
-  /* Timeline */
-  .timeline { position: relative; padding-left: 28px; }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 6px;
-    bottom: 6px;
-    width: 2px;
-    background: #dfe6e9;
+  .warn{
+    background:var(--warn-bg);border-left:5px solid var(--warn-border);
+    padding:14px 18px;border-radius:6px;margin:16px 0;font-size:14px;
   }
-  .tl-item {
-    position: relative;
-    margin-bottom: 14px;
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:14px}
+  .card{
+    border:1px solid var(--line);border-radius:10px;padding:16px;background:#fffdf6;
   }
-  .tl-item:last-child { margin-bottom: 0; }
-  .tl-item::before {
-    content: '';
-    position: absolute;
-    left: -22px;
-    top: 8px;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: #1e3799;
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 2px #1e3799;
+  .card h4{margin:0 0 6px;color:var(--accent-3)}
+  .card .price{font-size:13px;color:var(--sub)}
+  .pill{
+    display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;
+    background:#eef5ee;color:var(--accent);margin-right:4px;margin-bottom:4px;
   }
-  .tl-time {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #1e3799;
+  .pill.b{background:#e9f0f7;color:var(--accent-2)}
+  .pill.r{background:#fbe9e6;color:var(--accent-3)}
+  .rain-section{
+    background:linear-gradient(135deg,#e8f1f7 0%,#dde8f2 100%);
+    border:2px solid #5b8caf;
   }
-  .tl-desc {
-    font-size: 0.9rem;
-    color: #2d3436;
-    margin-top: 1px;
+  .rain-section h2{color:#1e4a6a;border-left-color:#5b8caf}
+  .rain-section h3{color:#2c6a8f}
+  .rain-header{
+    background:#5b8caf;color:#fff;padding:10px 16px;
+    border-radius:8px;font-weight:bold;display:inline-block;margin-bottom:8px;
   }
- 
-  /* Booking Badge */
-  .badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    margin-left: 6px;
-    vertical-align: middle;
+  .rain-section .timeline{border-left-color:#5b8caf}
+  .rain-section .tl-item::before{background:#5b8caf}
+  .rain-section .tl-time{background:#5b8caf}
+  ul.clean{padding-left:20px;margin:8px 0}
+  ul.clean li{margin:4px 0}
+  .toc{
+    background:#fbf8ee;border:1px dashed var(--line);
+    padding:14px 20px;border-radius:8px;font-size:14px;
   }
-  .badge-booked { background: #d4efdf; color: #1e8449; }
-  .badge-pending { background: #fdebd0; color: #ca6f1e; }
- 
-  /* Accommodation */
-  .accommodation {
-    margin-top: 14px;
-    padding: 14px 16px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 3px solid #1e3799;
-  }
-  .accommodation .acc-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #636e72;
-    margin-bottom: 4px;
-  }
-  .accommodation .acc-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-  .accommodation .acc-detail {
-    font-size: 0.82rem;
-    color: #636e72;
-    margin-top: 2px;
-  }
- 
-  /* Spots Section */
-  .spots-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .spot-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 18px 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border-left: 4px solid #1e3799;
-  }
-  .spot-card .spot-area {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: #1e3799;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .spot-card .spot-name {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-top: 4px;
-  }
-  .spot-card .spot-desc {
-    font-size: 0.85rem;
-    color: #636e72;
-    margin-top: 6px;
-  }
-  .spot-card .spot-tag {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 2px 10px;
-    background: #eaf0fb;
-    color: #1e3799;
-    border-radius: 20px;
-    font-size: 0.72rem;
-    font-weight: 600;
-  }
- 
-  /* Booking Summary Table */
-  .booking-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  .booking-table th {
-    background: #1e3799;
-    color: #fff;
-    padding: 12px 16px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    text-align: left;
-  }
-  .booking-table td {
-    padding: 12px 16px;
-    font-size: 0.88rem;
-    border-bottom: 1px solid #eee;
-  }
-  .booking-table tr:last-child td { border-bottom: none; }
- 
-  /* Ferry Info */
-  .ferry-info {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    margin-bottom: 16px;
-  }
-  .ferry-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-  }
-  .ferry-row + .ferry-row { border-top: 1px solid #eee; }
-  .ferry-dir {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #fff;
-    background: #1e3799;
-    padding: 3px 10px;
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
-  .ferry-detail { font-size: 0.88rem; }
-  .ferry-detail strong { font-weight: 600; }
-  .ferry-ship {
-    font-size: 0.78rem;
-    color: #636e72;
-  }
- 
-  /* Gourmet Section */
-  .gourmet-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .gourmet-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 18px 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    position: relative;
-    overflow: hidden;
-  }
-  .gourmet-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-  }
-  .gourmet-sado::before { background: linear-gradient(90deg, #0c2461, #1e3799); }
-  .gourmet-niigata::before { background: linear-gradient(90deg, #1e3799, #3c6382); }
-  .gourmet-aizu::before { background: linear-gradient(90deg, #3c6382, #38ada9); }
-  .gourmet-iizaka::before { background: linear-gradient(90deg, #38ada9, #78e08f); }
-  .gourmet-kaeri::before { background: linear-gradient(90deg, #78e08f, #b8e994); }
- 
-  .gourmet-area-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .gourmet-area-icon {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-  .gourmet-area-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: #636e72;
-    letter-spacing: 0.05em;
-  }
-  .gourmet-area-name {
-    font-size: 1rem;
-    font-weight: 700;
-  }
- 
-  .gourmet-item {
-    padding: 12px 0;
-    border-top: 1px solid #f0f0f0;
-  }
-  .gourmet-item:first-of-type { border-top: none; }
-  .gourmet-item-name {
-    font-weight: 600;
-    font-size: 0.92rem;
-  }
-  .gourmet-item-genre {
-    display: inline-block;
-    padding: 1px 8px;
-    background: #fff3e0;
-    color: #e67e22;
-    border-radius: 10px;
-    font-size: 0.68rem;
-    font-weight: 600;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
-  .gourmet-item-desc {
-    font-size: 0.83rem;
-    color: #636e72;
-    margin-top: 4px;
-  }
- 
-  /* Notes */
-  .notes {
-    background: #fff8e1;
-    border-radius: 12px;
-    padding: 18px 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  .notes h3 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .notes ul {
-    list-style: none;
-    padding: 0;
-  }
-  .notes li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 8px;
-    font-size: 0.85rem;
-  }
-  .notes li::before {
-    content: '!';
-    position: absolute;
-    left: 0;
-    top: 1px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #f39c12;
-    color: #fff;
-    font-size: 0.65rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
- 
-  .footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.78rem;
-    color: #b2bec3;
-  }
- 
-  @media (max-width: 480px) {
-    .hero h1 { font-size: 1.5rem; }
-    .summary { grid-template-columns: repeat(2, 1fr); }
+  .toc a{color:var(--accent-2);text-decoration:none;margin-right:14px;display:inline-block;margin-bottom:6px}
+  .toc a:hover{text-decoration:underline}
+  footer{margin-top:40px;text-align:center;font-size:12px;color:var(--sub)}
+  .src{font-size:12px;color:var(--sub);margin-top:18px;border-top:1px dashed var(--line);padding-top:10px}
+  .src a{color:var(--accent-2);text-decoration:none}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){
+    .two-col{grid-template-columns:1fr}
+    header.hero{padding:32px 20px}
+    header.hero h1{font-size:22px}
   }
 </style>
 </head>
 <body>
- 
-<div class="hero">
-  <h1>GW 2026 ツーリングプラン</h1>
-  <p class="subtitle">佐渡島 &mdash; 新潟 &mdash; 磐梯 &mdash; 福島</p>
-  <div class="dates">2026.4.29 (水) &rarr; 5.3 (日)&ensp;|&ensp;4泊5日</div>
-</div>
- 
-<div class="container">
- 
-  <!-- Summary -->
-  <div class="summary">
-    <div class="summary-card">
-      <div class="icon">&#x1F3CD;</div>
-      <div class="label">スタイル</div>
-      <div class="value">バイクツーリング</div>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="sub">2026年6月12日(金) ― 6月14日(日) ／ カップル向け</div>
+    <h1>青森 2泊3日 カップル旅プラン<br>― 奥入瀬・十和田湖の新緑を巡る ―</h1>
+    <div class="badges">
+      <span class="badge">DAY1=公共交通／DAY2-3=レンタカー</span>
+      <span class="badge">奥入瀬・十和田湖中心</span>
+      <span class="badge">グルメ／自然／歴史文化</span>
+      <span class="badge">予算: 宿1〜2万円/人</span>
     </div>
-    <div class="summary-card">
-      <div class="icon">&#x1F465;</div>
-      <div class="label">メンバー</div>
-      <div class="value">4人（友人グループ）</div>
+  </header>
+
+  <section>
+    <h2>目次</h2>
+    <div class="toc">
+      <a href="#summary">旅の概要</a>
+      <a href="#day1">DAY1 (6/12)</a>
+      <a href="#day2">DAY2 (6/13)</a>
+      <a href="#day3">DAY3 (6/14)</a>
+      <a href="#rainy">☔ 雨天時プラン</a>
+      <a href="#stay">宿泊候補</a>
+      <a href="#food">おすすめグルメ</a>
+      <a href="#sweets">★ お菓子お土産</a>
+      <a href="#rental">レンタカー・運転</a>
+      <a href="#notes">注意事項</a>
+      <a href="#packing">持ち物チェック</a>
     </div>
-    <div class="summary-card">
-      <div class="icon">&#x1F6A2;</div>
-      <div class="label">フェリー</div>
-      <div class="value">佐渡汽船 予約済</div>
+  </section>
+
+  <section id="summary">
+    <h2>旅の概要</h2>
+    <table class="meta-table">
+      <tr><th>往路</th><td>2026/6/12 (金) 東京 14:44 発 → <strong>新青森 17:54 着</strong>（はやぶさ／約3時間10分）<span class="pill r" style="margin-left:8px">予約済</span></td></tr>
+      <tr><th>復路</th><td>2026/6/14 (日) 新青森 17:33 発 → <strong>東京 21:00 着</strong><span class="pill r" style="margin-left:8px">予約済</span></td></tr>
+      <tr><th>新幹線手配</th><td>JRE POINT「<strong>どこかにビューン</strong>」を利用（2名往復 8,000ポイント）。圧倒的な節約！</td></tr>
+      <tr><th>移動手段</th><td>初日：JR奥羽本線（新青森→青森）／2日目朝〜3日目夕方：レンタカー（青森駅周辺で受取）</td></tr>
+      <tr><th>テーマ</th><td>奥入瀬渓流・十和田湖の新緑／青森グルメ／ねぶた・縄文文化</td></tr>
+      <tr><th>同行者</th><td>カップル（大人2名）</td></tr>
+      <tr><th>宿泊予算</th><td>1泊 1〜2万円／人 ／ 計2泊</td></tr>
+    </table>
+
+    <div class="note">
+      <strong>6月の青森ポイント</strong><br>
+      6月は奥入瀬渓流の<strong>新緑のベストシーズン</strong>。5月中旬〜6月中旬は苔と若葉が最も美しい時期で、人出も夏休みや紅葉期ほど多くなく、ゆっくり歩けます。早朝には朝靄に木漏れ日が差し込む幻想的な光景も。気温は日中20℃前後／早朝は10℃以下まで下がる日もあるので<strong>羽織もの必須</strong>です。
     </div>
-    <div class="summary-card">
-      <div class="icon">&#x1F5FA;</div>
-      <div class="label">ルート</div>
-      <div class="value">約1,000km</div>
+  </section>
+
+  <section id="day1">
+    <h2>DAY 1 ― 6/12(金)：移動&青森市ステイ（公共交通）</h2>
+    <span class="day-header">テーマ：初日はレンタカーなし。新幹線→JR→徒歩で身軽に</span>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-time">14:44</span><span class="tl-title">東京駅発</span>
+        <div class="tl-desc">はやぶさ号で新青森へ。指定席の<strong>E席（2人席窓側）</strong>がおすすめ。仙台・盛岡を経由。駅弁を仕入れて車内で軽く食事しておくと、青森市内ではしっかり夕食を楽しめる。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">17:54</span><span class="tl-title">新青森駅着 → JR奥羽本線に乗り換え</span>
+        <div class="tl-desc">新青森駅から青森駅まで<strong>JR奥羽本線で約6分・運賃200円</strong>。ICカード（Suica/PASMO）利用可。本数は1時間に1〜2本程度なので、新青森到着の<strong>接続列車を事前確認</strong>。乗り換え時間は構内移動含めて15分は見ておくと安心。荷物多めならタクシー（青森駅周辺ホテルまで約2,500円）も選択肢。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">18:20頃</span><span class="tl-title">青森駅着 → ホテルへ徒歩チェックイン</span>
+        <div class="tl-desc">青森駅周辺ホテル（リッチモンド・JALシティ等）は<strong>徒歩5〜10分圏</strong>。雨でも傘で対応可能な距離。荷物を置いて身軽に夜の街へ。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">19:30</span><span class="tl-title">夕食：青森駅周辺で郷土料理&海鮮</span>
+        <div class="tl-desc">候補：<strong>「お食事処 おさない」</strong>（ホタテ料理が看板、地元客にも人気）／<strong>「酒肴 旬」「ふじ寿司」</strong>などの寿司・居酒屋／<strong>「のれそれ食堂」</strong>（青森・南部の郷土料理が一気に楽しめる）。<br>注文したい一品 → <strong>大間マグロ／ホタテ貝焼き味噌／いちご煮（ウニとアワビの潮汁）／せんべい汁／じゃっぱ汁</strong>。日本酒は「田酒」「豊盃」「陸奥八仙」など青森の銘酒を。<br><strong>初日はレンタカー無しなのでアルコールも気兼ねなく楽しめる</strong>のがメリット。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">22:00</span><span class="tl-title">ホテルで就寝</span>
+        <div class="tl-desc">翌朝は早起きしてのっけ丼朝食へ。</div>
+      </div>
     </div>
-  </div>
- 
-  <!-- Ferry -->
-  <div class="section-title">フェリー予約情報</div>
-  <div class="ferry-info">
-    <p style="font-size:0.8rem; color:#636e72; margin-bottom: 10px;">受付番号：<strong style="color:#2d3436;">689148B</strong>　｜　カーフェリーおけさ丸　｜　二輪750cc未満・2等</p>
-    <div class="ferry-row">
-      <span class="ferry-dir">行き</span>
+
+    <div class="note">
+      <strong>公共交通のメリット：</strong>初日はホテルに直行できるので<strong>到着後すぐに飲める／レンタカー受取の手間ゼロ</strong>。荷物が多くてもタクシー（新青森から青森駅周辺ホテルまで約2,500円）でも可。
+    </div>
+  </section>
+
+  <section id="day2">
+    <h2>DAY 2 ― 6/13(土)：青森市 → 八甲田 → 奥入瀬 → 十和田湖泊</h2>
+    <span class="day-header">テーマ：この旅のハイライト。新緑の渓流を全身で味わう</span>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-time">07:00</span><span class="tl-title">朝食：のっけ丼（古川市場・青森魚菜センター）</span>
+        <div class="tl-desc">青森駅から徒歩約5分。<strong>食事券12枚2,200円</strong>を購入し、市場内の店舗を回って自分好みの海鮮丼を作る名物体験。マグロ／ホタテ／イクラ／ウニはマスト。営業は7:00〜16:00、<strong>火曜定休</strong>（6/13は土曜なので営業）。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">08:30</span><span class="tl-title">ホテルチェックアウト → ねぶたの家 ワ・ラッセ</span>
+        <div class="tl-desc">青森駅徒歩1分。<strong>5〜8月は9:00〜19:00</strong>営業。本物のねぶた大型山車4台を間近で見学でき、跳人体験や囃子の実演も。所要45〜60分。入場料 大人620円。<strong>荷物はホテルかワ・ラッセのコインロッカーに預ける</strong>とスムーズ。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">10:00</span><span class="tl-title">★ レンタカー受取（青森駅周辺）</span>
+        <div class="tl-desc">
+          <strong>青森駅から徒歩圏のレンタカー店舗で受取がおすすめ：</strong><br>
+          ・<strong>オリックスレンタカー青森駅前店</strong>（青森駅徒歩2分）<br>
+          ・<strong>トヨタレンタカー青森安方店</strong>（青森駅徒歩6分／8:00〜19:00）<br>
+          ・<strong>ニッポンレンタカー青森駅東口</strong>（青森駅徒歩8分／8:00〜19:00）<br>
+          受取手続きは20〜30分。事前ネット予約必須。<strong>レンタル期間は2日（6/13朝〜6/14夕方）</strong>になるので、新青森駅で2日半借りるより<strong>1万円弱安くなる</strong>。
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">10:45</span><span class="tl-title">青森市内出発 → 国道103号で八甲田へ</span>
+        <div class="tl-desc">青森市街〜奥入瀬は<strong>約60km・1時間30分</strong>が目安。途中ガソリン満タンに（山間部はGSが少ない）。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">12:15</span><span class="tl-title">城ヶ倉大橋（じょうがくらおおはし）</span>
+        <div class="tl-desc">谷底まで122m、上路式アーチ橋としては日本最大級。展望デッキから八甲田連峰が一望。写真スポット。駐車場無料。15分滞在。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">12:35</span><span class="tl-title">八甲田ドライブ（車窓観光）</span>
+        <div class="tl-desc">そのまま国道103号→394号を南下。<strong>睡蓮沼（すいれんぬま）</strong>や<strong>地獄沼</strong>などの絶景ポイントが点在。気になる所で5〜10分ずつ写真休憩。睡蓮沼は八甲田の山々を映す鏡のような景色で6月は新緑が美しい（駐車場無料）。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">13:30</span><span class="tl-title">ランチ：奥入瀬周辺で郷土料理</span>
+        <div class="tl-desc">候補：<strong>「奥入瀬渓流館」レストラン</strong>（短角牛バーガー）／<strong>「OIRASE BEER 桂月」</strong>（地ビール&食事）／<strong>「やすみどころ 十和田屋」</strong>（ひめます塩焼き定食）／<strong>「十和田バラ焼き」</strong>を食べるなら十和田市街の「司」「司バラ焼き大衆食堂」。<br>※14:30LOの店もあるので<strong>13:30までに着く</strong>のがベター。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">14:45</span><span class="tl-title">奥入瀬渓流 散策（メイン）</span>
+        <div class="tl-desc">
+          <strong>おすすめは「石ヶ戸 → 雲井の滝 → 銚子大滝」の約4km・2時間コース</strong>。<br>
+          ・石ヶ戸（いしげど）駐車場に車を停める<br>
+          ・徒歩で阿修羅の流れ／雲井の流れ／白絹の滝<br>
+          ・雲井の滝でUターン、または銚子大滝まで歩いて駐車場へ戻る場合はタクシー or 路線バスを利用<br>
+          ・スニーカー必須、雨具携行（渓流沿いは天気急変あり）<br>
+          ・酸ヶ湯温泉に寄らない分、<strong>散策時間に余裕</strong>があるので、阿修羅の流れの撮影や馬門岩までの追加散策もおすすめ
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">17:00</span><span class="tl-title">奥入瀬発 → 十和田ホテル（西湖畔）へ直行</span>
+        <div class="tl-desc">焼山または石ヶ戸エリアから十和田ホテルまで、子ノ口経由で湖の北側を反時計回りに走行（約40km・約1時間）。湖を眺めながらのドライブ。途中の「<strong>瞰湖台（かんこだい）</strong>」展望台は時間があれば立寄り推奨（5分）。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">18:00</span><span class="tl-title">★ 十和田ホテル チェックイン</span>
+        <div class="tl-desc">
+          国登録有形文化財「<strong>秋田杉の館</strong>」。幻の1940年東京オリンピックに向け、北東北の宮大工約80名が秋田杉の巨木で建てた木造3階建ての名建築。玄関の吹き抜けと秋田杉の意匠が見事。<br>
+          ・チェックイン 15:00〜19:00（<strong>19時厳守</strong>、遅れる場合は事前連絡）<br>
+          ・所在：秋田県鹿角郡小坂町十和田湖西湖畔（青森から県境を越える）<br>
+          ・温泉（人工温泉）あり。湖を望む大浴場で散策の疲れを癒す。
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">19:00</span><span class="tl-title">夕食（プラン付き）</span>
+        <div class="tl-desc">十和田ホテルの和洋折衷ディナー。地元食材を使った創作料理。歴史ある館で味わうディナーは特別な時間に。食後はラウンジでゆっくりするのもおすすめ。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="day3">
+    <h2>DAY 3 ― 6/14(日)：十和田湖 → 青森市 → 新青森</h2>
+    <span class="day-header">テーマ：早朝の奥入瀬と歴史文化／復路は時間との戦い</span>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-time">06:30</span><span class="tl-title">朝の湖畔散策（十和田ホテル周辺）</span>
+        <div class="tl-desc">西湖畔の静かな湖畔を散歩。早朝の湖面は鏡のように静か。<strong>6月は朝霧が湖面を覆うことも</strong>。文化財ホテルの外観撮影もこの時間がベスト。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">08:00</span><span class="tl-title">朝食（プラン付き）</span>
+        <div class="tl-desc">十和田ホテルの朝食。秋田杉の意匠を眺めながらゆっくりと。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">09:30</span><span class="tl-title">チェックアウト → 発荷峠展望台</span>
+        <div class="tl-desc">
+          <strong>十和田ホテルから発荷峠展望台は約10分・近い</strong>のが地理的なメリット。十和田湖を一望、6月の早朝なら雲海が湖面を覆うことも。所要20〜30分。<br>
+          ※湖上派の場合は<strong>十和田湖遊覧船</strong>（休屋〜子ノ口、片道約50分、料金大人1,500円程度）。ただし休屋までは西湖畔から約40分かかるので時間配分注意。
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">11:00</span><span class="tl-title">十和田湖発 → 青森市へ復路</span>
+        <div class="tl-desc">西湖畔（発荷峠側）から青森市は<strong>国道103号・八甲田経由で約2時間</strong>。時間に余裕があれば、十和田市街経由で「<strong>道の駅とわだ</strong>」「<strong>駒街道（官庁街通り）</strong>」を散策する選択肢も（こちらは少し遠回り）。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">13:30</span><span class="tl-title">青森市内ランチ</span>
+        <div class="tl-desc">候補：<strong>A-FACTORY</strong>（青森ベイエリアのお土産複合施設、シードル工房併設）の中のカフェ／<strong>「みなと食堂」</strong>（八戸の有名店だが青森市内にも類似店多数）／<strong>味の札幌 大西</strong>の「<strong>味噌カレー牛乳ラーメン</strong>」（青森B級グルメの代表）。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">15:00</span><span class="tl-title">三内丸山遺跡（さんないまるやま）</span>
+        <div class="tl-desc">世界遺産「北海道・北東北の縄文遺跡群」構成資産。復元された大型掘立柱建物・大型竪穴住居は圧巻。所要60〜90分。常設展観覧料 大人410円。青森駅から車で約20分・新青森駅から約10分。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">16:30</span><span class="tl-title">レンタカー返却</span>
+        <div class="tl-desc">返却前に<strong>セルフGSで給油</strong>。新青森駅周辺のGSは数が少ないので、青森市街で済ませる方が安心。返却は新幹線の<strong>30〜40分前</strong>を目安に。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">17:00</span><span class="tl-title">新青森駅でお土産タイム</span>
+        <div class="tl-desc">「<strong>あおもり旬味館</strong>」で<strong>ラグノオ3点セット（気になるりんご・パティシエのりんごスティック・いのち）／南部せんべい／ねぶた漬／いか塩辛／田酒</strong>などをまとめ買い。駅弁<strong>「ひとくちだら」「八戸小唄寿し」「とりめし」</strong>を新幹線車内用に。詳細は<a href="#sweets">★お菓子お土産セクション</a>参照。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">17:33</span><span class="tl-title">新青森駅発 → 東京 21:00 着</span>
+        <div class="tl-desc">約3時間27分の新幹線旅。買った駅弁&お土産で打ち上げを。東京着後の予定がある場合は、新幹線内で簡単に整理しておくとスムーズ。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rainy" class="rain-section">
+    <h2>☔ 雨天時プラン（Plan B）</h2>
+    <span class="rain-header">奥入瀬散策は雨でも決行！ 屋外景観スポットを屋内施設に振り替える構成</span>
+
+    <div class="note" style="background:#e3edf5;border-left-color:#5b8caf">
+      <strong>雨の奥入瀬は実は隠れた魅力</strong><br>
+      ・雨で苔が水を含み<strong>緑が濃く鮮やかに発色</strong>。晴天時より美しいという声も多い<br>
+      ・霧と渓流が織りなす<strong>幻想的な雰囲気</strong>（写真は逆に良い）<br>
+      ・観光客が減って静かに歩ける<br>
+      ・苔・倒木・キノコをじっくり観察するなら<strong>むしろベストコンディション</strong>
+    </div>
+
+    <h3>雨天時に変更するポイント</h3>
+    <table class="meta-table">
+      <tr><th>晴天時プラン</th><th>→ 雨天時の振替先</th></tr>
+      <tr><td>城ヶ倉大橋（八甲田の絶景）</td><td>霧で視界不良の可能性大 → <strong>スキップ or 短時間立寄り</strong></td></tr>
+      <tr><td>八甲田ドライブ（睡蓮沼・地獄沼）</td><td>視界悪く危険 → <strong>そのまま奥入瀬へ直行</strong></td></tr>
+      <tr><td>発荷峠展望台（DAY3）</td><td>雲海どころか何も見えない可能性 → <strong>十和田市現代美術館</strong>へ振替</td></tr>
+      <tr><td>十和田湖遊覧船（DAY3）</td><td>強風時は欠航 → <strong>奥入瀬渓流館・苔玉づくり体験</strong>などへ</td></tr>
+      <tr><td>三内丸山遺跡 屋外展示</td><td>そのまま<strong>縄文時遊館の屋内展示</strong>を充実させる</td></tr>
+    </table>
+
+    <h3>DAY2(6/13) 雨天時タイムライン</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-time">07:00</span><span class="tl-title">朝食：のっけ丼（市場内・屋根あり）</span>
+        <div class="tl-desc">市場は屋内なので雨でも快適。傘は古川市場の傘立てへ。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">08:30</span><span class="tl-title">ホテルチェックアウト → レンタカー受取</span>
+        <div class="tl-desc">青森駅周辺のレンタカー店舗（オリックス／トヨタ／ニッポン）で受取。雨でも徒歩2〜8分圏。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">09:30</span><span class="tl-title">青森県立美術館（屋内）へ車で移動</span>
+        <div class="tl-desc">
+          ワ・ラッセより<strong>こちらに変更がおすすめ</strong>。雨の日のアートはじっくり鑑賞向き。青森駅から車で約15分・無料駐車場あり。<br>
+          ・<strong>奈良美智「あおもり犬」</strong>（高さ8.5m）／シャガールのバレエ「アレコ」舞台背景画／棟方志功コレクション。<br>
+          ・営業 9:30〜17:00（入館16:30まで）、第2・第4月曜休館。<br>
+          ・一般 510円。<strong>あおもり犬連絡通路は雨天閉鎖の可能性あり</strong>（事前確認）。
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">11:00</span><span class="tl-title">美術館発 → 奥入瀬へ直行</span>
+        <div class="tl-desc">八甲田の絶景ポイントは霧でほぼ見えないので<strong>寄り道せず直行</strong>。所要約1時間30分。視界が悪い区間は速度を落として安全運転。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">12:30</span><span class="tl-title">ランチ：奥入瀬渓流館 or 屋根のある食堂</span>
+        <div class="tl-desc">奥入瀬渓流館のレストランは屋根があり、雨を見ながらの食事も雰囲気あり。観光案内所も併設されているので散策情報を入手。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">14:00</span><span class="tl-title">★ 奥入瀬渓流 散策（雨天決行）</span>
+        <div class="tl-desc">
+          <strong>雨対策必須装備：</strong><br>
+          ・<strong>ゴアテックス等のレインウェア上下</strong>（傘より両手が空いて快適）<br>
+          ・<strong>防水トレッキングシューズ</strong>（普通のスニーカーは中まで濡れる）<br>
+          ・<strong>カメラ用レインカバー or ジップロック</strong>（湿気でレンズが曇りやすい）<br>
+          ・<strong>ザックカバー</strong>＋着替え1セット<br><br>
+          <strong>コース短縮案：</strong>雨で疲れやすいので<strong>「石ヶ戸 → 阿修羅の流れ → 雲井の流れ」（往復約2km・1時間）</strong>に短縮も検討。苔と滝の見どころはこの区間に集中。<br><br>
+          <strong>注意：</strong>雨で<strong>遊歩道がぬかるみ・滑りやすい</strong>箇所多数。倒木や落石にも注意。雷鳴が聞こえたら即撤退。
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">15:30</span><span class="tl-title">奥入瀬渓流館・モスボール工房（屋内）</span>
+        <div class="tl-desc">散策後の濡れ体を温める。<strong>「苔玉づくり体験」</strong>（要予約・1,500円程度）など雨の日にぴったり。お土産にも◎。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">17:00</span><span class="tl-title">十和田ホテル（西湖畔）へ移動・チェックイン</span>
+        <div class="tl-desc">奥入瀬→湖畔反時計回りで西湖畔へ約1時間。<strong>19時のチェックイン期限を守るため、雨天時は余裕を持って早めに出発</strong>。到着後は文化財建築をゆっくり鑑賞、温泉で冷えた体を温める。夕食付プランで温かいディナーを。</div>
+      </div>
+    </div>
+
+    <h3>DAY3(6/14) 雨天時タイムライン</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-time">07:00</span><span class="tl-title">早朝散策は天候を見て判断</span>
+        <div class="tl-desc">小雨ならむしろ朝靄が美しく狙い目。本降りなら宿でゆっくり朝食 → 温泉再入浴。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">09:30</span><span class="tl-title">十和田ホテル出発 → 十和田市現代美術館へ</span>
+        <div class="tl-desc">西湖畔から十和田市現代美術館まで約1時間20分（発荷峠経由）。雨天時は<strong>発荷峠展望台・遊覧船をスキップ</strong>し、こちらへ振り替えるのが最適解。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">10:30</span><span class="tl-title">十和田市現代美術館</span>
+        <div class="tl-desc">
+          雨の日にぴったりの<strong>世界クラスの現代美術館</strong>。<br>
+          ・<strong>草間彌生</strong>の屋外彫刻（傘さして見られる）／<strong>ロン・ミュエクの巨大女性像「スタンディング・ウーマン」</strong>／オノ・ヨーコ作品など。<br>
+          ・営業 9:00〜17:00（入場16:30まで）、月曜休館（祝日は翌日）。<br>
+          ・常設展 一般1,800円。所要1.5〜2時間。<br>
+          ・併設の「<strong>Cafe Cube</strong>」でランチも可能。
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">12:30</span><span class="tl-title">ランチ：十和田バラ焼き</span>
+        <div class="tl-desc">美術館のすぐ近くに本場の店多数。<strong>「司バラ焼き大衆食堂」</strong>などで鉄板熱々の名物を。雨で冷えた体に染みる。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">14:00</span><span class="tl-title">十和田市発 → 青森市方面へ</span>
+        <div class="tl-desc">十和田市から青森市は約1時間30分。下道（国道102/4号）。八甲田を通らないので雨天でも走りやすい。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">15:30</span><span class="tl-title">三内丸山遺跡（屋内中心で）</span>
+        <div class="tl-desc">遺跡本体（屋外）は短めにして、<strong>縄文時遊館（屋内展示）を充実</strong>。出土品の常設展示「さんまるミュージアム」がメイン。雨でも問題なく楽しめる。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-time">17:00</span><span class="tl-title">レンタカー返却 → 新青森駅</span>
+        <div class="tl-desc">雨天は道路が混みやすく所要時間が増える可能性大。<strong>30分早めに返却</strong>を目指す。</div>
+      </div>
+    </div>
+
+    <h3>もし大雨・暴風警報が出たら（最悪ケース）</h3>
+    <div class="warn" style="background:#fbe9e6;border-left-color:#c0392b">
+      奥入瀬の遊歩道は<strong>増水・倒木の危険</strong>で通行止めになる可能性あり。その場合は無理せず：<br>
+      ・<strong>十和田ホテル館内で過ごす</strong>（文化財建築の鑑賞、温泉、ラウンジでゆっくり読書など）<br>
+      ・<strong>道の駅奥入瀬・道の駅とわだ</strong>でお買い物<br>
+      ・<strong>十和田市現代美術館</strong>を前倒しでDAY2に組み込み<br>
+      ・最終手段で<strong>青森市内に戻りA-FACTORY・青森県立美術館でゆっくり</strong>
+    </div>
+
+    <h3>雨天時 追加の持ち物</h3>
+    <div class="two-col">
       <div>
-        <div class="ferry-detail"><strong>4/29（水）</strong>&ensp;新潟 16:05 &rarr; 両津 18:35</div>
+        <h4>必須追加アイテム</h4>
+        <ul class="clean">
+          <li><strong>レインウェア上下</strong>（透湿性のあるもの推奨）</li>
+          <li><strong>防水トレッキングシューズ</strong>（or 防水スプレー処理した靴）</li>
+          <li><strong>ザックカバー</strong> or 防水バックパック</li>
+          <li>大きめのジップロック（カメラ・スマホ用）</li>
+          <li>速乾性タオル2〜3枚</li>
+          <li>着替え一式（特に靴下）</li>
+        </ul>
       </div>
-    </div>
-    <div class="ferry-row">
-      <span class="ferry-dir" style="background:#38ada9;">帰り</span>
       <div>
-        <div class="ferry-detail"><strong>4/30（木）</strong>&ensp;両津 16:05 &rarr; 新潟 18:35</div>
+        <h4>あると便利</h4>
+        <ul class="clean">
+          <li>折りたたみ傘（短時間移動用）</li>
+          <li>防水カメラ or スマホ防水ケース</li>
+          <li>くもり止めシート（レンズ・メガネ用）</li>
+          <li>使い捨てカイロ（体を冷やさない）</li>
+          <li>ビニール袋（濡れ物・ゴミ入れ）</li>
+          <li>替えの帽子（濡れた帽子は冷える）</li>
+        </ul>
       </div>
     </div>
-  </div>
- 
-  <!-- Day-by-Day -->
-  <div class="section-title">日程表</div>
- 
-  <!-- Day 1 -->
-  <div class="day-card day1">
-    <div class="day-header">
-      <div class="day-num">1</div>
-      <div class="day-info">
-        <span class="day-date">4月29日（水）昭和の日</span>
-        <span class="day-route">東京 &rarr; 新潟港 &rarr; 佐渡島（相川）</span>
-      </div>
-    </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-time">10:00頃</div>
-          <div class="tl-desc">東京出発 &mdash; 関越道で新潟方面へ（約300km）</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">15:00</div>
-          <div class="tl-desc">新潟港到着・乗船手続き</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">16:05</div>
-          <div class="tl-desc">フェリー出発（おけさ丸）</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">18:35</div>
-          <div class="tl-desc">両津港着 &rarr; 相川方面へ（約45分）</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">19:30頃</div>
-          <div class="tl-desc">ホテル万長チェックイン</div>
-        </div>
-      </div>
-      <div class="accommodation">
-        <div class="acc-label">宿泊</div>
-        <div class="acc-name">ホテル万長 <span class="badge badge-booked">予約済み</span></div>
-        <div class="acc-detail">佐渡・相川温泉 ｜ 海沿いの温泉旅館</div>
-      </div>
-    </div>
-  </div>
- 
-  <!-- Day 2 -->
-  <div class="day-card day2">
-    <div class="day-header">
-      <div class="day-num">2</div>
-      <div class="day-info">
-        <span class="day-date">4月30日（木）</span>
-        <span class="day-route">佐渡島ツーリング &rarr; 新潟</span>
-      </div>
-    </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-time">8:00</div>
-          <div class="tl-desc">チェックアウト &rarr; 佐渡島内ツーリング開始</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">午前〜午後</div>
-          <div class="tl-desc">大佐渡スカイライン・尖閣湾・北沢浮遊選鉱場跡など</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">15:00</div>
-          <div class="tl-desc">両津港集合・乗船手続き</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">16:05</div>
-          <div class="tl-desc">フェリー出発（おけさ丸）</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">18:35</div>
-          <div class="tl-desc">新潟港着 &rarr; 新潟市内へ</div>
-        </div>
-      </div>
-      <div class="accommodation">
-        <div class="acc-label">宿泊</div>
-        <div class="acc-name">新潟市内（未定）<span class="badge badge-pending">要予約</span></div>
-        <div class="acc-detail">万代エリアで地酒＆海鮮がおすすめ</div>
-      </div>
-    </div>
-  </div>
- 
-  <!-- Day 3 -->
-  <div class="day-card day3">
-    <div class="day-header">
-      <div class="day-num">3</div>
-      <div class="day-info">
-        <span class="day-date">5月1日（金）</span>
-        <span class="day-route">新潟 &rarr; 会津・磐梯エリア</span>
-      </div>
-    </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-time">9:00頃</div>
-          <div class="tl-desc">新潟出発 &mdash; 磐越道で会津方面へ（約150km）</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">午後</div>
-          <div class="tl-desc">裏磐梯・五色沼散策 / 磐梯ゴールドライン</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">夕方</div>
-          <div class="tl-desc">猪苗代湖畔 or 裏磐梯エリアに宿泊</div>
-        </div>
-      </div>
-      <div class="accommodation">
-        <div class="acc-label">宿泊</div>
-        <div class="acc-name">会津・磐梯エリア（未定）<span class="badge badge-pending">要予約</span></div>
-        <div class="acc-detail">猪苗代湖畔 or 裏磐梯エリア</div>
-      </div>
-    </div>
-  </div>
- 
-  <!-- Day 4 -->
-  <div class="day-card day4">
-    <div class="day-header">
-      <div class="day-num">4</div>
-      <div class="day-info">
-        <span class="day-date">5月2日（土）</span>
-        <span class="day-route">磐梯吾妻スカイライン &rarr; 福島・飯坂温泉</span>
-      </div>
-    </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-time">8:00</div>
-          <div class="tl-desc">出発 &rarr; 磐梯吾妻スカイラインへ</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">午前</div>
-          <div class="tl-desc">浄土平で絶景ストップ（雪の壁の可能性あり）</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">午後</div>
-          <div class="tl-desc">福島市街方面へ下る &rarr; 飯坂温泉へ</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">17:00</div>
-          <div class="tl-desc">伊勢屋旅館チェックイン &rarr; 温泉＆温泉街で夕食</div>
-        </div>
-      </div>
-      <div class="accommodation">
-        <div class="acc-label">宿泊</div>
-        <div class="acc-name">飯坂温泉 伊勢屋旅館 <span class="badge badge-booked">予約済み</span></div>
-        <div class="acc-detail">素泊まり ｜ 青雲閣（禁煙和室）｜ 大人4名</div>
-      </div>
-    </div>
-  </div>
- 
-  <!-- Day 5 -->
-  <div class="day-card day5">
-    <div class="day-header">
-      <div class="day-num">5</div>
-      <div class="day-info">
-        <span class="day-date">5月3日（日）憲法記念日</span>
-        <span class="day-route">福島 &rarr; 東京</span>
-      </div>
-    </div>
-    <div class="day-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-time">7:00前</div>
-          <div class="tl-desc">早朝出発（GW渋滞回避）&mdash; 東北道で南下（約280km）</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">途中</div>
-          <div class="tl-desc">那須 or 佐野あたりで休憩・ランチ</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">午後</div>
-          <div class="tl-desc">東京着（混雑時は常磐道経由も検討）</div>
-        </div>
-      </div>
-    </div>
-  </div>
- 
-  <!-- Booking Summary -->
-  <div class="section-title">予約状況まとめ</div>
-  <table class="booking-table">
-    <thead>
-      <tr>
-        <th>日付</th>
-        <th>宿泊地</th>
-        <th>宿</th>
-        <th>状況</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>4/29</td>
-        <td>佐渡島（相川）</td>
-        <td>ホテル万長</td>
-        <td><span class="badge badge-booked">予約済み</span></td>
-      </tr>
-      <tr>
-        <td>4/30</td>
-        <td>新潟市内</td>
-        <td>未定</td>
-        <td><span class="badge badge-pending">要予約</span></td>
-      </tr>
-      <tr>
-        <td>5/1</td>
-        <td>会津・磐梯エリア</td>
-        <td>未定</td>
-        <td><span class="badge badge-pending">要予約</span></td>
-      </tr>
-      <tr>
-        <td>5/2</td>
-        <td>飯坂温泉</td>
-        <td>伊勢屋旅館</td>
-        <td><span class="badge badge-booked">予約済み</span></td>
-      </tr>
-    </tbody>
-  </table>
- 
-  <!-- Recommended Spots -->
-  <div class="section-title">おすすめスポット</div>
-  <div class="spots-grid">
- 
-    <div class="spot-card" style="border-left-color: #0c2461;">
-      <div class="spot-area">佐渡島</div>
-      <div class="spot-name">大佐渡スカイライン</div>
-      <div class="spot-desc">佐渡島を縦断する山岳ドライブルート。標高約900mの白雲台展望台からは両津湾と真野湾を一望できる絶景が広がる。バイクで走るには最高の道。</div>
-      <span class="spot-tag">絶景ロード</span>
-    </div>
- 
-    <div class="spot-card" style="border-left-color: #0c2461;">
-      <div class="spot-area">佐渡島</div>
-      <div class="spot-name">北沢浮遊選鉱場跡</div>
-      <div class="spot-desc">佐渡金山の鉱石処理施設の廃墟。「東洋のマチュピチュ」とも呼ばれ、苔むした石造りの遺構がフォトジェニック。相川エリアにあるので宿から近い。</div>
-      <span class="spot-tag">歴史・遺構</span>
-    </div>
- 
-    <div class="spot-card" style="border-left-color: #0c2461;">
-      <div class="spot-area">佐渡島</div>
-      <div class="spot-name">尖閣湾揚島遊園</div>
-      <div class="spot-desc">断崖絶壁が続く海岸線の絶景スポット。海中透視船に乗れば海の底まで見える透明度。相川から北へバイクで約15分。</div>
-      <span class="spot-tag">自然・海岸</span>
-    </div>
- 
-    <div class="spot-card" style="border-left-color: #3c6382;">
-      <div class="spot-area">新潟</div>
-      <div class="spot-name">万代エリア（ぽんしゅ館・ピアBandai）</div>
-      <div class="spot-desc">新潟駅前の万代エリアには「ぽんしゅ館」で新潟の地酒を利き酒、「ピアBandai」で新鮮な海鮮を楽しめる。フェリー帰りの夜にぴったり。</div>
-      <span class="spot-tag">グルメ・地酒</span>
-    </div>
- 
-    <div class="spot-card" style="border-left-color: #38ada9;">
-      <div class="spot-area">磐梯エリア</div>
-      <div class="spot-name">五色沼湖沼群</div>
-      <div class="spot-desc">裏磐梯を代表する景勝地。コバルトブルーやエメラルドグリーンなど、沼ごとに異なる色を見せる神秘的な湖沼群。散策路は片道約1時間。</div>
-      <span class="spot-tag">自然・散策</span>
-    </div>
- 
-    <div class="spot-card" style="border-left-color: #38ada9;">
-      <div class="spot-area">磐梯エリア</div>
-      <div class="spot-name">磐梯ゴールドライン</div>
-      <div class="spot-desc">磐梯山の西側を走る無料の観光道路。磐梯山の噴火口を間近に見られるダイナミックな景観。磐梯吾妻スカイラインと合わせて走りたい。</div>
-      <span class="spot-tag">絶景ロード</span>
-    </div>
- 
-    <div class="spot-card" style="border-left-color: #78e08f;">
-      <div class="spot-area">福島</div>
-      <div class="spot-name">磐梯吾妻スカイライン・浄土平</div>
-      <div class="spot-desc">全長約29kmの山岳観光道路。標高1,600mの浄土平では荒涼とした火山地形が広がり、まるで別世界。GW時期は雪の壁が残ることも。ツーリングのハイライト。</div>
-      <span class="spot-tag">絶景ロード</span>
-      <span class="spot-tag">火山地形</span>
-    </div>
- 
-    <div class="spot-card" style="border-left-color: #78e08f;">
-      <div class="spot-area">福島・飯坂温泉</div>
-      <div class="spot-name">鯖湖湯（さばこゆ）</div>
-      <div class="spot-desc">飯坂温泉で最も古い共同浴場。松尾芭蕉も訪れたと言われる歴史ある湯。入浴料200円とリーズナブル。伊勢屋旅館から徒歩圏内。</div>
-      <span class="spot-tag">温泉</span>
-    </div>
-  </div>
- 
-  <!-- Gourmet Guide -->
-  <div class="section-title">エリア別グルメガイド</div>
-  <div class="gourmet-grid">
- 
-    <!-- 佐渡島 -->
-    <div class="gourmet-card gourmet-sado">
-      <div class="gourmet-area-header">
-        <div class="gourmet-area-icon" style="background:#eaf0fb;">&#x1F3DD;</div>
-        <div>
-          <div class="gourmet-area-label">DAY 1-2 ／ 佐渡島</div>
-          <div class="gourmet-area-name">海の幸の宝庫！離島グルメ</div>
-        </div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">鮨 長三郎 <span class="gourmet-item-genre">寿司</span></div>
-        <div class="gourmet-item-desc">佐渡産の新鮮なネタにこだわった本格江戸前寿司。「佐渡スペシャル盛り合わせ（10貫）」が人気。佐渡に来たなら一度は味わいたい名店。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">いか釜めし <span class="gourmet-item-genre">名物料理</span></div>
-        <div class="gourmet-item-desc">佐渡の名物グルメ。佐渡市認証米を特製ダシで炊き込み、イカ・エビ・ホタテなどの海の幸をのせた逸品。相川エリアの食事処で味わえる。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">四季菜割烹 伝 <span class="gourmet-item-genre">和食</span></div>
-        <div class="gourmet-item-desc">地元・佐渡の海の幸と旬の野菜をふんだんに取り入れた料理が魅力。刺身定食や天麩羅定食などバラエティ豊かなランチメニューが揃う。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">湖ASOBi <span class="gourmet-item-genre">カフェ</span></div>
-        <div class="gourmet-item-desc">両津港そば、加茂湖のほとりに立つカフェレストラン。加茂湖産カキを使ったパスタなど、地場食材を活かしたオーガニック料理。フェリー待ちにも。</div>
-      </div>
-    </div>
- 
-    <!-- 新潟 -->
-    <div class="gourmet-card gourmet-niigata">
-      <div class="gourmet-area-header">
-        <div class="gourmet-area-icon" style="background:#e8f4f8;">&#x1F376;</div>
-        <div>
-          <div class="gourmet-area-label">DAY 2 ／ 新潟市内（夜）</div>
-          <div class="gourmet-area-name">地酒と海鮮の夜を満喫</div>
-        </div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">新潟鮮魚問屋 港食堂 <span class="gourmet-item-genre">海鮮</span></div>
-        <div class="gourmet-item-desc">万代島の水産市場直営の食堂。朝獲りの鮮魚を使った海鮮丼や漁師飯がリーズナブル。地酒3種飲み比べ「地酒三昧」がツーリング仲間との乾杯にぴったり。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">旬魚酒菜 五郎 万代店 <span class="gourmet-item-genre">居酒屋</span></div>
-        <div class="gourmet-item-desc">古民家風の店内で、新潟産の魚介類を使った料理を堪能。のどぐろの刺身など、ここでしか味わえない海鮮メニューが充実。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">ぽんしゅ館（新潟駅内） <span class="gourmet-item-genre">利き酒</span></div>
-        <div class="gourmet-item-desc">新潟県内の全酒蔵の日本酒を利き酒できるスポット。500円でおちょこ5杯分を試飲可能。お土産の地酒選びにも最適。</div>
-      </div>
-    </div>
- 
-    <!-- 会津・磐梯 -->
-    <div class="gourmet-card gourmet-aizu">
-      <div class="gourmet-area-header">
-        <div class="gourmet-area-icon" style="background:#e8f8f5;">&#x1F3D4;</div>
-        <div>
-          <div class="gourmet-area-label">DAY 3 ／ 会津・磐梯エリア</div>
-          <div class="gourmet-area-name">山の恵みと会津の味</div>
-        </div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">会津山塩ラーメン <span class="gourmet-item-genre">ご当地ラーメン</span></div>
-        <div class="gourmet-item-desc">裏磐梯の温泉水から抽出した山塩を使ったラーメン。透明なスープはミネラルたっぷりで、塩味の中にほんのり甘みを感じる。ツーリングの昼飯に最高。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">猪苗代の手打ち蕎麦 <span class="gourmet-item-genre">そば</span></div>
-        <div class="gourmet-item-desc">会津地方名産のそば粉を使った完全手打ちの十割そば。細めでのど越しが良く、コシもしっかり。猪苗代町内に名店が点在。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">ソースカツ丼（会津名物） <span class="gourmet-item-genre">名物料理</span></div>
-        <div class="gourmet-item-desc">会津といえばソースカツ丼。キャベツの上にサクサクのカツがのり、甘辛いソースがたっぷり。がっつり食べたいライダーにぴったりのボリューム。</div>
-      </div>
-    </div>
- 
-    <!-- 飯坂温泉 -->
-    <div class="gourmet-card gourmet-iizaka">
-      <div class="gourmet-area-header">
-        <div class="gourmet-area-icon" style="background:#e8f6ef;">&#x2668;</div>
-        <div>
-          <div class="gourmet-area-label">DAY 4 ／ 飯坂温泉（夕食）</div>
-          <div class="gourmet-area-name">温泉街で素泊まり夜ごはん</div>
-        </div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">餃子 照井 <span class="gourmet-item-genre">餃子</span></div>
-        <div class="gourmet-item-desc">飯坂名物の円盤餃子の名店。皿の上にぎっしり並んだ餃子は、パリッとしつつモチモチの食感。国産にんにくたっぷりでスタミナ満点。ビールとの相性抜群。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">飯坂ラーメン <span class="gourmet-item-genre">ラーメン</span></div>
-        <div class="gourmet-item-desc">ツルッとした細切り平打ちストレート麺が特徴の飯坂ご当地ラーメン。温泉街に複数の店があり、店ごとに異なるスープの味を楽しめる。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">次郎長 <span class="gourmet-item-genre">居酒屋</span></div>
-        <div class="gourmet-item-desc">日本酒の品揃えが豊富な温泉街の居酒屋。料理も充実しており、仲間とゆっくり飲みたい夜に。伊勢屋旅館の素泊まりプランとの相性抜群。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">ラヂウム玉子 <span class="gourmet-item-genre">お土産・名物</span></div>
-        <div class="gourmet-item-desc">飯坂温泉の代表的な名物。温泉の熱で作られた半熟卵で、濃厚なコクが特徴。お土産としても人気。温泉街の複数の店舗で購入可能。</div>
-      </div>
-    </div>
- 
-    <!-- 帰路 -->
-    <div class="gourmet-card gourmet-kaeri">
-      <div class="gourmet-area-header">
-        <div class="gourmet-area-icon" style="background:#eafaf1;">&#x1F3E0;</div>
-        <div>
-          <div class="gourmet-area-label">DAY 5 ／ 帰路（東北道沿い）</div>
-          <div class="gourmet-area-name">帰り道のラストランチ</div>
-        </div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">佐野ラーメン（佐野SA or 市内） <span class="gourmet-item-genre">ラーメン</span></div>
-        <div class="gourmet-item-desc">栃木県佐野市のご当地ラーメン。手打ちの平縮れ麺と澄んだ醤油スープが特徴。東北道から少し降りて立ち寄れる。帰り道の腹ごしらえに。</div>
-      </div>
-      <div class="gourmet-item">
-        <div class="gourmet-item-name">那須高原の牧場グルメ <span class="gourmet-item-genre">カフェ・軽食</span></div>
-        <div class="gourmet-item-desc">那須IC周辺には牧場直営のカフェやジェラート店が多数。ソフトクリームや那須牛バーガーなど、ツーリングの締めくくりに立ち寄りたい。</div>
-      </div>
-    </div>
-  </div>
- 
-  <!-- Notes -->
-  <div class="section-title">注意事項・メモ</div>
-  <div class="notes">
-    <h3>出発前にチェック</h3>
-    <ul>
-      <li>磐梯吾妻スカイラインは天候により通行止めの場合あり。出発前に道路状況を確認</li>
-      <li>5/3の帰路は東北道のGW渋滞が激しい。朝7時前出発 or 常磐道迂回を検討</li>
-      <li>4/30と5/1の宿は未予約。GW期間中のため早めの手配を</li>
-      <li>5/2の伊勢屋旅館は素泊まりプラン。飯坂温泉街で夕食の店を事前リサーチ</li>
-      <li>佐渡島内はガソリンスタンドが少ないため、両津港到着後に給油しておくと安心</li>
+
+    <h3>雨天時のドライブ注意</h3>
+    <ul class="clean">
+      <li><strong>八甲田の国道103号は霧+雨で視界5m</strong>になることも。フォグランプを点灯、追従しすぎない。</li>
+      <li><strong>奥入瀬沿いの国道102号は路面が濡れて滑りやすい</strong>。カーブで急ブレーキ厳禁。</li>
+      <li><strong>落石・倒木・冠水</strong>に警戒。ナビの渋滞・通行止め情報をこまめにチェック。</li>
+      <li><strong>レンタカーの返却時間に余裕</strong>を見ること。新幹線に間に合わなくなるリスクが晴天時より高い。</li>
     </ul>
-  </div>
- 
-  <div class="footer">
-    GW 2026 Touring Plan &mdash; Last updated: 2026/04/17
-  </div>
+  </section>
+
+  <section id="stay">
+    <h2>宿泊候補</h2>
+
+    <h3>1泊目（青森市内・予算1〜2万円／人）</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>リッチモンドホテル青森</h4>
+        <span class="pill">駅近</span><span class="pill b">快適</span>
+        <p class="price">青森駅徒歩7分。コスパが良く出張・観光どちらも◎。1泊8,000〜13,000円/人</p>
+      </div>
+      <div class="card">
+        <h4>ホテルJALシティ青森</h4>
+        <span class="pill">駅近</span><span class="pill b">上質</span>
+        <p class="price">青森駅徒歩約7分。広めの客室、朝食ビュッフェ評価高い。1泊10,000〜16,000円/人</p>
+      </div>
+      <div class="card">
+        <h4>ホテル青森</h4>
+        <span class="pill">老舗</span>
+        <p class="price">青森市内屈指の老舗ホテル。最上階レストランから陸奥湾の夜景。1泊11,000〜18,000円/人</p>
+      </div>
+      <div class="card">
+        <h4>三沢屋／古民家系ゲストハウス</h4>
+        <span class="pill r">個性派</span>
+        <p class="price">予算を抑えたいなら駅周辺にゲストハウス・ビジネスホテル多数あり。</p>
+      </div>
+    </div>
+
+    <h3>2泊目：十和田ホテル（確定／朝夕食付）</h3>
+    <div class="card-grid">
+      <div class="card" style="background:#fff4d9;border-color:#d4a017">
+        <h4>★ 十和田ホテル（秋田県小坂町・十和田湖西湖畔）</h4>
+        <span class="pill r">予約済</span><span class="pill">国登録有形文化財</span><span class="pill b">朝夕食付</span>
+        <p class="price">
+          幻の1940年東京オリンピックに向け、北東北の宮大工約80名が秋田杉の巨木で建てた木造3階建ての名建築。<strong>玄関の吹き抜けと総秋田杉の意匠は必見</strong>。湖畔の静かな立地で、レトロモダンな雰囲気と地元食材のディナーが楽しめる。<br>
+          <strong>所在地：</strong>秋田県鹿角郡小坂町十和田湖西湖畔<br>
+          <strong>チェックイン：</strong>15:00〜19:00（19時厳守、遅れる場合は事前連絡）<br>
+          <strong>チェックアウト：</strong>10:00
+        </p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>十和田ホテルの楽しみ方ポイント</strong><br>
+      ・<strong>建築鑑賞</strong>：玄関、ラウンジ、階段、客室の意匠をゆっくり観察。早朝の館内撮影もおすすめ。<br>
+      ・<strong>湖畔散歩</strong>：ホテル前から湖まで徒歩すぐ。早朝の朝霧の湖面が幻想的。<br>
+      ・<strong>発荷峠展望台へ近い</strong>（車約10分）：翌朝の絶景スポットへすぐ。<br>
+      ・<strong>到着時間に注意</strong>：チェックインは19時まで。奥入瀬散策が長引いて19時を超えないようスケジュール管理を。
+    </div>
+  </section>
+
+  <section id="food">
+    <h2>絶対食べたい！青森グルメ＆お店リスト</h2>
+
+    <h3>海鮮</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>のっけ丼（古川市場）</h4>
+        <span class="pill r">朝食</span>
+        <p class="price">青森駅徒歩5分。食事券12枚2,200円。<strong>火曜定休</strong>。市場は5:00〜18:30、のっけ丼は7:00〜16:00。</p>
+      </div>
+      <div class="card">
+        <h4>大間マグロ</h4>
+        <p class="price">本場は大間町だが遠いので青森市内の寿司店「ふじ寿司」「鮨処木島」などで。</p>
+      </div>
+      <div class="card">
+        <h4>ホタテ貝焼き味噌</h4>
+        <p class="price">ホタテと卵を貝の上で焼く青森の家庭料理。居酒屋「おさない」が有名。</p>
+      </div>
+      <div class="card">
+        <h4>いちご煮</h4>
+        <p class="price">ウニとアワビの澄まし汁。お椀の中の乳白色がイチゴのよう、と名付けられた高級郷土料理。</p>
+      </div>
+    </div>
+
+    <h3>B級グルメ・郷土料理</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>味噌カレー牛乳ラーメン</h4>
+        <p class="price">「味の札幌 大西」が元祖。青森市民に愛されるB級ラーメン。</p>
+      </div>
+      <div class="card">
+        <h4>十和田バラ焼き</h4>
+        <p class="price">玉ねぎと牛バラ肉を甘辛ダレで鉄板焼き。「司バラ焼き大衆食堂」（十和田市街）が有名。</p>
+      </div>
+      <div class="card">
+        <h4>せんべい汁</h4>
+        <p class="price">南部せんべいを汁に入れた郷土料理。八戸名物だが青森市内の郷土料理店でも提供。</p>
+      </div>
+      <div class="card">
+        <h4>ひめます料理</h4>
+        <p class="price">十和田湖特産。塩焼き定食・刺身が絶品。奥入瀬や湖畔の食堂で。</p>
+      </div>
+    </div>
+
+    <h3>食品系お土産</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>シードル（A-FACTORY）</h4>
+        <p class="price">青森ベイエリアのシードル工房。試飲スタンドあり。お土産にも◎</p>
+      </div>
+      <div class="card">
+        <h4>ねぶた漬／いか塩辛</h4>
+        <p class="price">数の子・スルメ・昆布の松前漬風。ご飯のお供に最強。</p>
+      </div>
+      <div class="card">
+        <h4>田酒・豊盃・陸奥八仙</h4>
+        <p class="price">青森を代表する地酒3銘柄。新青森駅「あおもり旬味館」で揃う。</p>
+      </div>
+      <div class="card">
+        <h4>青森りんごジュース</h4>
+        <p class="price">「シャイニーゴールド」「葉とらずりんごジュース」など。ストレート果汁100%が絶品。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sweets">
+    <h2>★ 青森駅周辺で買えるおすすめお菓子</h2>
+    <p>青森のお菓子の中心は<strong>「ラグノオ」</strong>（弘前の老舗洋菓子店）。青森駅前の<strong>「ラビナ青森駅ビル」「A-FACTORY」</strong>、新青森駅の<strong>「あおもり旬味館」</strong>で代表商品が揃います。出発前にまとめ買い推奨。</p>
+
+    <h3>★殿堂入り（買って絶対損なし）</h3>
+    <div class="card-grid">
+      <div class="card" style="background:#fff4d9;border-color:#d4a017">
+        <h4>🍎 気になるりんご（ラグノオ）</h4>
+        <span class="pill r">超定番</span><span class="pill">単品670円〜</span>
+        <p class="price">青森県産りんごをまるごと1個シロップ漬けにしてパイで包んだ衝撃の見た目。シャキシャキ食感のりんごとサクサクパイのコントラスト。<strong>2人でシェアして食べるのに最適</strong>。要冷蔵ではないが日持ち短め（約25日）。</p>
+      </div>
+      <div class="card" style="background:#fff4d9;border-color:#d4a017">
+        <h4>🍎 パティシエのりんごスティック（ラグノオ）</h4>
+        <span class="pill r">配り土産◎</span><span class="pill">5本入1,080円〜</span>
+        <p class="price"><strong>モンドセレクション3年連続受賞</strong>。スティック型のアップルパイで、りんごの果肉ゴロゴロ。個包装で配りやすく、職場・友人へのバラマキ土産の鉄板。</p>
+      </div>
+      <div class="card" style="background:#fff4d9;border-color:#d4a017">
+        <h4>🍎 いのち（ラグノオ）</h4>
+        <span class="pill">青森民愛されNo.1</span><span class="pill">5個入980円〜</span>
+        <p class="price">1986年発売のロングセラー。NHKドラマ「いのち」にちなんだ命名。フワフワのスポンジ生地にカスタードクリームとりんご果肉が入った優しい味。<strong>青森民が「あれ美味いよね〜」と言う代表格</strong>。</p>
+      </div>
+    </div>
+
+    <h3>りんご系スイーツ（青森と言えばこれ）</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>大丸のアップルパイ</h4>
+        <p class="price">青森市の老舗洋菓子店。<strong>たっぷりのカスタードと角切りりんご</strong>が入ったホールタイプ。冷蔵で日持ち短いが本格派。お土産より自宅用に。</p>
+      </div>
+      <div class="card">
+        <h4>気になる林檎タルト（ラグノオ）</h4>
+        <p class="price">「気になるりんご」のタルト版。<strong>切り分けやすく</strong>食べやすい。</p>
+      </div>
+      <div class="card">
+        <h4>アップルスナック（青森県りんごジュース）</h4>
+        <p class="price">青森県産りんごを薄くスライスしてフリーズドライ。<strong>添加物ゼロ・パリパリ食感</strong>。ヘルシー志向の方に。</p>
+      </div>
+      <div class="card">
+        <h4>武勇伝（ラグノオ）</h4>
+        <p class="price">青森のリンゴをのせた焼きカステラ。サイズが大きく見た目のインパクト◎。</p>
+      </div>
+    </div>
+
+    <h3>南部せんべい（甘くないお菓子・配り土産に最適）</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>南部せんべい（小麦・ごま・落花生）</h4>
+        <p class="price">青森・岩手の郷土菓子。<strong>カリッと香ばしく素朴な味</strong>。八戸屋・巖手屋・小松製菓などのブランドが定番。<strong>日持ちが長く軽い</strong>のでバラマキに最適。</p>
+      </div>
+      <div class="card">
+        <h4>アップル南部せんべい</h4>
+        <p class="price">南部せんべいにリンゴチップをトッピングした青森限定アレンジ版。<strong>甘じょっぱい</strong>クセになる味。</p>
+      </div>
+      <div class="card">
+        <h4>南部せんべい 厚焼き</h4>
+        <p class="price">通常より厚みのある贅沢版。アーモンド入りやチョコがけなどバリエ豊富。</p>
+      </div>
+      <div class="card">
+        <h4>豆しとぎ（南部地方郷土菓子）</h4>
+        <p class="price">青豆を潰してきな粉と砂糖を混ぜた素朴な郷土菓子。素朴系が好きな人向け。</p>
+      </div>
+    </div>
+
+    <h3>洋菓子・スイーツ（ちょっと変わり種）</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>朝の八甲田（木村屋）</h4>
+        <p class="price">青森の老舗パン屋・木村屋の<strong>カスタードクリームたっぷりの長方形パン</strong>。地元民に愛される朝食パン。日持ちは短いので帰京日に。</p>
+      </div>
+      <div class="card">
+        <h4>パティスリーシェ・ジロー</h4>
+        <p class="price">青森市の人気洋菓子店。<strong>焼き菓子の詰め合わせ</strong>はお土産に◎。新青森駅「あおもり旬味館」にも出店。</p>
+      </div>
+      <div class="card">
+        <h4>かさい製菓「アップルプリン」</h4>
+        <p class="price">青森りんごを練り込んだプリン。優しい甘さ。要冷蔵で持ち帰り注意。</p>
+      </div>
+      <div class="card">
+        <h4>つがる漬（チョコまんじゅう）</h4>
+        <p class="price">和洋折衷のチョコまんじゅう。地味だが侮れない美味しさ。</p>
+      </div>
+    </div>
+
+    <h3>購入場所まとめ</h3>
+    <table class="meta-table">
+      <tr><th>A-FACTORY</th><td>青森駅から徒歩2分のベイエリア複合施設。シードル工房&お土産売場。「気になるりんご」もあり。<strong>営業 9:00〜20:00</strong></td></tr>
+      <tr><th>ラビナ青森駅ビル</th><td>青森駅直結。ラグノオの直営ショップあり。新幹線到着後すぐ買える。</td></tr>
+      <tr><th>アスパム（青森県観光物産館）</th><td>青森駅徒歩8分の三角ビル。<strong>青森のお土産が一番網羅的に揃う</strong>。1〜2階がお土産フロア。</td></tr>
+      <tr><th>古川市場（青森魚菜センター）</th><td>のっけ丼の市場。海産物加工品（ねぶた漬・いか塩辛）の取扱多数。</td></tr>
+      <tr><th>新青森駅「あおもり旬味館」</th><td>新幹線改札外。<strong>帰路の最終買い忘れチェックに最適</strong>。営業 8:00〜20:30</td></tr>
+    </table>
+
+    <div class="note">
+      <strong>買い物のコツ：</strong><br>
+      ・「気になるりんご」「パティシエのりんごスティック」「いのち」の<strong>ラグノオ3点セット</strong>を押さえれば青森土産は完璧。<br>
+      ・<strong>初日に重い物を買わない</strong>こと。最終日に新青森駅「あおもり旬味館」でまとめ買いがベター。<br>
+      ・酒類・要冷蔵品は<strong>クーラーバッグ持参</strong>がおすすめ（A-FACTORYでも販売）。<br>
+      ・<strong>JREポイントカード</strong>を提示するとラビナ等で還元あり。
+    </div>
+  </section>
+
+  <section id="rental">
+    <h2>レンタカー・運転に関する情報</h2>
+
+    <h3>受取・返却プラン（DAY2朝〜DAY3夕方／2日間）</h3>
+    <table class="meta-table">
+      <tr><th>受取</th><td><strong>6/13(土) 朝10:00頃／青森駅周辺の店舗</strong><br>・オリックスレンタカー青森駅前店（青森駅徒歩2分）<br>・トヨタレンタカー青森安方店（徒歩6分／8:00〜19:00）<br>・ニッポンレンタカー青森駅東口（徒歩8分／8:00〜19:00）</td></tr>
+      <tr><th>返却</th><td><strong>6/14(日) 16:30頃／新青森駅周辺の店舗</strong><br>新幹線17:33発に合わせて、駅徒歩圏で乗り捨て返却（乗り捨て料金は同市内なら多くの社で無料 or 数百円）</td></tr>
+      <tr><th>レンタル期間</th><td>2日間（48時間以内）。3日間借りるより<strong>5,000〜10,000円安い</strong>。</td></tr>
+      <tr><th>おすすめ車種</th><td>コンパクトSUV（ヤリスクロス、ヴェゼルなど）。荷物2人分+山道走行に余裕</td></tr>
+      <tr><th>4WDの要否</th><td>6月は不要。普通のFFで十分</td></tr>
+      <tr><th>必要なオプション</th><td>ETC（必須）／カーナビ（標準装備が多い）／免責補償（必ず加入）／<strong>乗り捨てプラン</strong></td></tr>
+    </table>
+
+    <div class="note">
+      <strong>乗り捨てのポイント：</strong>青森駅受取→新青森駅返却の場合、ほとんどのレンタカー会社で<strong>同市内乗り捨ては無料</strong>。予約時に「青森駅受取／新青森駅返却」で必ず指定すること。手間が省けて最終日が劇的にラクになる。
+    </div>
+
+    <h3>初日（6/12）の公共交通アクセス</h3>
+    <table class="meta-table">
+      <tr><th>新青森 → 青森駅</th><td>JR奥羽本線で<strong>約6分・運賃200円</strong>（Suica利用可）／1時間1〜2本</td></tr>
+      <tr><th>新青森 → 青森駅周辺ホテル（タクシー）</th><td>約10分・<strong>2,000〜2,500円</strong>（荷物多い場合）</td></tr>
+      <tr><th>青森駅 → 古川市場（のっけ丼）</th><td>徒歩約5分</td></tr>
+      <tr><th>青森駅 → ねぶたの家ワ・ラッセ</th><td>徒歩1分</td></tr>
+    </table>
+
+    <h3>主要ルートと所要時間（レンタカー）</h3>
+    <table class="meta-table">
+      <tr><th>青森駅周辺 → 城ヶ倉大橋（八甲田経由）</th><td>約35km・1時間</td></tr>
+      <tr><th>城ヶ倉大橋 → 奥入瀬渓流（焼山）</th><td>約30km・50分</td></tr>
+      <tr><th>奥入瀬（焼山）→ 十和田湖（休屋）</th><td>約20km・40分（渓流沿いは制限速度遵守＆寄り道多め）</td></tr>
+      <tr><th>十和田湖（休屋）→ 新青森駅</th><td>約80km・2時間（八甲田経由）</td></tr>
+    </table>
+
+    <h3>奥入瀬渓流のマイカー規制について</h3>
+    <div class="note">
+      <strong>朗報：</strong>2026年の<strong>マイカー規制は9月7日(月)〜13日(日)</strong>のみ予定。<strong>6月12〜14日の旅程では規制対象外</strong>で、普通車で渓流沿いを走行可能です。ただし狭く対向に注意、観光客の歩行者多数。
+    </div>
+
+    <h3>渓流沿いの駐車場（無料／先着）</h3>
+    <ul class="clean">
+      <li><strong>石ヶ戸（いしげど）駐車場</strong>：50台。散策の起点に最適。</li>
+      <li><strong>雲井の滝駐車場</strong>：10台程度。すぐ満車になる。</li>
+      <li><strong>銚子大滝駐車場</strong>：30台。子ノ口側からのアクセスも◎。</li>
+      <li><strong>子ノ口（ねのくち）駐車場</strong>：十和田湖の入口、遊覧船発着所。</li>
+    </ul>
+
+    <div class="warn">
+      <strong>運転上の注意</strong><br>
+      ・国道102号の渓流区間は<strong>道幅が狭く対向すれ違いに要注意</strong>。観光客が車道脇を歩いていることも多いので時速30km厳守。<br>
+      ・八甲田の国道103号は急カーブ連続。霧が出ると視界がほぼゼロになることがある（特に早朝・夕方）。<br>
+      ・山間部は<strong>携帯電波が弱いor圏外</strong>。地図と給油は事前に。<br>
+      ・<strong>野生動物の飛び出し</strong>（カモシカ・タヌキ・キツネ・サル）に注意。
+    </div>
+  </section>
+
+  <section id="notes">
+    <h2>注意事項（旅の前に必ず確認）</h2>
+
+    <h3>天候・気候</h3>
+    <ul class="clean">
+      <li>6月の青森は<strong>梅雨の影響を受けにくい</strong>が、奥入瀬付近は山間で天候が急変しやすい。<strong>折りたたみ傘＋レインコート</strong>を必ず携行。</li>
+      <li>早朝の奥入瀬・十和田湖は<strong>気温10℃以下</strong>になる日も。フリースや薄いダウンが活躍。</li>
+      <li>渓流沿いは湿度が高く<strong>カメラのレンズが曇る</strong>ことがある。レンズ拭き必携。</li>
+    </ul>
+
+    <h3>虫対策</h3>
+    <ul class="clean">
+      <li>6月の奥入瀬は<strong>蚊・ブユ（ブヨ）・アブ</strong>が出始める時期。<strong>虫除けスプレー（ディート30%以上）</strong>必須。</li>
+      <li>長袖長ズボン推奨。肌の露出を抑える。</li>
+      <li>蜂や熊の目撃情報も稀にあり。<strong>大声を出さない・甘い匂いを避ける</strong>。</li>
+    </ul>
+
+    <h3>体力面</h3>
+    <ul class="clean">
+      <li>奥入瀬の遊歩道は比較的フラットだが、<strong>2時間以上歩く想定</strong>。スニーカー必須（ヒール厳禁）。</li>
+      <li>こまめな水分補給。途中に売店・自販機が少ない区間あり。</li>
+    </ul>
+
+    <h3>予約・支払い</h3>
+    <ul class="clean">
+      <li>奥入瀬・十和田湖周辺は<strong>現金しか使えない店</strong>がまだ多い。1〜2万円の現金は持参を。</li>
+      <li>宿は1ヶ月前までに予約。直前は割増or満室。</li>
+      <li>新幹線は<strong>えきねっと「えきねっとトクだ値」</strong>で割引可。乗車1ヶ月前 から発売。</li>
+      <li>レンタカーは<strong>ネット事前予約で2〜3割安く</strong>なる場合が多い。</li>
+    </ul>
+
+    <h3>新幹線リスク</h3>
+    <ul class="clean">
+      <li>復路17:33発に乗り遅れると次の<strong>はやぶさは18:08頃</strong>。レンタカー返却は<strong>17:00までに完了</strong>するスケジュールを死守。</li>
+      <li>東北新幹線は<strong>地震や雪・強風で遅延・運休</strong>することあり。6月は雪の心配は無いが、地震・大雨には注意。</li>
+    </ul>
+
+    <h3>その他</h3>
+    <ul class="clean">
+      <li>奥入瀬渓流は<strong>国立公園内・特別保護地区</strong>。植物採取・苔の持ち帰り厳禁。三脚を遊歩道に広げて他人の通行を妨げない。</li>
+      <li>十和田湖の遊覧船は<strong>強風で欠航</strong>することあり。当日朝、運航状況を電話確認。</li>
+      <li>クマ出没情報あり。<strong>熊鈴があると安心</strong>（宿で貸出している場合も）。</li>
+    </ul>
+  </section>
+
+  <section id="packing">
+    <h2>持ち物チェックリスト</h2>
+    <div class="two-col">
+      <div>
+        <h4>必須</h4>
+        <ul class="clean">
+          <li>新幹線eチケット（スマホ画面 or 印刷）</li>
+          <li>運転免許証（レンタカー）</li>
+          <li><strong>ETCカード</strong>（高速・有料道路用／レンタカーには付属しないので持参）</li>
+          <li>クレジットカード&現金1〜2万円</li>
+          <li>スマホ充電器・モバイルバッテリー</li>
+          <li>スニーカー（奥入瀬散策用）</li>
+          <li>羽織もの・薄手のジャケット</li>
+          <li>折りたたみ傘&レインコート</li>
+          <li>虫除けスプレー（強力なもの）</li>
+        </ul>
+      </div>
+      <div>
+        <h4>あると便利</h4>
+        <ul class="clean">
+          <li>サングラス・帽子</li>
+          <li>双眼鏡（野鳥・展望台で活躍）</li>
+          <li>カメラ&レンズ拭き</li>
+          <li>使い捨てカイロ（早朝散策用）</li>
+          <li>ウェットティッシュ</li>
+          <li>常備薬（酔い止め・胃薬・絆創膏）</li>
+          <li>エコバッグ（お土産用）</li>
+          <li>軽食・チョコレート（移動中の補給）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>概算予算（2名合計）</h2>
+    <table class="meta-table">
+      <tr><th>新幹線（東京⇄新青森・指定席）</th><td><strong>0円（どこかにビューンで2名往復8,000pt利用）</strong></td></tr>
+      <tr><th>初日のJR奥羽本線（新青森→青森・2名）</th><td>約 400円</td></tr>
+      <tr><th>レンタカー（2日／コンパクト+免責+ETC+乗り捨て+ガソリン）</th><td>約 18,000円</td></tr>
+      <tr><th>宿泊（1泊目 青森市 1.5万×2名）</th><td>約 30,000円（朝食付）</td></tr>
+      <tr><th>宿泊（2泊目 十和田ホテル・朝夕食付2名）</th><td>約 40,000円（プラン次第で35,000〜50,000円）</td></tr>
+      <tr><th>食事（1日目夜+2日目昼+3日目昼+間食）</th><td>約 20,000円</td></tr>
+      <tr><th>入場料・遊覧船・温泉</th><td>約 8,000円</td></tr>
+      <tr><th>お土産</th><td>約 10,000円</td></tr>
+      <tr><th><strong>合計目安</strong></th><td><strong>約 120,400円〜（2名）／1人約 60,000円</strong></td></tr>
+    </table>
+    <p class="note">※どこかにビューン（2名往復8,000pt）で新幹線実質0円。通常価格36,000円相当が浮く計算で、<strong>1人あたり約2万円の大幅節約</strong>。浮いた予算で十和田ホテルのワンランク上のプランや、お土産・グルメに回すのもおすすめ。</p>
+  </section>
+
+  <section>
+    <h2>情報ソース</h2>
+    <div class="src">
+      <a href="https://aomori-tourism.com/itineraries/detail_62.html" target="_blank">青森県観光情報サイト Amazing AOMORI（モデルコース）</a><br>
+      <a href="https://www.eco-oirase.com/ja/walking" target="_blank">奥入瀬渓流エコツーリズム（歩き方・駐車場）</a><br>
+      <a href="https://moriyoshizan.jp/oirase-keiryu-parking/" target="_blank">奥入瀬渓流の駐車場ガイド（マイカー規制2026）</a><br>
+      <a href="https://nokkedon.jp/" target="_blank">元祖 青森のっけ丼 公式</a><br>
+      <a href="https://www.nebuta.jp/warasse/" target="_blank">ねぶたの家 ワ・ラッセ 公式</a><br>
+      <a href="https://sannaimaruyama.pref.aomori.jp/information/facility-info/" target="_blank">三内丸山遺跡 公式</a><br>
+      <a href="https://go-fujita-kanko.reservation.jp/ja/hotels/fkg024" target="_blank">十和田ホテル 公式</a><br>
+      <a href="https://www.ekiren.co.jp/office/detail/B00207" target="_blank">JR駅レンタカー 新青森駅営業所</a>
+    </div>
+  </section>
+
+  <footer>
+    Generated for jun — 2026年5月作成 ／ 出発前に最新情報をご確認ください。良い旅を！
+  </footer>
 </div>
- 
 </body>
 </html>
