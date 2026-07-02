@@ -1,876 +1,168 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>青森2泊3日 カップル旅プラン｜奥入瀬・十和田湖満喫コース</title>
-<style>
-  :root{
-    --bg:#f6f4ee;
-    --paper:#ffffff;
-    --ink:#2b2a26;
-    --sub:#5a574d;
-    --accent:#0f5e3c;       /* 奥入瀬の苔 */
-    --accent-2:#1e6a8d;     /* 十和田湖 */
-    --accent-3:#c0392b;     /* りんご・ねぶた */
-    --line:#e2ddcd;
-    --warn-bg:#fff5e6;
-    --warn-border:#e0a566;
-    --note-bg:#eef5ee;
-    --note-border:#9bbf9b;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
-    background:var(--bg);
-    color:var(--ink);
-    line-height:1.75;
-  }
-  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 80px}
-  header.hero{
-    background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 100%);
-    color:#fff;
-    padding:48px 28px;
-    border-radius:14px;
-    box-shadow:0 6px 24px rgba(0,0,0,.08);
-  }
-  header.hero h1{margin:0 0 8px;font-size:28px;letter-spacing:.04em}
-  header.hero .sub{opacity:.9;font-size:14px}
-  .badges{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
-  .badge{
-    background:rgba(255,255,255,.18);
-    border:1px solid rgba(255,255,255,.35);
-    color:#fff;border-radius:999px;
-    padding:4px 12px;font-size:12px;
-  }
-  section{
-    background:var(--paper);
-    margin-top:28px;
-    padding:28px;
-    border-radius:12px;
-    box-shadow:0 2px 10px rgba(0,0,0,.04);
-  }
-  h2{
-    margin:0 0 16px;
-    color:var(--accent);
-    border-left:5px solid var(--accent);
-    padding-left:12px;
-    font-size:22px;
-  }
-  h3{margin:24px 0 10px;color:var(--accent-2);font-size:18px}
-  h4{margin:16px 0 6px;color:var(--ink);font-size:15px}
-  p{margin:6px 0}
-  .meta-table{
-    width:100%;border-collapse:collapse;font-size:14px;margin-top:10px;
-  }
-  .meta-table th,.meta-table td{
-    border:1px solid var(--line);
-    padding:10px 12px;text-align:left;vertical-align:top;
-  }
-  .meta-table th{background:#faf7ec;width:30%;color:var(--sub);font-weight:600}
-  .timeline{position:relative;margin:18px 0 0;padding-left:28px;border-left:3px solid var(--accent)}
-  .tl-item{position:relative;padding:0 0 22px 18px}
-  .tl-item::before{
-    content:"";position:absolute;left:-31px;top:6px;
-    width:14px;height:14px;border-radius:50%;background:var(--accent);
-    box-shadow:0 0 0 3px #fff;
-  }
-  .tl-time{
-    display:inline-block;background:var(--accent);color:#fff;
-    border-radius:6px;padding:2px 10px;font-size:13px;margin-right:8px;
-  }
-  .tl-title{font-weight:bold;font-size:16px}
-  .tl-desc{color:var(--sub);font-size:14px;margin-top:4px}
-  .day-header{
-    background:var(--accent-2);color:#fff;padding:10px 16px;
-    border-radius:8px;font-weight:bold;display:inline-block;margin-bottom:8px;
-  }
-  .note{
-    background:var(--note-bg);border-left:5px solid var(--note-border);
-    padding:14px 18px;border-radius:6px;margin:16px 0;font-size:14px;
-  }
-  .warn{
-    background:var(--warn-bg);border-left:5px solid var(--warn-border);
-    padding:14px 18px;border-radius:6px;margin:16px 0;font-size:14px;
-  }
-  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:14px}
-  .card{
-    border:1px solid var(--line);border-radius:10px;padding:16px;background:#fffdf6;
-  }
-  .card h4{margin:0 0 6px;color:var(--accent-3)}
-  .card .price{font-size:13px;color:var(--sub)}
-  .pill{
-    display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;
-    background:#eef5ee;color:var(--accent);margin-right:4px;margin-bottom:4px;
-  }
-  .pill.b{background:#e9f0f7;color:var(--accent-2)}
-  .pill.r{background:#fbe9e6;color:var(--accent-3)}
-  .rain-section{
-    background:linear-gradient(135deg,#e8f1f7 0%,#dde8f2 100%);
-    border:2px solid #5b8caf;
-  }
-  .rain-section h2{color:#1e4a6a;border-left-color:#5b8caf}
-  .rain-section h3{color:#2c6a8f}
-  .rain-header{
-    background:#5b8caf;color:#fff;padding:10px 16px;
-    border-radius:8px;font-weight:bold;display:inline-block;margin-bottom:8px;
-  }
-  .rain-section .timeline{border-left-color:#5b8caf}
-  .rain-section .tl-item::before{background:#5b8caf}
-  .rain-section .tl-time{background:#5b8caf}
-  ul.clean{padding-left:20px;margin:8px 0}
-  ul.clean li{margin:4px 0}
-  .toc{
-    background:#fbf8ee;border:1px dashed var(--line);
-    padding:14px 20px;border-radius:8px;font-size:14px;
-  }
-  .toc a{color:var(--accent-2);text-decoration:none;margin-right:14px;display:inline-block;margin-bottom:6px}
-  .toc a:hover{text-decoration:underline}
-  footer{margin-top:40px;text-align:center;font-size:12px;color:var(--sub)}
-  .src{font-size:12px;color:var(--sub);margin-top:18px;border-top:1px dashed var(--line);padding-top:10px}
-  .src a{color:var(--accent-2);text-decoration:none}
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:640px){
-    .two-col{grid-template-columns:1fr}
-    header.hero{padding:32px 20px}
-    header.hero h1{font-size:22px}
-  }
-</style>
-</head>
-<body>
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>上高地・乗鞍・白骨温泉 旅行プラン（7/15前泊＋3泊4日）</title><style>
+*{box-sizing:border-box}
+:root{--bg:#eef1ef;--card:#fff;--ink:#1f2c28;--mut:#62716b;--line:#e4eae7;
+--accent:#2f7d6b;--accent2:#27608a;--rain:#356ba6;}
+.theme-green{--th:#2f7d6b;--ths:#e9f4f0;--thl:#cfe6dd;--thi:#1c4e43}
+.theme-teal{--th:#1f7a86;--ths:#e5f3f5;--thl:#c4e3e7;--thi:#13525a}
+.theme-amber{--th:#b5762a;--ths:#f7efe1;--thl:#ecd9b8;--thi:#7a4f13}
+.theme-blue{--th:#3b6ea5;--ths:#eaf1f8;--thl:#cadbed;--thi:#244a72}
+.theme-slate{--th:#5f6f7a;--ths:#eef1f3;--thl:#d7dde1;--thi:#3a474f}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,Meiryo,system-ui,sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px 70px}
+.hero{background:radial-gradient(120% 140% at 0% 0%,#2f7d6b 0%,#23617f 60%,#244a72 100%);color:#fff}
+.hero-in{max-width:920px;margin:0 auto;padding:42px 22px 40px}
+.hero-eyebrow{font-size:.82rem;letter-spacing:.12em;opacity:.9;display:flex;align-items:center;gap:8px}
+.hero-eyebrow span{opacity:.6}
+.hero h1{margin:.3em 0 .35em;font-size:1.72rem;line-height:1.45}
+.hero-sub{margin:0;opacity:.95;font-size:.95rem;max-width:48em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 13px;border-radius:999px;font-size:.8rem;backdrop-filter:blur(3px)}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(238,241,239,.93);backdrop-filter:blur(8px);display:flex;flex-wrap:wrap;gap:6px;padding:10px 0;margin-bottom:6px;border-bottom:1px solid var(--line)}
+nav.toc a{font-size:.79rem;color:var(--accent2);text-decoration:none;border:1px solid var(--line);background:#fff;padding:5px 11px;border-radius:999px;white-space:nowrap;transition:.15s}
+nav.toc a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;margin:16px 0;box-shadow:0 1px 3px rgba(20,40,35,.05)}
+h2{font-size:1.2rem;margin:.1em 0 .8em;display:flex;align-items:center;gap:.5em;color:#1c3f37}
+h2 .ic{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#eef4f2;font-size:1rem}
+h4{font-size:.95rem;margin:1.1em 0 .5em;color:var(--accent2)}
+p{margin:.5em 0;font-size:.93rem}
+ul{margin:.5em 0;padding-left:1.2em}li{margin:.32em 0;font-size:.92rem}
+table{width:100%;border-collapse:collapse;margin:.4em 0;font-size:.875rem;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+thead th{background:#eef4f2;color:#1c3f37;text-align:left;padding:9px 11px;font-weight:600}
+td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#fafcfb}
+td:first-child{white-space:nowrap;color:var(--accent2);font-weight:600;width:1%;font-variant-numeric:tabular-nums}
+tr.stayrow td{background:#fff6ec;font-weight:600}tr.stayrow td:first-child{color:var(--amber)}
+.callout{border-radius:11px;padding:11px 14px;margin:.6em 0;font-size:.89rem;border:1px solid}
+.callout.note{background:#f4f6f8;border-color:#dde3e8;color:#3c4a52}
+.callout.warn{background:#fef6e9;border-color:#f0d9ac;color:#7a5410}
+.callout.important{background:#fdeeec;border-color:#f2c3bc;color:#8c2d22}
+.callout.ok{background:#ecf6f1;border-color:#bfe2d2;color:#1d5e48}
+.chk{font-weight:800;margin-right:2px}.chk.done{color:#2f7d6b}.chk.todo{color:#b5762a}
+.ov-note{font-size:.83rem;color:var(--mut);margin-top:12px}
+.spine{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.night{border:1px solid var(--line);border-left:5px solid var(--th);border-radius:13px;padding:12px 13px;background:#fff}
+.night .n-d{font-size:.74rem;color:var(--mut);font-weight:700}
+.night .n-area{font-weight:700;color:var(--thi);font-size:.9rem;margin:1px 0 2px}
+.night .n-hotel{font-size:.82rem;color:var(--ink)}
+.night .n-meal{display:inline-block;margin-top:8px;font-size:.7rem;background:var(--ths);color:var(--thi);padding:2px 9px;border-radius:999px}
+.daypills{display:flex;flex-wrap:wrap;gap:8px;margin:.2em 0 1.1em}
+.pill{display:flex;flex-direction:column;text-decoration:none;border:1px solid var(--thl);background:var(--ths);color:var(--thi);padding:6px 13px;border-radius:12px;font-size:.82rem;font-weight:700;line-height:1.25}
+.pill small{font-weight:500;opacity:.8;font-size:.72rem}
+.pill:hover{background:var(--th);color:#fff;border-color:var(--th)}.pill:hover small{color:#fff}
+.day{border:1px solid var(--thl);border-radius:16px;overflow:hidden;margin:14px 0;box-shadow:0 1px 4px rgba(20,40,35,.05)}
+.dayhead{display:flex;gap:13px;align-items:center;padding:15px 18px;background:var(--ths);border-bottom:1px solid var(--thl)}
+.dayicon{font-size:1.5rem;width:46px;height:46px;display:grid;place-items:center;background:#fff;border-radius:13px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.daytag{font-size:.72rem;font-weight:800;color:var(--th);letter-spacing:.05em}
+.daytitle{font-size:1.01rem;font-weight:700;color:var(--ink);margin-top:1px}
+.daybody{padding:14px 18px 8px}
+.tl{list-style:none;margin:0;padding:0}
+.tl-item{display:grid;grid-template-columns:104px 1fr;align-items:start}
+.tl-item .t{text-align:right;padding:9px 12px 9px 0;color:var(--thi);font-weight:700;font-size:.78rem;letter-spacing:-.01em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tl-item .c{position:relative;padding:9px 0 14px 18px;border-left:2px solid var(--thl);font-size:.9rem}
+.tl-item .c::before{content:"";position:absolute;left:-6px;top:13px;width:10px;height:10px;border-radius:50%;background:var(--th);box-shadow:0 0 0 3px var(--ths)}
+.tl-item:last-child .c{border-left-color:transparent}
+.tl-item.stay .c{border-left-color:transparent;font-weight:700;color:var(--thi);background:#fff6ec;border-radius:9px;padding:8px 12px;margin:2px 0 6px}
+.tl-item.stay .t{color:var(--amber)}
+.tl-item.stay .c::before{background:var(--amber);box-shadow:0 0 0 3px #fde7cf}
+.daybody .callout{margin:.5em 0}
+.bkgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:9px;margin-bottom:6px}
+.bk{display:flex;gap:9px;align-items:flex-start;padding:10px 13px;border:1px solid var(--line);border-radius:11px;background:#fff;font-size:.85rem}
+.bk .mk{font-weight:800;font-size:.95rem;line-height:1.4}
+.bk.done{background:#ecf6f1;border-color:#bfe2d2}.bk.done .mk{color:#2f7d6b}
+.bk.todo{background:#fbf4e7;border-color:#ecd9b8}.bk.todo .mk{color:#b5762a}
+.infocard{border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin:9px 0;background:#fff}
+.infocard .infolabel{font-weight:700;font-size:.84rem;margin-bottom:3px;color:var(--accent2)}
+.infocard.warn{background:#fef8ee;border-color:#f0d9ac}.infocard.warn .infolabel{color:#7a5410}
+.infocard.ok{background:#eef7f2;border-color:#c5e3d4}.infocard.ok .infolabel{color:#1d5e48}
+.infocard ul{margin:.3em 0}.infocard p{margin:.2em 0}
+section[data-rain]{background:linear-gradient(180deg,#eff6fc,#fff);border-color:#cfe0ef}
+section[data-rain] h2{color:var(--rain)}section[data-rain] h2 .ic{background:#e3eefa}
+.raincards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:6px}
+.raincard{border:1px solid #cfe0ef;border-radius:14px;background:#fff;padding:14px 16px}
+.raincard.pre{background:#f4f7fa}
+.raincard h5{margin:.1em 0 .5em;font-size:.92rem;color:var(--rain)}
+.raincard ul{padding-left:1.1em}.raincard li{font-size:.85rem;margin:.3em 0}
+footer{text-align:center;color:var(--mut);font-size:.78rem;margin-top:28px}
+@media(max-width:640px){
+html{-webkit-text-size-adjust:100%}
+body{line-height:1.65}
+.wrap{padding:0 10px 50px}
+.hero-in{padding:26px 16px 24px}
+.hero-eyebrow{font-size:.74rem}
+.hero h1{font-size:1.24rem;line-height:1.4}
+.hero-sub{font-size:.86rem}
+.chips{gap:6px;margin-top:12px}
+.chip{font-size:.71rem;padding:4px 10px}
+nav.toc{gap:5px;padding:8px 0;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{font-size:.71rem;padding:4px 9px;flex:0 0 auto}
+html{scroll-padding-top:46px}
+section{padding:15px 13px;margin:10px 0;border-radius:14px}
+h2{font-size:1.03rem;gap:.4em}
+h2 .ic{width:28px;height:28px;font-size:.85rem;border-radius:8px}
+h4{font-size:.9rem}
+p{font-size:.88rem}
+li{font-size:.87rem}
+table{font-size:.8rem}
+td,thead th{padding:7px 8px}
+td:first-child{white-space:normal;width:auto;min-width:6em}
+.ov-note{font-size:.78rem}
+.spine{grid-template-columns:1fr 1fr;gap:7px}
+.night{padding:9px 10px;border-radius:10px}
+.daypills{gap:6px;margin-bottom:.8em}
+.pill{padding:5px 10px;font-size:.75rem;border-radius:10px}
+.day{border-radius:13px;margin:10px 0}
+.dayhead{padding:10px 12px;gap:10px}
+.dayicon{width:34px;height:34px;font-size:1.1rem;border-radius:9px}
+.daytag{font-size:.66rem}
+.daytitle{font-size:.9rem}
+.daybody{padding:8px 11px 5px}
+.tl-item{grid-template-columns:1fr}
+.tl-item .t{text-align:left;padding:7px 0 0 16px;position:relative;border-left:2px solid var(--thl);font-size:.73rem}
+.tl-item .t::before{content:"";position:absolute;left:-6px;top:11px;width:10px;height:10px;border-radius:50%;background:var(--th);box-shadow:0 0 0 3px var(--ths)}
+.tl-item .c{border-left:2px solid var(--thl);padding:1px 0 11px 16px;font-size:.87rem}
+.tl-item .c::before{display:none}
+.tl-item:last-child .t,.tl-item:last-child .c,.tl-item.stay .t{border-left-color:transparent}
+.tl-item.stay .t::before{background:var(--amber);box-shadow:0 0 0 3px #fde7cf}
+.tl-item.stay .c{margin:2px 0 6px;padding:8px 10px}
+.callout{padding:9px 11px;font-size:.82rem;border-radius:9px}
+.infocard{padding:9px 11px}
+.raincards{gap:8px}
+.raincard{padding:11px 12px;border-radius:11px}
+.raincard li{font-size:.82rem}
+footer{font-size:.72rem;margin-top:20px}
+}
+@media print{nav.toc{display:none}body{background:#fff}section,.day{box-shadow:none;break-inside:avoid}.hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style></head><body>
+<header class="hero"><div class="hero-in">
+<div class="hero-eyebrow">2026.7.15<span>›</span>7.19 ｜ カップル2名</div>
+<h1>上高地・乗鞍・白骨温泉 旅行プラン（7/15前泊＋3泊4日）</h1>
+<p class="hero-sub">戸塚 → 松本（特急あずさ）→ レンタカーで 上高地・乗鞍・白骨温泉・大町をめぐる山と温泉の旅</p>
+<div class="chips"><span class="chip">📅 3泊4日 ＋前泊</span><span class="chip">✅ 予約はすべて完了（宿・あずさ・レンタカー・シャトル・カヤック）</span><span class="chip">🎌 7/18・19は海の日3連休（混雑注意）</span></div>
+</div></header>
 <div class="wrap">
-
-  <header class="hero">
-    <div class="sub">2026年6月12日(金) ― 6月14日(日) ／ カップル向け</div>
-    <h1>青森 2泊3日 カップル旅プラン<br>― 奥入瀬・十和田湖の新緑を巡る ―</h1>
-    <div class="badges">
-      <span class="badge">DAY1=公共交通／DAY2-3=レンタカー</span>
-      <span class="badge">奥入瀬・十和田湖中心</span>
-      <span class="badge">グルメ／自然／歴史文化</span>
-      <span class="badge">予算: 宿1〜2万円/人</span>
-    </div>
-  </header>
-
-  <section>
-    <h2>目次</h2>
-    <div class="toc">
-      <a href="#summary">旅の概要</a>
-      <a href="#day1">DAY1 (6/12)</a>
-      <a href="#day2">DAY2 (6/13)</a>
-      <a href="#day3">DAY3 (6/14)</a>
-      <a href="#rainy">☔ 雨天時プラン</a>
-      <a href="#stay">宿泊候補</a>
-      <a href="#food">おすすめグルメ</a>
-      <a href="#sweets">★ お菓子お土産</a>
-      <a href="#rental">レンタカー・運転</a>
-      <a href="#notes">注意事項</a>
-      <a href="#packing">持ち物チェック</a>
-    </div>
-  </section>
-
-  <section id="summary">
-    <h2>旅の概要</h2>
-    <table class="meta-table">
-      <tr><th>往路</th><td>2026/6/12 (金) 東京 14:44 発 → <strong>新青森 17:54 着</strong>（はやぶさ／約3時間10分）<span class="pill r" style="margin-left:8px">予約済</span></td></tr>
-      <tr><th>復路</th><td>2026/6/14 (日) 新青森 17:33 発 → <strong>東京 21:00 着</strong><span class="pill r" style="margin-left:8px">予約済</span></td></tr>
-      <tr><th>新幹線手配</th><td>JRE POINT「<strong>どこかにビューン</strong>」を利用（2名往復 8,000ポイント）。圧倒的な節約！</td></tr>
-      <tr><th>移動手段</th><td>初日：JR奥羽本線（新青森→青森）／2日目朝〜3日目夕方：レンタカー（青森駅周辺で受取）</td></tr>
-      <tr><th>テーマ</th><td>奥入瀬渓流・十和田湖の新緑／青森グルメ／ねぶた・縄文文化</td></tr>
-      <tr><th>同行者</th><td>カップル（大人2名）</td></tr>
-      <tr><th>宿泊予算</th><td>1泊 1〜2万円／人 ／ 計2泊</td></tr>
-    </table>
-
-    <div class="note">
-      <strong>6月の青森ポイント</strong><br>
-      6月は奥入瀬渓流の<strong>新緑のベストシーズン</strong>。5月中旬〜6月中旬は苔と若葉が最も美しい時期で、人出も夏休みや紅葉期ほど多くなく、ゆっくり歩けます。早朝には朝靄に木漏れ日が差し込む幻想的な光景も。気温は日中20℃前後／早朝は10℃以下まで下がる日もあるので<strong>羽織もの必須</strong>です。
-    </div>
-  </section>
-
-  <section id="day1">
-    <h2>DAY 1 ― 6/12(金)：移動&青森市ステイ（公共交通）</h2>
-    <span class="day-header">テーマ：初日はレンタカーなし。新幹線→JR→徒歩で身軽に</span>
-
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-time">14:44</span><span class="tl-title">東京駅発</span>
-        <div class="tl-desc">はやぶさ号で新青森へ。指定席の<strong>E席（2人席窓側）</strong>がおすすめ。仙台・盛岡を経由。駅弁を仕入れて車内で軽く食事しておくと、青森市内ではしっかり夕食を楽しめる。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">17:54</span><span class="tl-title">新青森駅着 → JR奥羽本線に乗り換え</span>
-        <div class="tl-desc">新青森駅から青森駅まで<strong>JR奥羽本線で約6分・運賃200円</strong>。ICカード（Suica/PASMO）利用可。本数は1時間に1〜2本程度なので、新青森到着の<strong>接続列車を事前確認</strong>。乗り換え時間は構内移動含めて15分は見ておくと安心。荷物多めならタクシー（青森駅周辺ホテルまで約2,500円）も選択肢。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">18:20頃</span><span class="tl-title">青森駅着 → ホテルへ徒歩チェックイン</span>
-        <div class="tl-desc">青森駅周辺ホテル（リッチモンド・JALシティ等）は<strong>徒歩5〜10分圏</strong>。雨でも傘で対応可能な距離。荷物を置いて身軽に夜の街へ。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">19:30</span><span class="tl-title">夕食：青森駅周辺で郷土料理&海鮮</span>
-        <div class="tl-desc">候補：<strong>「お食事処 おさない」</strong>（ホタテ料理が看板、地元客にも人気）／<strong>「酒肴 旬」「ふじ寿司」</strong>などの寿司・居酒屋／<strong>「のれそれ食堂」</strong>（青森・南部の郷土料理が一気に楽しめる）。<br>注文したい一品 → <strong>大間マグロ／ホタテ貝焼き味噌／いちご煮（ウニとアワビの潮汁）／せんべい汁／じゃっぱ汁</strong>。日本酒は「田酒」「豊盃」「陸奥八仙」など青森の銘酒を。<br><strong>初日はレンタカー無しなのでアルコールも気兼ねなく楽しめる</strong>のがメリット。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">22:00</span><span class="tl-title">ホテルで就寝</span>
-        <div class="tl-desc">翌朝は早起きしてのっけ丼朝食へ。</div>
-      </div>
-    </div>
-
-    <div class="note">
-      <strong>公共交通のメリット：</strong>初日はホテルに直行できるので<strong>到着後すぐに飲める／レンタカー受取の手間ゼロ</strong>。荷物が多くてもタクシー（新青森から青森駅周辺ホテルまで約2,500円）でも可。
-    </div>
-  </section>
-
-  <section id="day2">
-    <h2>DAY 2 ― 6/13(土)：青森市 → 八甲田 → 奥入瀬 → 十和田湖泊</h2>
-    <span class="day-header">テーマ：この旅のハイライト。新緑の渓流を全身で味わう</span>
-
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-time">07:00</span><span class="tl-title">朝食：のっけ丼（古川市場・青森魚菜センター）</span>
-        <div class="tl-desc">青森駅から徒歩約5分。<strong>食事券12枚2,200円</strong>を購入し、市場内の店舗を回って自分好みの海鮮丼を作る名物体験。マグロ／ホタテ／イクラ／ウニはマスト。営業は7:00〜16:00、<strong>火曜定休</strong>（6/13は土曜なので営業）。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">08:30</span><span class="tl-title">ホテルチェックアウト → ねぶたの家 ワ・ラッセ</span>
-        <div class="tl-desc">青森駅徒歩1分。<strong>5〜8月は9:00〜19:00</strong>営業。本物のねぶた大型山車4台を間近で見学でき、跳人体験や囃子の実演も。所要45〜60分。入場料 大人620円。<strong>荷物はホテルかワ・ラッセのコインロッカーに預ける</strong>とスムーズ。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">10:00</span><span class="tl-title">★ レンタカー受取（青森駅周辺）</span>
-        <div class="tl-desc">
-          <strong>青森駅から徒歩圏のレンタカー店舗で受取がおすすめ：</strong><br>
-          ・<strong>オリックスレンタカー青森駅前店</strong>（青森駅徒歩2分）<br>
-          ・<strong>トヨタレンタカー青森安方店</strong>（青森駅徒歩6分／8:00〜19:00）<br>
-          ・<strong>ニッポンレンタカー青森駅東口</strong>（青森駅徒歩8分／8:00〜19:00）<br>
-          受取手続きは20〜30分。事前ネット予約必須。<strong>レンタル期間は2日（6/13朝〜6/14夕方）</strong>になるので、新青森駅で2日半借りるより<strong>1万円弱安くなる</strong>。
-        </div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">10:45</span><span class="tl-title">青森市内出発 → 国道103号で八甲田へ</span>
-        <div class="tl-desc">青森市街〜奥入瀬は<strong>約60km・1時間30分</strong>が目安。途中ガソリン満タンに（山間部はGSが少ない）。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">12:15</span><span class="tl-title">城ヶ倉大橋（じょうがくらおおはし）</span>
-        <div class="tl-desc">谷底まで122m、上路式アーチ橋としては日本最大級。展望デッキから八甲田連峰が一望。写真スポット。駐車場無料。15分滞在。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">12:35</span><span class="tl-title">八甲田ドライブ（車窓観光）</span>
-        <div class="tl-desc">そのまま国道103号→394号を南下。<strong>睡蓮沼（すいれんぬま）</strong>や<strong>地獄沼</strong>などの絶景ポイントが点在。気になる所で5〜10分ずつ写真休憩。睡蓮沼は八甲田の山々を映す鏡のような景色で6月は新緑が美しい（駐車場無料）。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">13:30</span><span class="tl-title">ランチ：奥入瀬周辺で郷土料理</span>
-        <div class="tl-desc">候補：<strong>「奥入瀬渓流館」レストラン</strong>（短角牛バーガー）／<strong>「OIRASE BEER 桂月」</strong>（地ビール&食事）／<strong>「やすみどころ 十和田屋」</strong>（ひめます塩焼き定食）／<strong>「十和田バラ焼き」</strong>を食べるなら十和田市街の「司」「司バラ焼き大衆食堂」。<br>※14:30LOの店もあるので<strong>13:30までに着く</strong>のがベター。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">14:45</span><span class="tl-title">奥入瀬渓流 散策（メイン）</span>
-        <div class="tl-desc">
-          <strong>おすすめは「石ヶ戸 → 雲井の滝 → 銚子大滝」の約4km・2時間コース</strong>。<br>
-          ・石ヶ戸（いしげど）駐車場に車を停める<br>
-          ・徒歩で阿修羅の流れ／雲井の流れ／白絹の滝<br>
-          ・雲井の滝でUターン、または銚子大滝まで歩いて駐車場へ戻る場合はタクシー or 路線バスを利用<br>
-          ・スニーカー必須、雨具携行（渓流沿いは天気急変あり）<br>
-          ・酸ヶ湯温泉に寄らない分、<strong>散策時間に余裕</strong>があるので、阿修羅の流れの撮影や馬門岩までの追加散策もおすすめ
-        </div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">17:00</span><span class="tl-title">奥入瀬発 → 十和田ホテル（西湖畔）へ直行</span>
-        <div class="tl-desc">焼山または石ヶ戸エリアから十和田ホテルまで、子ノ口経由で湖の北側を反時計回りに走行（約40km・約1時間）。湖を眺めながらのドライブ。途中の「<strong>瞰湖台（かんこだい）</strong>」展望台は時間があれば立寄り推奨（5分）。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">18:00</span><span class="tl-title">★ 十和田ホテル チェックイン</span>
-        <div class="tl-desc">
-          国登録有形文化財「<strong>秋田杉の館</strong>」。幻の1940年東京オリンピックに向け、北東北の宮大工約80名が秋田杉の巨木で建てた木造3階建ての名建築。玄関の吹き抜けと秋田杉の意匠が見事。<br>
-          ・チェックイン 15:00〜19:00（<strong>19時厳守</strong>、遅れる場合は事前連絡）<br>
-          ・所在：秋田県鹿角郡小坂町十和田湖西湖畔（青森から県境を越える）<br>
-          ・温泉（人工温泉）あり。湖を望む大浴場で散策の疲れを癒す。
-        </div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">19:00</span><span class="tl-title">夕食（プラン付き）</span>
-        <div class="tl-desc">十和田ホテルの和洋折衷ディナー。地元食材を使った創作料理。歴史ある館で味わうディナーは特別な時間に。食後はラウンジでゆっくりするのもおすすめ。</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="day3">
-    <h2>DAY 3 ― 6/14(日)：十和田湖 → 青森市 → 新青森</h2>
-    <span class="day-header">テーマ：早朝の奥入瀬と歴史文化／復路は時間との戦い</span>
-
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-time">06:30</span><span class="tl-title">朝の湖畔散策（十和田ホテル周辺）</span>
-        <div class="tl-desc">西湖畔の静かな湖畔を散歩。早朝の湖面は鏡のように静か。<strong>6月は朝霧が湖面を覆うことも</strong>。文化財ホテルの外観撮影もこの時間がベスト。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">08:00</span><span class="tl-title">朝食（プラン付き）</span>
-        <div class="tl-desc">十和田ホテルの朝食。秋田杉の意匠を眺めながらゆっくりと。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">09:30</span><span class="tl-title">チェックアウト → 発荷峠展望台</span>
-        <div class="tl-desc">
-          <strong>十和田ホテルから発荷峠展望台は約10分・近い</strong>のが地理的なメリット。十和田湖を一望、6月の早朝なら雲海が湖面を覆うことも。所要20〜30分。<br>
-          ※湖上派の場合は<strong>十和田湖遊覧船</strong>（休屋〜子ノ口、片道約50分、料金大人1,500円程度）。ただし休屋までは西湖畔から約40分かかるので時間配分注意。
-        </div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">11:00</span><span class="tl-title">十和田湖発 → 青森市へ復路</span>
-        <div class="tl-desc">西湖畔（発荷峠側）から青森市は<strong>国道103号・八甲田経由で約2時間</strong>。時間に余裕があれば、十和田市街経由で「<strong>道の駅とわだ</strong>」「<strong>駒街道（官庁街通り）</strong>」を散策する選択肢も（こちらは少し遠回り）。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">13:30</span><span class="tl-title">青森市内ランチ</span>
-        <div class="tl-desc">候補：<strong>A-FACTORY</strong>（青森ベイエリアのお土産複合施設、シードル工房併設）の中のカフェ／<strong>「みなと食堂」</strong>（八戸の有名店だが青森市内にも類似店多数）／<strong>味の札幌 大西</strong>の「<strong>味噌カレー牛乳ラーメン</strong>」（青森B級グルメの代表）。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">15:00</span><span class="tl-title">三内丸山遺跡（さんないまるやま）</span>
-        <div class="tl-desc">世界遺産「北海道・北東北の縄文遺跡群」構成資産。復元された大型掘立柱建物・大型竪穴住居は圧巻。所要60〜90分。常設展観覧料 大人410円。青森駅から車で約20分・新青森駅から約10分。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">16:30</span><span class="tl-title">レンタカー返却</span>
-        <div class="tl-desc">返却前に<strong>セルフGSで給油</strong>。新青森駅周辺のGSは数が少ないので、青森市街で済ませる方が安心。返却は新幹線の<strong>30〜40分前</strong>を目安に。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">17:00</span><span class="tl-title">新青森駅でお土産タイム</span>
-        <div class="tl-desc">「<strong>あおもり旬味館</strong>」で<strong>ラグノオ3点セット（気になるりんご・パティシエのりんごスティック・いのち）／南部せんべい／ねぶた漬／いか塩辛／田酒</strong>などをまとめ買い。駅弁<strong>「ひとくちだら」「八戸小唄寿し」「とりめし」</strong>を新幹線車内用に。詳細は<a href="#sweets">★お菓子お土産セクション</a>参照。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">17:33</span><span class="tl-title">新青森駅発 → 東京 21:00 着</span>
-        <div class="tl-desc">約3時間27分の新幹線旅。買った駅弁&お土産で打ち上げを。東京着後の予定がある場合は、新幹線内で簡単に整理しておくとスムーズ。</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="rainy" class="rain-section">
-    <h2>☔ 雨天時プラン（Plan B）</h2>
-    <span class="rain-header">奥入瀬散策は雨でも決行！ 屋外景観スポットを屋内施設に振り替える構成</span>
-
-    <div class="note" style="background:#e3edf5;border-left-color:#5b8caf">
-      <strong>雨の奥入瀬は実は隠れた魅力</strong><br>
-      ・雨で苔が水を含み<strong>緑が濃く鮮やかに発色</strong>。晴天時より美しいという声も多い<br>
-      ・霧と渓流が織りなす<strong>幻想的な雰囲気</strong>（写真は逆に良い）<br>
-      ・観光客が減って静かに歩ける<br>
-      ・苔・倒木・キノコをじっくり観察するなら<strong>むしろベストコンディション</strong>
-    </div>
-
-    <h3>雨天時に変更するポイント</h3>
-    <table class="meta-table">
-      <tr><th>晴天時プラン</th><th>→ 雨天時の振替先</th></tr>
-      <tr><td>城ヶ倉大橋（八甲田の絶景）</td><td>霧で視界不良の可能性大 → <strong>スキップ or 短時間立寄り</strong></td></tr>
-      <tr><td>八甲田ドライブ（睡蓮沼・地獄沼）</td><td>視界悪く危険 → <strong>そのまま奥入瀬へ直行</strong></td></tr>
-      <tr><td>発荷峠展望台（DAY3）</td><td>雲海どころか何も見えない可能性 → <strong>十和田市現代美術館</strong>へ振替</td></tr>
-      <tr><td>十和田湖遊覧船（DAY3）</td><td>強風時は欠航 → <strong>奥入瀬渓流館・苔玉づくり体験</strong>などへ</td></tr>
-      <tr><td>三内丸山遺跡 屋外展示</td><td>そのまま<strong>縄文時遊館の屋内展示</strong>を充実させる</td></tr>
-    </table>
-
-    <h3>DAY2(6/13) 雨天時タイムライン</h3>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-time">07:00</span><span class="tl-title">朝食：のっけ丼（市場内・屋根あり）</span>
-        <div class="tl-desc">市場は屋内なので雨でも快適。傘は古川市場の傘立てへ。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">08:30</span><span class="tl-title">ホテルチェックアウト → レンタカー受取</span>
-        <div class="tl-desc">青森駅周辺のレンタカー店舗（オリックス／トヨタ／ニッポン）で受取。雨でも徒歩2〜8分圏。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">09:30</span><span class="tl-title">青森県立美術館（屋内）へ車で移動</span>
-        <div class="tl-desc">
-          ワ・ラッセより<strong>こちらに変更がおすすめ</strong>。雨の日のアートはじっくり鑑賞向き。青森駅から車で約15分・無料駐車場あり。<br>
-          ・<strong>奈良美智「あおもり犬」</strong>（高さ8.5m）／シャガールのバレエ「アレコ」舞台背景画／棟方志功コレクション。<br>
-          ・営業 9:30〜17:00（入館16:30まで）、第2・第4月曜休館。<br>
-          ・一般 510円。<strong>あおもり犬連絡通路は雨天閉鎖の可能性あり</strong>（事前確認）。
-        </div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">11:00</span><span class="tl-title">美術館発 → 奥入瀬へ直行</span>
-        <div class="tl-desc">八甲田の絶景ポイントは霧でほぼ見えないので<strong>寄り道せず直行</strong>。所要約1時間30分。視界が悪い区間は速度を落として安全運転。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">12:30</span><span class="tl-title">ランチ：奥入瀬渓流館 or 屋根のある食堂</span>
-        <div class="tl-desc">奥入瀬渓流館のレストランは屋根があり、雨を見ながらの食事も雰囲気あり。観光案内所も併設されているので散策情報を入手。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">14:00</span><span class="tl-title">★ 奥入瀬渓流 散策（雨天決行）</span>
-        <div class="tl-desc">
-          <strong>雨対策必須装備：</strong><br>
-          ・<strong>ゴアテックス等のレインウェア上下</strong>（傘より両手が空いて快適）<br>
-          ・<strong>防水トレッキングシューズ</strong>（普通のスニーカーは中まで濡れる）<br>
-          ・<strong>カメラ用レインカバー or ジップロック</strong>（湿気でレンズが曇りやすい）<br>
-          ・<strong>ザックカバー</strong>＋着替え1セット<br><br>
-          <strong>コース短縮案：</strong>雨で疲れやすいので<strong>「石ヶ戸 → 阿修羅の流れ → 雲井の流れ」（往復約2km・1時間）</strong>に短縮も検討。苔と滝の見どころはこの区間に集中。<br><br>
-          <strong>注意：</strong>雨で<strong>遊歩道がぬかるみ・滑りやすい</strong>箇所多数。倒木や落石にも注意。雷鳴が聞こえたら即撤退。
-        </div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">15:30</span><span class="tl-title">奥入瀬渓流館・モスボール工房（屋内）</span>
-        <div class="tl-desc">散策後の濡れ体を温める。<strong>「苔玉づくり体験」</strong>（要予約・1,500円程度）など雨の日にぴったり。お土産にも◎。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">17:00</span><span class="tl-title">十和田ホテル（西湖畔）へ移動・チェックイン</span>
-        <div class="tl-desc">奥入瀬→湖畔反時計回りで西湖畔へ約1時間。<strong>19時のチェックイン期限を守るため、雨天時は余裕を持って早めに出発</strong>。到着後は文化財建築をゆっくり鑑賞、温泉で冷えた体を温める。夕食付プランで温かいディナーを。</div>
-      </div>
-    </div>
-
-    <h3>DAY3(6/14) 雨天時タイムライン</h3>
-    <div class="timeline">
-      <div class="tl-item">
-        <span class="tl-time">07:00</span><span class="tl-title">早朝散策は天候を見て判断</span>
-        <div class="tl-desc">小雨ならむしろ朝靄が美しく狙い目。本降りなら宿でゆっくり朝食 → 温泉再入浴。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">09:30</span><span class="tl-title">十和田ホテル出発 → 十和田市現代美術館へ</span>
-        <div class="tl-desc">西湖畔から十和田市現代美術館まで約1時間20分（発荷峠経由）。雨天時は<strong>発荷峠展望台・遊覧船をスキップ</strong>し、こちらへ振り替えるのが最適解。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">10:30</span><span class="tl-title">十和田市現代美術館</span>
-        <div class="tl-desc">
-          雨の日にぴったりの<strong>世界クラスの現代美術館</strong>。<br>
-          ・<strong>草間彌生</strong>の屋外彫刻（傘さして見られる）／<strong>ロン・ミュエクの巨大女性像「スタンディング・ウーマン」</strong>／オノ・ヨーコ作品など。<br>
-          ・営業 9:00〜17:00（入場16:30まで）、月曜休館（祝日は翌日）。<br>
-          ・常設展 一般1,800円。所要1.5〜2時間。<br>
-          ・併設の「<strong>Cafe Cube</strong>」でランチも可能。
-        </div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">12:30</span><span class="tl-title">ランチ：十和田バラ焼き</span>
-        <div class="tl-desc">美術館のすぐ近くに本場の店多数。<strong>「司バラ焼き大衆食堂」</strong>などで鉄板熱々の名物を。雨で冷えた体に染みる。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">14:00</span><span class="tl-title">十和田市発 → 青森市方面へ</span>
-        <div class="tl-desc">十和田市から青森市は約1時間30分。下道（国道102/4号）。八甲田を通らないので雨天でも走りやすい。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">15:30</span><span class="tl-title">三内丸山遺跡（屋内中心で）</span>
-        <div class="tl-desc">遺跡本体（屋外）は短めにして、<strong>縄文時遊館（屋内展示）を充実</strong>。出土品の常設展示「さんまるミュージアム」がメイン。雨でも問題なく楽しめる。</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">17:00</span><span class="tl-title">レンタカー返却 → 新青森駅</span>
-        <div class="tl-desc">雨天は道路が混みやすく所要時間が増える可能性大。<strong>30分早めに返却</strong>を目指す。</div>
-      </div>
-    </div>
-
-    <h3>もし大雨・暴風警報が出たら（最悪ケース）</h3>
-    <div class="warn" style="background:#fbe9e6;border-left-color:#c0392b">
-      奥入瀬の遊歩道は<strong>増水・倒木の危険</strong>で通行止めになる可能性あり。その場合は無理せず：<br>
-      ・<strong>十和田ホテル館内で過ごす</strong>（文化財建築の鑑賞、温泉、ラウンジでゆっくり読書など）<br>
-      ・<strong>道の駅奥入瀬・道の駅とわだ</strong>でお買い物<br>
-      ・<strong>十和田市現代美術館</strong>を前倒しでDAY2に組み込み<br>
-      ・最終手段で<strong>青森市内に戻りA-FACTORY・青森県立美術館でゆっくり</strong>
-    </div>
-
-    <h3>雨天時 追加の持ち物</h3>
-    <div class="two-col">
-      <div>
-        <h4>必須追加アイテム</h4>
-        <ul class="clean">
-          <li><strong>レインウェア上下</strong>（透湿性のあるもの推奨）</li>
-          <li><strong>防水トレッキングシューズ</strong>（or 防水スプレー処理した靴）</li>
-          <li><strong>ザックカバー</strong> or 防水バックパック</li>
-          <li>大きめのジップロック（カメラ・スマホ用）</li>
-          <li>速乾性タオル2〜3枚</li>
-          <li>着替え一式（特に靴下）</li>
-        </ul>
-      </div>
-      <div>
-        <h4>あると便利</h4>
-        <ul class="clean">
-          <li>折りたたみ傘（短時間移動用）</li>
-          <li>防水カメラ or スマホ防水ケース</li>
-          <li>くもり止めシート（レンズ・メガネ用）</li>
-          <li>使い捨てカイロ（体を冷やさない）</li>
-          <li>ビニール袋（濡れ物・ゴミ入れ）</li>
-          <li>替えの帽子（濡れた帽子は冷える）</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3>雨天時のドライブ注意</h3>
-    <ul class="clean">
-      <li><strong>八甲田の国道103号は霧+雨で視界5m</strong>になることも。フォグランプを点灯、追従しすぎない。</li>
-      <li><strong>奥入瀬沿いの国道102号は路面が濡れて滑りやすい</strong>。カーブで急ブレーキ厳禁。</li>
-      <li><strong>落石・倒木・冠水</strong>に警戒。ナビの渋滞・通行止め情報をこまめにチェック。</li>
-      <li><strong>レンタカーの返却時間に余裕</strong>を見ること。新幹線に間に合わなくなるリスクが晴天時より高い。</li>
-    </ul>
-  </section>
-
-  <section id="stay">
-    <h2>宿泊候補</h2>
-
-    <h3>1泊目（青森市内・予算1〜2万円／人）</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>リッチモンドホテル青森</h4>
-        <span class="pill">駅近</span><span class="pill b">快適</span>
-        <p class="price">青森駅徒歩7分。コスパが良く出張・観光どちらも◎。1泊8,000〜13,000円/人</p>
-      </div>
-      <div class="card">
-        <h4>ホテルJALシティ青森</h4>
-        <span class="pill">駅近</span><span class="pill b">上質</span>
-        <p class="price">青森駅徒歩約7分。広めの客室、朝食ビュッフェ評価高い。1泊10,000〜16,000円/人</p>
-      </div>
-      <div class="card">
-        <h4>ホテル青森</h4>
-        <span class="pill">老舗</span>
-        <p class="price">青森市内屈指の老舗ホテル。最上階レストランから陸奥湾の夜景。1泊11,000〜18,000円/人</p>
-      </div>
-      <div class="card">
-        <h4>三沢屋／古民家系ゲストハウス</h4>
-        <span class="pill r">個性派</span>
-        <p class="price">予算を抑えたいなら駅周辺にゲストハウス・ビジネスホテル多数あり。</p>
-      </div>
-    </div>
-
-    <h3>2泊目：十和田ホテル（確定／朝夕食付）</h3>
-    <div class="card-grid">
-      <div class="card" style="background:#fff4d9;border-color:#d4a017">
-        <h4>★ 十和田ホテル（秋田県小坂町・十和田湖西湖畔）</h4>
-        <span class="pill r">予約済</span><span class="pill">国登録有形文化財</span><span class="pill b">朝夕食付</span>
-        <p class="price">
-          幻の1940年東京オリンピックに向け、北東北の宮大工約80名が秋田杉の巨木で建てた木造3階建ての名建築。<strong>玄関の吹き抜けと総秋田杉の意匠は必見</strong>。湖畔の静かな立地で、レトロモダンな雰囲気と地元食材のディナーが楽しめる。<br>
-          <strong>所在地：</strong>秋田県鹿角郡小坂町十和田湖西湖畔<br>
-          <strong>チェックイン：</strong>15:00〜19:00（19時厳守、遅れる場合は事前連絡）<br>
-          <strong>チェックアウト：</strong>10:00
-        </p>
-      </div>
-    </div>
-
-    <div class="note">
-      <strong>十和田ホテルの楽しみ方ポイント</strong><br>
-      ・<strong>建築鑑賞</strong>：玄関、ラウンジ、階段、客室の意匠をゆっくり観察。早朝の館内撮影もおすすめ。<br>
-      ・<strong>湖畔散歩</strong>：ホテル前から湖まで徒歩すぐ。早朝の朝霧の湖面が幻想的。<br>
-      ・<strong>発荷峠展望台へ近い</strong>（車約10分）：翌朝の絶景スポットへすぐ。<br>
-      ・<strong>到着時間に注意</strong>：チェックインは19時まで。奥入瀬散策が長引いて19時を超えないようスケジュール管理を。
-    </div>
-  </section>
-
-  <section id="food">
-    <h2>絶対食べたい！青森グルメ＆お店リスト</h2>
-
-    <h3>海鮮</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>のっけ丼（古川市場）</h4>
-        <span class="pill r">朝食</span>
-        <p class="price">青森駅徒歩5分。食事券12枚2,200円。<strong>火曜定休</strong>。市場は5:00〜18:30、のっけ丼は7:00〜16:00。</p>
-      </div>
-      <div class="card">
-        <h4>大間マグロ</h4>
-        <p class="price">本場は大間町だが遠いので青森市内の寿司店「ふじ寿司」「鮨処木島」などで。</p>
-      </div>
-      <div class="card">
-        <h4>ホタテ貝焼き味噌</h4>
-        <p class="price">ホタテと卵を貝の上で焼く青森の家庭料理。居酒屋「おさない」が有名。</p>
-      </div>
-      <div class="card">
-        <h4>いちご煮</h4>
-        <p class="price">ウニとアワビの澄まし汁。お椀の中の乳白色がイチゴのよう、と名付けられた高級郷土料理。</p>
-      </div>
-    </div>
-
-    <h3>B級グルメ・郷土料理</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>味噌カレー牛乳ラーメン</h4>
-        <p class="price">「味の札幌 大西」が元祖。青森市民に愛されるB級ラーメン。</p>
-      </div>
-      <div class="card">
-        <h4>十和田バラ焼き</h4>
-        <p class="price">玉ねぎと牛バラ肉を甘辛ダレで鉄板焼き。「司バラ焼き大衆食堂」（十和田市街）が有名。</p>
-      </div>
-      <div class="card">
-        <h4>せんべい汁</h4>
-        <p class="price">南部せんべいを汁に入れた郷土料理。八戸名物だが青森市内の郷土料理店でも提供。</p>
-      </div>
-      <div class="card">
-        <h4>ひめます料理</h4>
-        <p class="price">十和田湖特産。塩焼き定食・刺身が絶品。奥入瀬や湖畔の食堂で。</p>
-      </div>
-    </div>
-
-    <h3>食品系お土産</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>シードル（A-FACTORY）</h4>
-        <p class="price">青森ベイエリアのシードル工房。試飲スタンドあり。お土産にも◎</p>
-      </div>
-      <div class="card">
-        <h4>ねぶた漬／いか塩辛</h4>
-        <p class="price">数の子・スルメ・昆布の松前漬風。ご飯のお供に最強。</p>
-      </div>
-      <div class="card">
-        <h4>田酒・豊盃・陸奥八仙</h4>
-        <p class="price">青森を代表する地酒3銘柄。新青森駅「あおもり旬味館」で揃う。</p>
-      </div>
-      <div class="card">
-        <h4>青森りんごジュース</h4>
-        <p class="price">「シャイニーゴールド」「葉とらずりんごジュース」など。ストレート果汁100%が絶品。</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="sweets">
-    <h2>★ 青森駅周辺で買えるおすすめお菓子</h2>
-    <p>青森のお菓子の中心は<strong>「ラグノオ」</strong>（弘前の老舗洋菓子店）。青森駅前の<strong>「ラビナ青森駅ビル」「A-FACTORY」</strong>、新青森駅の<strong>「あおもり旬味館」</strong>で代表商品が揃います。出発前にまとめ買い推奨。</p>
-
-    <h3>★殿堂入り（買って絶対損なし）</h3>
-    <div class="card-grid">
-      <div class="card" style="background:#fff4d9;border-color:#d4a017">
-        <h4>🍎 気になるりんご（ラグノオ）</h4>
-        <span class="pill r">超定番</span><span class="pill">単品670円〜</span>
-        <p class="price">青森県産りんごをまるごと1個シロップ漬けにしてパイで包んだ衝撃の見た目。シャキシャキ食感のりんごとサクサクパイのコントラスト。<strong>2人でシェアして食べるのに最適</strong>。要冷蔵ではないが日持ち短め（約25日）。</p>
-      </div>
-      <div class="card" style="background:#fff4d9;border-color:#d4a017">
-        <h4>🍎 パティシエのりんごスティック（ラグノオ）</h4>
-        <span class="pill r">配り土産◎</span><span class="pill">5本入1,080円〜</span>
-        <p class="price"><strong>モンドセレクション3年連続受賞</strong>。スティック型のアップルパイで、りんごの果肉ゴロゴロ。個包装で配りやすく、職場・友人へのバラマキ土産の鉄板。</p>
-      </div>
-      <div class="card" style="background:#fff4d9;border-color:#d4a017">
-        <h4>🍎 いのち（ラグノオ）</h4>
-        <span class="pill">青森民愛されNo.1</span><span class="pill">5個入980円〜</span>
-        <p class="price">1986年発売のロングセラー。NHKドラマ「いのち」にちなんだ命名。フワフワのスポンジ生地にカスタードクリームとりんご果肉が入った優しい味。<strong>青森民が「あれ美味いよね〜」と言う代表格</strong>。</p>
-      </div>
-    </div>
-
-    <h3>りんご系スイーツ（青森と言えばこれ）</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>大丸のアップルパイ</h4>
-        <p class="price">青森市の老舗洋菓子店。<strong>たっぷりのカスタードと角切りりんご</strong>が入ったホールタイプ。冷蔵で日持ち短いが本格派。お土産より自宅用に。</p>
-      </div>
-      <div class="card">
-        <h4>気になる林檎タルト（ラグノオ）</h4>
-        <p class="price">「気になるりんご」のタルト版。<strong>切り分けやすく</strong>食べやすい。</p>
-      </div>
-      <div class="card">
-        <h4>アップルスナック（青森県りんごジュース）</h4>
-        <p class="price">青森県産りんごを薄くスライスしてフリーズドライ。<strong>添加物ゼロ・パリパリ食感</strong>。ヘルシー志向の方に。</p>
-      </div>
-      <div class="card">
-        <h4>武勇伝（ラグノオ）</h4>
-        <p class="price">青森のリンゴをのせた焼きカステラ。サイズが大きく見た目のインパクト◎。</p>
-      </div>
-    </div>
-
-    <h3>南部せんべい（甘くないお菓子・配り土産に最適）</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>南部せんべい（小麦・ごま・落花生）</h4>
-        <p class="price">青森・岩手の郷土菓子。<strong>カリッと香ばしく素朴な味</strong>。八戸屋・巖手屋・小松製菓などのブランドが定番。<strong>日持ちが長く軽い</strong>のでバラマキに最適。</p>
-      </div>
-      <div class="card">
-        <h4>アップル南部せんべい</h4>
-        <p class="price">南部せんべいにリンゴチップをトッピングした青森限定アレンジ版。<strong>甘じょっぱい</strong>クセになる味。</p>
-      </div>
-      <div class="card">
-        <h4>南部せんべい 厚焼き</h4>
-        <p class="price">通常より厚みのある贅沢版。アーモンド入りやチョコがけなどバリエ豊富。</p>
-      </div>
-      <div class="card">
-        <h4>豆しとぎ（南部地方郷土菓子）</h4>
-        <p class="price">青豆を潰してきな粉と砂糖を混ぜた素朴な郷土菓子。素朴系が好きな人向け。</p>
-      </div>
-    </div>
-
-    <h3>洋菓子・スイーツ（ちょっと変わり種）</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>朝の八甲田（木村屋）</h4>
-        <p class="price">青森の老舗パン屋・木村屋の<strong>カスタードクリームたっぷりの長方形パン</strong>。地元民に愛される朝食パン。日持ちは短いので帰京日に。</p>
-      </div>
-      <div class="card">
-        <h4>パティスリーシェ・ジロー</h4>
-        <p class="price">青森市の人気洋菓子店。<strong>焼き菓子の詰め合わせ</strong>はお土産に◎。新青森駅「あおもり旬味館」にも出店。</p>
-      </div>
-      <div class="card">
-        <h4>かさい製菓「アップルプリン」</h4>
-        <p class="price">青森りんごを練り込んだプリン。優しい甘さ。要冷蔵で持ち帰り注意。</p>
-      </div>
-      <div class="card">
-        <h4>つがる漬（チョコまんじゅう）</h4>
-        <p class="price">和洋折衷のチョコまんじゅう。地味だが侮れない美味しさ。</p>
-      </div>
-    </div>
-
-    <h3>購入場所まとめ</h3>
-    <table class="meta-table">
-      <tr><th>A-FACTORY</th><td>青森駅から徒歩2分のベイエリア複合施設。シードル工房&お土産売場。「気になるりんご」もあり。<strong>営業 9:00〜20:00</strong></td></tr>
-      <tr><th>ラビナ青森駅ビル</th><td>青森駅直結。ラグノオの直営ショップあり。新幹線到着後すぐ買える。</td></tr>
-      <tr><th>アスパム（青森県観光物産館）</th><td>青森駅徒歩8分の三角ビル。<strong>青森のお土産が一番網羅的に揃う</strong>。1〜2階がお土産フロア。</td></tr>
-      <tr><th>古川市場（青森魚菜センター）</th><td>のっけ丼の市場。海産物加工品（ねぶた漬・いか塩辛）の取扱多数。</td></tr>
-      <tr><th>新青森駅「あおもり旬味館」</th><td>新幹線改札外。<strong>帰路の最終買い忘れチェックに最適</strong>。営業 8:00〜20:30</td></tr>
-    </table>
-
-    <div class="note">
-      <strong>買い物のコツ：</strong><br>
-      ・「気になるりんご」「パティシエのりんごスティック」「いのち」の<strong>ラグノオ3点セット</strong>を押さえれば青森土産は完璧。<br>
-      ・<strong>初日に重い物を買わない</strong>こと。最終日に新青森駅「あおもり旬味館」でまとめ買いがベター。<br>
-      ・酒類・要冷蔵品は<strong>クーラーバッグ持参</strong>がおすすめ（A-FACTORYでも販売）。<br>
-      ・<strong>JREポイントカード</strong>を提示するとラビナ等で還元あり。
-    </div>
-  </section>
-
-  <section id="rental">
-    <h2>レンタカー・運転に関する情報</h2>
-
-    <h3>受取・返却プラン（DAY2朝〜DAY3夕方／2日間）</h3>
-    <table class="meta-table">
-      <tr><th>受取</th><td><strong>6/13(土) 朝10:00頃／青森駅周辺の店舗</strong><br>・オリックスレンタカー青森駅前店（青森駅徒歩2分）<br>・トヨタレンタカー青森安方店（徒歩6分／8:00〜19:00）<br>・ニッポンレンタカー青森駅東口（徒歩8分／8:00〜19:00）</td></tr>
-      <tr><th>返却</th><td><strong>6/14(日) 16:30頃／新青森駅周辺の店舗</strong><br>新幹線17:33発に合わせて、駅徒歩圏で乗り捨て返却（乗り捨て料金は同市内なら多くの社で無料 or 数百円）</td></tr>
-      <tr><th>レンタル期間</th><td>2日間（48時間以内）。3日間借りるより<strong>5,000〜10,000円安い</strong>。</td></tr>
-      <tr><th>おすすめ車種</th><td>コンパクトSUV（ヤリスクロス、ヴェゼルなど）。荷物2人分+山道走行に余裕</td></tr>
-      <tr><th>4WDの要否</th><td>6月は不要。普通のFFで十分</td></tr>
-      <tr><th>必要なオプション</th><td>ETC（必須）／カーナビ（標準装備が多い）／免責補償（必ず加入）／<strong>乗り捨てプラン</strong></td></tr>
-    </table>
-
-    <div class="note">
-      <strong>乗り捨てのポイント：</strong>青森駅受取→新青森駅返却の場合、ほとんどのレンタカー会社で<strong>同市内乗り捨ては無料</strong>。予約時に「青森駅受取／新青森駅返却」で必ず指定すること。手間が省けて最終日が劇的にラクになる。
-    </div>
-
-    <h3>初日（6/12）の公共交通アクセス</h3>
-    <table class="meta-table">
-      <tr><th>新青森 → 青森駅</th><td>JR奥羽本線で<strong>約6分・運賃200円</strong>（Suica利用可）／1時間1〜2本</td></tr>
-      <tr><th>新青森 → 青森駅周辺ホテル（タクシー）</th><td>約10分・<strong>2,000〜2,500円</strong>（荷物多い場合）</td></tr>
-      <tr><th>青森駅 → 古川市場（のっけ丼）</th><td>徒歩約5分</td></tr>
-      <tr><th>青森駅 → ねぶたの家ワ・ラッセ</th><td>徒歩1分</td></tr>
-    </table>
-
-    <h3>主要ルートと所要時間（レンタカー）</h3>
-    <table class="meta-table">
-      <tr><th>青森駅周辺 → 城ヶ倉大橋（八甲田経由）</th><td>約35km・1時間</td></tr>
-      <tr><th>城ヶ倉大橋 → 奥入瀬渓流（焼山）</th><td>約30km・50分</td></tr>
-      <tr><th>奥入瀬（焼山）→ 十和田湖（休屋）</th><td>約20km・40分（渓流沿いは制限速度遵守＆寄り道多め）</td></tr>
-      <tr><th>十和田湖（休屋）→ 新青森駅</th><td>約80km・2時間（八甲田経由）</td></tr>
-    </table>
-
-    <h3>奥入瀬渓流のマイカー規制について</h3>
-    <div class="note">
-      <strong>朗報：</strong>2026年の<strong>マイカー規制は9月7日(月)〜13日(日)</strong>のみ予定。<strong>6月12〜14日の旅程では規制対象外</strong>で、普通車で渓流沿いを走行可能です。ただし狭く対向に注意、観光客の歩行者多数。
-    </div>
-
-    <h3>渓流沿いの駐車場（無料／先着）</h3>
-    <ul class="clean">
-      <li><strong>石ヶ戸（いしげど）駐車場</strong>：50台。散策の起点に最適。</li>
-      <li><strong>雲井の滝駐車場</strong>：10台程度。すぐ満車になる。</li>
-      <li><strong>銚子大滝駐車場</strong>：30台。子ノ口側からのアクセスも◎。</li>
-      <li><strong>子ノ口（ねのくち）駐車場</strong>：十和田湖の入口、遊覧船発着所。</li>
-    </ul>
-
-    <div class="warn">
-      <strong>運転上の注意</strong><br>
-      ・国道102号の渓流区間は<strong>道幅が狭く対向すれ違いに要注意</strong>。観光客が車道脇を歩いていることも多いので時速30km厳守。<br>
-      ・八甲田の国道103号は急カーブ連続。霧が出ると視界がほぼゼロになることがある（特に早朝・夕方）。<br>
-      ・山間部は<strong>携帯電波が弱いor圏外</strong>。地図と給油は事前に。<br>
-      ・<strong>野生動物の飛び出し</strong>（カモシカ・タヌキ・キツネ・サル）に注意。
-    </div>
-  </section>
-
-  <section id="notes">
-    <h2>注意事項（旅の前に必ず確認）</h2>
-
-    <h3>天候・気候</h3>
-    <ul class="clean">
-      <li>6月の青森は<strong>梅雨の影響を受けにくい</strong>が、奥入瀬付近は山間で天候が急変しやすい。<strong>折りたたみ傘＋レインコート</strong>を必ず携行。</li>
-      <li>早朝の奥入瀬・十和田湖は<strong>気温10℃以下</strong>になる日も。フリースや薄いダウンが活躍。</li>
-      <li>渓流沿いは湿度が高く<strong>カメラのレンズが曇る</strong>ことがある。レンズ拭き必携。</li>
-    </ul>
-
-    <h3>虫対策</h3>
-    <ul class="clean">
-      <li>6月の奥入瀬は<strong>蚊・ブユ（ブヨ）・アブ</strong>が出始める時期。<strong>虫除けスプレー（ディート30%以上）</strong>必須。</li>
-      <li>長袖長ズボン推奨。肌の露出を抑える。</li>
-      <li>蜂や熊の目撃情報も稀にあり。<strong>大声を出さない・甘い匂いを避ける</strong>。</li>
-    </ul>
-
-    <h3>体力面</h3>
-    <ul class="clean">
-      <li>奥入瀬の遊歩道は比較的フラットだが、<strong>2時間以上歩く想定</strong>。スニーカー必須（ヒール厳禁）。</li>
-      <li>こまめな水分補給。途中に売店・自販機が少ない区間あり。</li>
-    </ul>
-
-    <h3>予約・支払い</h3>
-    <ul class="clean">
-      <li>奥入瀬・十和田湖周辺は<strong>現金しか使えない店</strong>がまだ多い。1〜2万円の現金は持参を。</li>
-      <li>宿は1ヶ月前までに予約。直前は割増or満室。</li>
-      <li>新幹線は<strong>えきねっと「えきねっとトクだ値」</strong>で割引可。乗車1ヶ月前 から発売。</li>
-      <li>レンタカーは<strong>ネット事前予約で2〜3割安く</strong>なる場合が多い。</li>
-    </ul>
-
-    <h3>新幹線リスク</h3>
-    <ul class="clean">
-      <li>復路17:33発に乗り遅れると次の<strong>はやぶさは18:08頃</strong>。レンタカー返却は<strong>17:00までに完了</strong>するスケジュールを死守。</li>
-      <li>東北新幹線は<strong>地震や雪・強風で遅延・運休</strong>することあり。6月は雪の心配は無いが、地震・大雨には注意。</li>
-    </ul>
-
-    <h3>その他</h3>
-    <ul class="clean">
-      <li>奥入瀬渓流は<strong>国立公園内・特別保護地区</strong>。植物採取・苔の持ち帰り厳禁。三脚を遊歩道に広げて他人の通行を妨げない。</li>
-      <li>十和田湖の遊覧船は<strong>強風で欠航</strong>することあり。当日朝、運航状況を電話確認。</li>
-      <li>クマ出没情報あり。<strong>熊鈴があると安心</strong>（宿で貸出している場合も）。</li>
-    </ul>
-  </section>
-
-  <section id="packing">
-    <h2>持ち物チェックリスト</h2>
-    <div class="two-col">
-      <div>
-        <h4>必須</h4>
-        <ul class="clean">
-          <li>新幹線eチケット（スマホ画面 or 印刷）</li>
-          <li>運転免許証（レンタカー）</li>
-          <li><strong>ETCカード</strong>（高速・有料道路用／レンタカーには付属しないので持参）</li>
-          <li>クレジットカード&現金1〜2万円</li>
-          <li>スマホ充電器・モバイルバッテリー</li>
-          <li>スニーカー（奥入瀬散策用）</li>
-          <li>羽織もの・薄手のジャケット</li>
-          <li>折りたたみ傘&レインコート</li>
-          <li>虫除けスプレー（強力なもの）</li>
-        </ul>
-      </div>
-      <div>
-        <h4>あると便利</h4>
-        <ul class="clean">
-          <li>サングラス・帽子</li>
-          <li>双眼鏡（野鳥・展望台で活躍）</li>
-          <li>カメラ&レンズ拭き</li>
-          <li>使い捨てカイロ（早朝散策用）</li>
-          <li>ウェットティッシュ</li>
-          <li>常備薬（酔い止め・胃薬・絆創膏）</li>
-          <li>エコバッグ（お土産用）</li>
-          <li>軽食・チョコレート（移動中の補給）</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>概算予算（2名合計）</h2>
-    <table class="meta-table">
-      <tr><th>新幹線（東京⇄新青森・指定席）</th><td><strong>0円（どこかにビューンで2名往復8,000pt利用）</strong></td></tr>
-      <tr><th>初日のJR奥羽本線（新青森→青森・2名）</th><td>約 400円</td></tr>
-      <tr><th>レンタカー（2日／コンパクト+免責+ETC+乗り捨て+ガソリン）</th><td>約 18,000円</td></tr>
-      <tr><th>宿泊（1泊目 青森市 1.5万×2名）</th><td>約 30,000円（朝食付）</td></tr>
-      <tr><th>宿泊（2泊目 十和田ホテル・朝夕食付2名）</th><td>約 40,000円（プラン次第で35,000〜50,000円）</td></tr>
-      <tr><th>食事（1日目夜+2日目昼+3日目昼+間食）</th><td>約 20,000円</td></tr>
-      <tr><th>入場料・遊覧船・温泉</th><td>約 8,000円</td></tr>
-      <tr><th>お土産</th><td>約 10,000円</td></tr>
-      <tr><th><strong>合計目安</strong></th><td><strong>約 120,400円〜（2名）／1人約 60,000円</strong></td></tr>
-    </table>
-    <p class="note">※どこかにビューン（2名往復8,000pt）で新幹線実質0円。通常価格36,000円相当が浮く計算で、<strong>1人あたり約2万円の大幅節約</strong>。浮いた予算で十和田ホテルのワンランク上のプランや、お土産・グルメに回すのもおすすめ。</p>
-  </section>
-
-  <section>
-    <h2>情報ソース</h2>
-    <div class="src">
-      <a href="https://aomori-tourism.com/itineraries/detail_62.html" target="_blank">青森県観光情報サイト Amazing AOMORI（モデルコース）</a><br>
-      <a href="https://www.eco-oirase.com/ja/walking" target="_blank">奥入瀬渓流エコツーリズム（歩き方・駐車場）</a><br>
-      <a href="https://moriyoshizan.jp/oirase-keiryu-parking/" target="_blank">奥入瀬渓流の駐車場ガイド（マイカー規制2026）</a><br>
-      <a href="https://nokkedon.jp/" target="_blank">元祖 青森のっけ丼 公式</a><br>
-      <a href="https://www.nebuta.jp/warasse/" target="_blank">ねぶたの家 ワ・ラッセ 公式</a><br>
-      <a href="https://sannaimaruyama.pref.aomori.jp/information/facility-info/" target="_blank">三内丸山遺跡 公式</a><br>
-      <a href="https://go-fujita-kanko.reservation.jp/ja/hotels/fkg024" target="_blank">十和田ホテル 公式</a><br>
-      <a href="https://www.ekiren.co.jp/office/detail/B00207" target="_blank">JR駅レンタカー 新青森駅営業所</a>
-    </div>
-  </section>
-
-  <footer>
-    Generated for jun — 2026年5月作成 ／ 出発前に最新情報をご確認ください。良い旅を！
-  </footer>
-</div>
-</body>
-</html>
+<nav class="toc"><a href="#overview">宿泊の流れ</a><a href="#s_日程表">日程表</a><a href="#s_天気予備プランリスク">天気・予備プラン</a><a href="#s_全日雨のバックアップ">全日雨のバックアッププラン</a><a href="#s_ごはん名物1日1つの">ごはん・名物</a><a href="#s_持ち物注意メモ">持ち物・注意メモ</a></nav>
+<section class="ov" id="overview"><h2><span class="ic">🗺️</span>宿泊の流れ</h2>
+<div class="spine"><div class="night theme-slate"><div class="n-d">7/15</div><div class="n-area">松本</div><div class="n-hotel">ホテルモンターニュ松本</div><span class="n-meal">素泊まり</span></div><div class="night theme-green"><div class="n-d">7/16</div><div class="n-area">乗鞍高原</div><div class="n-hotel">御宿こだま</div><span class="n-meal">夕朝食</span></div><div class="night theme-teal"><div class="n-d">7/17</div><div class="n-area">白骨温泉</div><div class="n-hotel">小梨の湯 笹屋</div><span class="n-meal">夕朝食</span></div><div class="night theme-amber"><div class="n-d">7/18</div><div class="n-area">大町温泉郷</div><div class="n-hotel">立山プリンスホテル</div><span class="n-meal">夕朝食</span></div></div>
+<p class="ov-note">帰路：7/19 大町・安曇野観光 → 松本 17:20発あずさ → 戸塚 21時前後</p></section>
+<section id="s_日程表"><h2><span class="ic">🗓️</span>日程表</h2><div class="daypills"><a href="#day0" class="pill theme-slate">前泊<small>7/15（水）</small></a><a href="#day1" class="pill theme-green">Day 1<small>7/16（木）</small></a><a href="#day2" class="pill theme-teal">Day 2<small>7/17（金）</small></a><a href="#day3" class="pill theme-amber">Day 3<small>7/18（土）</small></a><a href="#day4" class="pill theme-blue">Day 4<small>7/19（日）</small></a></div><article class="day theme-slate" id="day0">
+<div class="dayhead"><span class="dayicon">🌙</span>
+<div><div class="daytag">前泊 · 7/15（水）</div><div class="daytitle">戸塚 → 松本へ移動・前泊</div></div></div>
+<div class="daybody"><ol class="tl"><li class="tl-item"><span class="t">18:30〜18:45</span><span class="c">戸塚発（湘南新宿ライン等で新宿へ・約45分）。<strong>新宿20:00発は松本行きあずさの最終</strong>のため、乗換余裕30分を確保して1本早めに出発</span></li><li class="tl-item"><span class="t">20:00</span><span class="c">新宿発 特急あずさ（<span class="chk done">✓</span>予約済・8号車 7C/7D）</span></li><li class="tl-item"><span class="t">22:40頃</span><span class="c">松本着（約2時間40分・要確認）→ ホテルモンターニュ松本にチェックイン（素泊まり）</span></li></ol><p class="callout note">※松本着が夜遅め（22:40頃）。遅いチェックインになる旨をモンターニュ松本へ事前連絡を。</p></div></article><article class="day theme-green" id="day1">
+<div class="dayhead"><span class="dayicon">⛰️</span>
+<div><div class="daytag">Day 1 · 7/16（木）</div><div class="daytitle">上高地ハイキング → 乗鞍高原泊</div></div></div>
+<div class="daybody"><ol class="tl"><li class="tl-item"><span class="t">08:00</span><span class="c">ニッポンレンタカー松本駅営業所 到着・手続き（<span class="chk done">✓</span>7/16 8:00〜7/19 18:00で予約済。契約・車両説明で20〜30分）</span></li><li class="tl-item"><span class="t">08:30</span><span class="c">松本発（車）→ R158で沢渡へ</span></li><li class="tl-item"><span class="t">09:45</span><span class="c">沢渡駐車場 着・駐車（600〜700円/日）・身支度</span></li><li class="tl-item"><span class="t">10:00</span><span class="c">シャトルバス乗車（予約不要・15〜20分間隔・往復2,800円/人）</span></li><li class="tl-item"><span class="t">10:30</span><span class="c">大正池 下車。朝の静かな湖畔を散策スタート</span></li><li class="tl-item"><span class="t">10:30〜11:45</span><span class="c">大正池 → 田代池 → 河童橋（木道・ほぼ平坦。田代池の朝の水鏡は写真スポット）</span></li><li class="tl-item"><span class="t">11:45〜12:30</span><span class="c">河童橋で軽めの休憩（しっかり食べるなら明神で／下記）</span></li><li class="tl-item"><span class="t">12:30〜13:45</span><span class="c">河童橋 → 明神池（穂高神社奥宮）（行きは左岸＝最短・平坦）</span></li><li class="tl-item"><span class="t">13:45〜14:15</span><span class="c">明神池 拝観（拝観料 大人500円・現金。嘉門次小屋の岩魚の塩焼きが名物。囲炉裏焼きの登録有形文化財の小屋）</span></li><li class="tl-item"><span class="t">14:15〜15:30</span><span class="c">明神 → 河童橋（帰りは右岸＝森と清流の“水上散歩”。明神岳の岩壁が迫る）</span></li><li class="tl-item"><span class="t">16:00</span><span class="c">上高地バスターミナル発シャトル → 沢渡（16:30頃）※明神まで行くなら15:30発との両立は厳しく16:00発が現実的</span></li><li class="tl-item"><span class="t">17:00</span><span class="c">車で乗鞍高原 御宿こだま着（沢渡から約30分）。チェックイン・乳白色のにごり湯／貸切露天「ほしを眺む」</span></li><li class="tl-item"><span class="t">18:30</span><span class="c">夕食</span></li><li class="tl-item"><span class="t">20:30〜</span><span class="c">（晴天時）一の瀬園地で星見（こだまから近い）。新月直後で好条件。※翌朝が早い（乗鞍）ので短めに切り上げ、早寝を優先</span></li><li class="tl-item stay"><span class="t">🛏 泊</span><span class="c">乗鞍高原 御宿こだま①</span></li></ol><p class="callout note">※体力に余裕があれば明神→徳沢へ足を延ばすのも可（往復+約2時間、夏は日没19時頃）。</p><p class="callout note">※大正池着は10時頃なので朝もやの水鏡のピーク（夜明け）は外れますが、午前の静かな上高地は十分楽しめます。</p></div></article><article class="day theme-teal" id="day2">
+<div class="dayhead"><span class="dayicon">🦤</span>
+<div><div class="daytag">Day 2 · 7/17（金）</div><div class="daytitle">乗鞍・畳平で雷鳥＋剣ヶ峰 → 白骨温泉泊</div></div></div>
+<div class="daybody"><ol class="tl"><li class="tl-item"><span class="t">06:15</span><span class="c">起床・身支度（前夜に早朝チェックアウトを宿へ相談。荷物は車へ）。朝食は宿に相談したおにぎり等を持参し、畳平までのバス内か到着後に。<strong>朝食抜きでの3,000m行動は高山病の誘因になるため必ず何か食べる</strong></span></li><li class="tl-item"><span class="t">06:40</span><span class="c">御宿こだま発 → 乗鞍観光センター（車1〜2分）</span></li><li class="tl-item"><span class="t">06:50</span><span class="c">観光センター 着・駐車</span></li><li class="tl-item"><span class="t">07:00</span><span class="c">観光センター発 上りシャトル（確保・片道 大人2,350円）</span></li><li class="tl-item"><span class="t">07:50</span><span class="c">畳平（標高約2,700m）着</span></li><li class="tl-item"><span class="t">07:50〜09:00</span><span class="c">お花畑・周辺で雷鳥（ライチョウ）探し＋高山植物。早朝＝最も活動的な時間帯</span></li><li class="tl-item"><span class="t">09:00〜12:00</span><span class="c">剣ヶ峰（3,026m）往復（標準往復約3時間／登らない場合は畳平・肩ノ小屋周辺をゆっくり）</span></li><li class="tl-item"><span class="t">12:00〜13:15</span><span class="c">畳平で昼食・お花畑散策・お土産（13:30発まで余裕）</span></li><li class="tl-item"><span class="t">13:30</span><span class="c">畳平発 下りシャトル（乗鞍高原行き・確保・片道 大人2,250円） → 観光センター 14:20頃</span></li><li class="tl-item"><span class="t">14:50</span><span class="c">白骨温泉 小梨の湯 笹屋着（観光センターから約25〜30分）。チェックイン・無料の貸切露天でのんびり</span></li><li class="tl-item"><span class="t">18:00</span><span class="c">夕食。笹屋は貸切露天が無料＝二人で“ご褒美の夜”を（星見メインは1日目の乗鞍高原。晴れれば白骨でも見上げられます）</span></li><li class="tl-item stay"><span class="t">🛏 泊</span><span class="c">白骨温泉 小梨の湯 笹屋②</span></li></ol><p class="callout note">※雷鳥を見るコツ：①早朝ほど活動的②曇り・霧・小雨ほど出やすい③7月は繁殖期でヒナ連れも（野生のため保証なし）。 安全：畳平は7月でも6〜14℃・午後は雷雨が出やすい。剣ヶ峰は遅くとも11時に下山開始、積乱雲が出たら登頂中止。2,700m超は高山病リスク（前夜の寝不足が最大の誘因）→まず畳平で1時間ほど高度順応してから登り、頭痛・吐き気が出たら中止して畳平散策へ。剣ヶ峰に登らなくてもお花畑〜不消ヶ池で十分満喫できます。 シャトルは予約優先制なので、午後の雷雲が早く出た日は12:30発の下り便に空席があれば前倒しで下山可能（バス係員に相談）。</p></div></article><article class="day theme-amber" id="day3">
+<div class="dayhead"><span class="dayicon">💧</span>
+<div><div class="daytag">Day 3 · 7/18（土）</div><div class="daytitle">飛騨大鍾乳洞 → 大町温泉郷泊</div></div></div>
+<div class="daybody"><ol class="tl"><li class="tl-item"><span class="t">08:30</span><span class="c">朝食（朝はゆっくり）・チェックアウト準備</span></li><li class="tl-item"><span class="t">10:00</span><span class="c">笹屋発（車・安房トンネル〈普通車790円〉経由で岐阜側へ）※R158は通行規制中だが普通車は市道迂回で通行可（下記★参照）</span></li><li class="tl-item"><span class="t">11:15</span><span class="c">飛騨大鍾乳洞 着（白骨から約1〜1.5時間＋迂回約10分）</span></li><li class="tl-item"><span class="t">11:15〜12:15</span><span class="c">洞内見学（約40分）＋大橋コレクション館。入洞料 大人1,100円・8:00〜17:00・無休・全長約800m</span></li><li class="tl-item"><span class="t">12:30</span><span class="c">出発、松本方面へ北上（途中で信州そばランチ）</span></li><li class="tl-item"><span class="t">15:00〜15:30</span><span class="c">大町温泉郷 着・立山プリンスホテル チェックイン（鍾乳洞から約2.5〜2.75時間）</span></li><li class="tl-item"><span class="t">15:30〜</span><span class="c">ホテルでのんびり（夕食付）。希望なら車で青木湖（北へ約20〜30分）の夕景へ。翌朝の青木湖ベース（大町市平加蔵23245・9:30集合）への経路と地図をオフライン保存</span></li><li class="tl-item stay"><span class="t">🛏 泊</span><span class="c">立山プリンスホテル（大町温泉郷・夕朝食付）</span></li></ol><p class="callout warn">🎌 <strong>この日は海の日3連休（7/18〜20）の初日</strong>。安房トンネル・平湯周辺・市道迂回路は通常より渋滞しやすく、鍾乳洞往復が想定より延びる可能性が高い。時間が押しても大町着16時台なら問題なし。朝の時点で渋滞情報が悪ければBプラン（下記）への切替を。</p><p class="callout note">※この日は運転多め（計約4〜4.5時間）。のんびり優先なら鍾乳洞を外し「白骨で朝風呂＋善五郎の滝→直接 大町（約1.75時間）」に短縮も可（Bプラン）。連休の渋滞が読めない場合もBプランが安全。</p><p class="callout important">★ R158「鍾乳洞〜平湯」は土砂崩れで通行規制中（復旧未定）だが、普通車は高山市道の迂回で通行可＝追加約10分（混雑時+10〜30分）。約2時間の広域迂回は大型車のみで、レンタカーは平湯側から問題なく到達できます。出発直前に高山土木事務所（0577-33-1111）／岐阜県 道路規制情報で再確認を。</p></div></article><article class="day theme-blue" id="day4">
+<div class="dayhead"><span class="dayicon">🛶</span>
+<div><div class="daytag">Day 4 · 7/19（日）</div><div class="daytitle">青木湖カヤック → 安曇野 → 帰路</div></div></div>
+<div class="daybody"><ol class="tl"><li class="tl-item"><span class="t">07:30</span><span class="c">朝食（立山プリンスホテル・朝食付）・身支度</span></li><li class="tl-item"><span class="t">08:45</span><span class="c">立山プリンスホテル発 → 青木湖ベース（長野県大町市平加蔵23245）へ（車約20〜30分）。9:15頃着</span></li><li class="tl-item"><span class="t">09:30</span><span class="c">青木湖ベース集合・受付・準備（着替え）（<span class="chk done">✓</span>予約済・青木湖カヤックツアー 9:30〜11:30）</span></li><li class="tl-item"><span class="t">09:45</span><span class="c">安全講習・パドルトレーニング</span></li><li class="tl-item"><span class="t">10:00〜11:30</span><span class="c">ツアー本番：青木湖でカヤック（透明度の高い湖／北アルプスの伏流水）</span></li><li class="tl-item"><span class="t">11:30〜11:50</span><span class="c">ツアー終了・着替え・解散 → 出発</span></li><li class="tl-item"><span class="t">12:15〜14:00</span><span class="c">大町山岳博物館（北アルプス展示＋付属園のニホンライチョウ生体展示・カモシカ等。青木湖から約20〜25分）。大人450円・入館16:30まで・7/8月無休・駐車無料。館内カフェ「かもしか」等で軽め昼食も</span></li><li class="tl-item"><span class="t">14:00〜14:40</span><span class="c">大町 → 安曇野</span></li><li class="tl-item"><span class="t">14:40〜15:50</span><span class="c">大王わさび農場（本わさび丼/わさびソフト・水車小屋）。🎌連休中日で駐車場待ちが出やすい→<strong>14:00時点で行程が押していたらカットして松本へ直行</strong>（あずさ17:20が最終防衛ライン）。時間が許せば近くの穂高神社（本宮）＝上高地の奥宮と対に</span></li><li class="tl-item"><span class="t">16:00〜16:30</span><span class="c">安曇野 → 松本着。市街で給油してからレンタカー店へ</span></li><li class="tl-item"><span class="t">16:45頃</span><span class="c">レンタカー返却（期限18:00に余裕をもって）→ 松本駅へ</span></li><li class="tl-item"><span class="t">〜17:10</span><span class="c">駅で駅弁・お土産の買い物</span></li><li class="tl-item"><span class="t">17:20</span><span class="c">松本発 特急あずさ（<span class="chk done">✓</span>予約済 6号車 7A/7B）→ 新宿20:09頃 → 戸塚21:00前後着</span></li></ol><p class="callout note">※帰りのあずさは出発前に券面の号数・時刻を最終確認。</p><p class="callout ok">✓ カヤックは6,600円/人＋施設使用料300円/人。台風・雷以外は雨天決行＝濡れる前提の服装で（持ちものは「持ち物・注意メモ」のカヌー欄参照）。</p></div></article></section><section id="s_天気予備プランリスク"><h2><span class="ic">🌦️</span>天気・予備プラン（リスク対策）</h2><p>前夜に判断：乗鞍シャトルは前日12時の予報で翌朝(6〜12時)の降水確率40%以上だと雨天ダイヤ／運休になりやすい。前日17時に予報を見て、翌朝を上高地↔乗鞍どちらにするか宿で決める。</p><p>雨天・中止時の各日の振替先は、次の「全日雨のバックアッププラン」を参照。</p><p>万一あずさに乗り遅れても後続便の自由席で帰宅可。松本へは余裕を持って戻る。</p></section><section id="s_全日雨のバックアップ" data-rain="1"><h2><span class="ic">☔</span>全日雨のバックアッププラン</h2><p class="callout note">雨に強い3本柱で組み替える：①温泉（こだま／笹屋／立山プリンス）②屋内施設（飛騨大鍾乳洞・各美術館/博物館）③小雨なら短い滝・森歩き（善五郎の滝）。主要な屋内施設は月曜休が多いが、今回は木〜日なので全日OK。各日の実施/振替は前日17時の予報で判断。</p><div class="raincards"><div class="raincard pre"><h5>🌙 前泊 7/15</h5><p>移動のみで影響なし。</p></div><div class="raincard"><h5>⛰️ 1日目 7/16（雨）｜松本の屋内 → 乗鞍高原入り</h5><ul><li>上高地は展望が出ないので見送り、松本市内の屋内へ。松本城（天守内部）→ 松本市美術館（草間彌生・9:00〜17:00）→ 松本市時計博物館（9:00〜17:00）→ 中町・縄手でランチ。</li><li>午後にR158で乗鞍高原・御宿こだまへ。小雨なら善五郎の滝の短い遊歩道（霧の森が幻想的）。あとは温泉でのんびり。</li><li>※小雨程度なら当初の大正池〜河童橋をレインウェアで短縮実施でも可。</li></ul></div><div class="raincard"><h5>🦤 2日目 7/17（雨）｜畳平は中止、低標高＋白骨でのんびり</h5><ul><li>畳平シャトルは雨天運休・視界不良・落雷リスクで中止判断（雷鳥は曇天向きだが安全優先）。</li><li>午前：善五郎の滝・一の瀬園地の森歩き（レインウェア）。早めに白骨温泉 笹屋へチェックイン。</li><li>無料の貸切露天でのんびり、温泉粥・とうじそば。白濁の湯は雨の日こそ。</li><li>※もっと動きたければ松本へ下って美術館（前日に行けなかった分）→白骨へ戻る（往復約2h）も可。</li></ul></div><div class="raincard"><h5>💧 3日目 7/18（雨）｜ほぼ計画どおり（屋内が主役）</h5><ul><li>飛騨大鍾乳洞は全天候OK＝雨の日の本命（8:00〜17:00・無休）。</li><li>北上途中の安曇野で屋内も：安曇野ちひろ美術館（9:00〜17:00）or 安曇野アートヒルズミュージアム（ガラス工芸・屋内）。</li><li>大町温泉郷 立山プリンスホテルで温泉。</li></ul></div><div class="raincard"><h5>🛶 4日目 7/19（雨）｜カヤックは可否確認、ダメなら屋内周遊</h5><ul><li>青木湖カヤックは台風・雷以外は雨天決行（濡れる前提）。小雨なら実施。</li><li>中止（強風・雷）なら屋内へ：大町山岳博物館（ライチョウ生体展示）→ 塩の道ちょうじや／大町エネルギー博物館 → 安曇野（ちひろ美術館・大王わさび農場の売店/食事）→ 松本（松本城・美術館・時計博物館）→ 17:20 あずさで帰路。屋内が多く最終日は雨でも充実。</li></ul></div></div></section><section id="s_ごはん名物1日1つの"><h2><span class="ic">🍶</span>ごはん・名物（1日1つの目安）</h2><table><thead><tr><th>場所</th><th>これを食べる</th></tr></thead><tbody><tr><td>上高地・明神</td><td>嘉門次小屋の岩魚の塩焼き定食（囲炉裏焼き）</td></tr><tr><td>白骨温泉</td><td>乳白色の硫黄泉＋温泉粥／とうじそば、土産にみそまんじゅう</td></tr><tr><td>乗鞍・畳平</td><td>山頂・畳平で温かい麺やお汁粉（高所の達成感込み）</td></tr><tr><td>鍾乳洞移動日</td><td>松本方面で信州そば</td></tr><tr><td>安曇野</td><td>大王わさび農場の本わさび丼・わさびソフト</td></tr><tr><td>大町・松本</td><td>大町で信州そば／松本駅で駅弁・おやき・山賊焼き弁当</td></tr></tbody></table></section><section id="s_持ち物注意メモ"><h2><span class="ic">🎒</span>持ち物・注意メモ</h2><h4>山・歩き（上高地／乗鞍）</h4><ul><li>トレッキングシューズ（乗鞍・徳沢は必須／上高地散策だけでもスニーカー以上）、レインウェア、防寒着（重ね着前提＝山は寒く里は猛暑）</li><li>剣ヶ峰用に行動食・水1人1L以上・サングラス・日焼け止め・帽子・手袋（岩稜の防寒兼）・常備薬/酔い止め</li><li>熊鈴（明神・徳沢方面）。ビジターセンターの最新の熊目撃情報を当日確認、ガス・雨で視界が悪い日は音を出して歩く</li><li>星見用の懐中電灯（赤色灯だと目が慣れたまま）</li></ul><h4>虫・暑さ</h4><ul><li>ハッカ系の虫除け＋防虫ヘッドネット（明神・滝周辺）、刺された時用にポイズンリムーバー/抗ヒスタミン薬（7月後半からブヨ/アブ増、川沿いは既に出ます）</li><li>里（鍾乳洞移動日・安曇野・松本城散策）は猛暑 → 経口補水/塩飴・帽子</li></ul><h4>カヌー（業者指定の持ちもの含む）</h4><ul><li>業者指定：上着・ジャケット、着替え、サンダル（かかと固定式）、水着、保険証、タオル</li><li>あると便利：濡れてもいい速乾の服・タオル多め・防水袋（スマホ/車のキー）・水上用日焼け止め</li></ul><h4>実務</h4><ul><li>現金を多めに：白骨の旅館・鍾乳洞・カヌー業者・駐車場（沢渡600〜700円）・拝観料は現金のみが残ることが多い</li><li>ガソリン：白骨・乗鞍周辺はGSが少なく日曜・夜は閉まりがち → 沢渡/白骨入り前に満タン、返却前給油は松本市街で早めに</li><li>携帯圏外：上高地奥（明神・徳沢）・畳平〜剣ヶ峰・白骨の一部は電波が弱い → 宿4軒・ニッポンレンタカー・カヤック業者の電話番号と、予約確認・集合場所・地図を前夜にオフライン保存/スクショ</li><li>白骨の白濁湯は硫黄で白い衣類・タオルが変色しがち → 捨ててもいいタオルを1枚</li><li>明神池は穂高神社奥宮の境内で拝観料が必要。本宮は安曇野市で上高地からは歩いて行けません</li></ul></section>
+<footer>2026年7月 ｜ 上高地・乗鞍・白骨温泉・大町 ｜ カップル2名</footer>
+</div></body></html>
