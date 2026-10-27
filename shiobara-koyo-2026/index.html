@@ -139,6 +139,8 @@ h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.55rem; line-h
 .badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; padding: 0 0.45rem; border-radius: 4px; line-height: 1.6; white-space: nowrap; }
 .badge.pick { background: var(--momiji); color: var(--surface); }
 .badge.warn { background: var(--ginkgo-soft); color: var(--ginkgo); }
+.badge.ramen { background: var(--river-soft); color: var(--river); }
+.lunch-day > .lead-note { color: var(--muted); font-size: 0.88rem; }
 .shop p { font-size: 0.9rem; }
 .shop .hours { font-size: 0.82rem; color: var(--muted); }
 .callout { background: var(--ginkgo-soft); color: var(--ink); border-radius: var(--r); padding: var(--s3) var(--s4); font-size: 0.9rem; }
@@ -229,7 +231,7 @@ html { scroll-behavior: smooth; }
     <li class="ev"><time>10:45</time><div class="body"><p class="what"><span class="mode">見る</span>塩原温泉ビジターセンター</p><p class="note">コースは3.7km・約90分。センターは 9:00〜16:30（火曜休）</p></div></li>
     <li class="ev"><time>11:15</time><div class="body"><p class="what"><span class="mode">休む</span>七ツ岩吊橋を渡って足湯</p><p class="note">吊橋の駐車場にある無料の足湯。タオル持参</p></div></li>
     <li class="ev"><time>11:50</time><div class="body"><p class="what"><span class="mode">歩く</span>国道400号沿いに温泉街へ</p><p class="note">塩釜・畑下を通って約1.6km・25分</p></div></li>
-    <li class="ev"><time>12:20</time><div class="body"><p class="what"><span class="mode">食べる</span>昼ごはん</p><p class="note">本命は宿近くの <a href="#lunch">そば処 是庵 たみ吉</a>。紅の吊橋を見下ろすなら洋燈</p></div></li>
+    <li class="ev"><time>12:20</time><div class="body"><p class="what"><span class="mode">食べる</span>昼ごはん</p><p class="note">本命は宿近くの <a href="#lunch">そば処 是庵 たみ吉</a>。紅の吊橋を見下ろすなら洋燈、ラーメンなら幸楽かこばや食堂</p></div></li>
     <li class="ev"><time>13:30</time><div class="body"><p class="what"><span class="mode">見る</span>紅の吊橋（昼）</p><p class="note">塩原もの語り館の裏手。対岸に約900mの遊歩道</p></div></li>
     <li class="ev"><time>14:00</time><div class="body"><p class="what"><span class="mode">宿</span>光雲荘チェックイン</p><p class="note">もの語り館から約300m</p></div></li>
     <li class="ev"><time class="soft">夕方</time><div class="body"><p class="what"><span class="mode">宿</span>温泉・夕食</p><p class="note">夕食の時間はチェックイン時に確認</p></div></li>
@@ -265,7 +267,7 @@ html { scroll-behavior: smooth; }
     <li class="ev"><time>11:40</time><div class="body"><p class="what"><span class="mode">見る</span>もみじ谷大吊橋</p><p class="note">全長320m。11月は <span class="num">8:30〜16:00</span>、大人<span class="num">400</span>円（10/1改定）</p></div></li>
     <li class="ev"><time>12:10</time><div class="body"><p class="what"><span class="mode">見る</span>塩原ダム</p><p class="note">吊橋を渡った先。堤体側へは管理所の開放時間内のみ</p></div></li>
     <li class="ev" data-m="bus"><time>12:50</time><div class="body"><p class="what"><span class="mode">バス</span>もみじ谷大吊橋発（西那須野駅行）</p><p class="note">西那須野駅西口 <span class="num">13:20</span>着。予備は <span class="num">13:30</span>発 → <span class="num">14:00</span>着</p></div></li>
-    <li class="ev"><time>13:30</time><div class="body"><p class="what"><span class="mode">食べる</span>昼ごはん（西那須野）</p><p class="note">時間を気にしなくていいのは <a href="#lunch">和田屋</a>。14時台に昼営業が終わる店が多い</p></div></li>
+    <li class="ev"><time>13:30</time><div class="body"><p class="what"><span class="mode">食べる</span>昼ごはん（西那須野）</p><p class="note">時間を気にしなくていいのは <a href="#lunch">和田屋</a>。ラーメンなら15時まで開いている彩葉</p></div></li>
     <li class="ev"><time>14:30</time><div class="body"><p class="what"><span class="mode">見る</span>大山参道</p><p class="note">駅から徒歩約10分。モミジ並木は約200m</p></div></li>
     <li class="ev" data-m="rail"><time>15:25</time><div class="body"><p class="what"><span class="mode">電車</span>西那須野発 宇都宮線（下り・黒磯行）</p><p class="note">1駅で那須塩原 <span class="num">15:30</span>頃着</p></div></li>
     <li class="ev" data-m="rail"><time>16:03</time><div class="body"><p class="what"><span class="mode">新幹線</span>那須塩原発 なすの（東京行）</p><p class="note">東京 17:10頃 → 東海道線で戸塚へ、18時前後着</p></div></li>
@@ -284,9 +286,12 @@ html { scroll-behavior: smooth; }
 
   <div class="lunch-day">
     <h3>1日目 塩原温泉街 <small>12時半ごろ・日曜</small></h3>
+    <p class="lead-note">温泉街にはラーメン専門店がほとんどなく、ラーメンは食堂で食べる形になります。</p>
     <ul class="shops">
       <li class="shop pick"><p class="name">そば処 是庵 たみ吉 <span class="badge pick">本命</span></p><p>光雲荘から200mほどで、チェックイン前に一番動きやすい店。古民家を改装したそば屋で、天ぷらが評判です。</p><p class="hours"><span class="num">11:00〜15:00</span>・木曜定休</p></li>
       <li class="shop"><p class="name">カフェレストラン 洋燈（塩原もの語り館2F）</p><p>紅の吊橋と箒川を見下ろしながら食べられます。</p><p class="hours"><span class="num">10:00〜16:30</span>（LO <span class="num">16:00</span>）</p></li>
+      <li class="shop"><p class="name">幸楽 <span class="badge ramen">ラーメン</span></p><p>たみ吉のすぐ近く、光雲荘から200mほどの小さな食堂。寿司とラーメンが看板で、口コミではラーメンの評判も上々です。料理が出るまで少し時間がかかります。</p><p class="hours"><span class="num">11:00〜15:00</span>・月曜定休</p></li>
+      <li class="shop"><p class="name">こばや食堂 <span class="badge ramen">ラーメン</span><span class="badge warn">行列注意</span></p><p>塩原温泉BTから徒歩3分。釜彦と人気を二分するスープ入り焼きそばの店で、ラーメンや炒飯もあります。休日の昼は30分ほど並ぶこともあります。</p><p class="hours"><span class="num">11:00〜15:00</span>（売り切れ次第終了）・不定休</p></li>
       <li class="shop"><p class="name">多助そば 湯津上屋</p><p>塩原温泉BTのすぐそば。手打ちそばのほか、しもつカレーそばやオリジナルのとて焼も。</p><p class="hours"><span class="num">11:00〜15:00</span></p></li>
       <li class="shop"><p class="name">釜彦 <span class="badge warn">行列注意</span></p><p>塩原名物「スープ入り焼きそば」の元祖。休日の昼は長く待つことが多く、この日程には入れにくい店です。</p><p class="hours">売り切れ次第閉店・不定休</p></li>
     </ul>
@@ -296,6 +301,8 @@ html { scroll-behavior: smooth; }
     <h3>2日目 西那須野 <small>13:20着・月曜</small></h3>
     <ul class="shops">
       <li class="shop pick"><p class="name">和田屋 <span class="badge pick">本命</span></p><p>駅から1kmほどの老舗甘味処。地元の定番はラードで焼く太麺焼きそば（並<span class="num">700</span>円）とお雑煮。</p><p class="hours"><span class="num">9:00〜21:00</span>なので時間を気にせず入れる</p></li>
+      <li class="shop"><p class="name">らぁめん 彩葉 <span class="badge ramen">ラーメン</span></p><p>大山参道と同じ下永田にある、魚介だしのあっさりラーメンの店。残ったスープを鯛めしにかけて締めるのが人気です。参道までは歩いて10分かかりません。</p><p class="hours"><span class="num">11:00〜15:00</span>・月曜も営業</p></li>
+      <li class="shop"><p class="name">手打中華 玲 <span class="badge ramen">ラーメン</span><span class="badge warn">14時まで</span></p><p>駅から徒歩10分ほど。那須塩原で人気の白河ラーメン系で、手打ちの縮れ麺と澄んだ醤油スープ、ワンタン麺が評判です。</p><p class="hours">昼 <span class="num">11:00〜14:00</span>・木金定休</p></li>
       <li class="shop"><p class="name">中華 南地楼</p><p>駅西口から徒歩11分の町中華。名物はエビチリかけご飯（<span class="num">990</span>円）。</p><p class="hours">昼 <span class="num">11:30〜14:30</span>・火曜定休（月曜は営業）</p></li>
       <li class="shop"><p class="name">手打ちうどん 美月 <span class="badge warn">14時まで</span></p><p>大山参道の近く。コシのあるうどんとハゼ天が評判。着いたらすぐ向かう場合に。</p><p class="hours">昼 <span class="num">11:30〜14:00</span>・水曜定休</p></li>
     </ul>
@@ -359,10 +366,13 @@ html { scroll-behavior: smooth; }
     <li><a href="https://www.mapple.net/article/35453/">釜彦・多助そば 湯津上屋（まっぷるトラベルガイド）</a></li>
     <li><a href="https://hamoni.jp/area/tochigi/nasushiobara/nishinasuno/shops">和田屋・美月（HAMONI）</a></li>
     <li><a href="https://r.gnavi.co.jp/k7pwxhd90000/">中華 南地楼（ぐるなび）</a></li>
+    <li><a href="https://rurubu.jp/andmore/spot/80007154">こばや食堂（るるぶ&amp;more）</a></li>
+    <li><a href="https://4travel.jp/dm_shisetsu/10965879">こばや食堂の口コミ（フォートラベル）</a></li>
+    <li>幸楽・らぁめん 彩葉・手打中華 玲の営業時間：Googleマップの掲載情報（10/27時点）</li>
   </ul>
 </details>
 
-<footer>2026年10月25日時点の情報です。時刻・営業時間は変わることがあるので、出発前に確認してください。</footer>
+<footer>2026年10月27日時点の情報です。時刻・営業時間は変わることがあるので、出発前に確認してください。</footer>
 
 </div>
 
