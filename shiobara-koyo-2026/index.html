@@ -103,6 +103,7 @@ h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.55rem; line-h
 .board .route { font-weight: 700; line-height: 1.5; }
 .board .route .arr { color: var(--board-dim); font-weight: 400; padding: 0 0.2em; }
 .board .sub { font-size: 0.8rem; color: var(--board-dim); }
+.board .booked { color: var(--board-time); font-weight: 700; }
 
 /* Timeline */
 .tl { list-style: none; margin: 0; padding: 0; position: relative; }
@@ -187,7 +188,7 @@ html { scroll-behavior: smooth; }
 <header>
   <p class="eyebrow">2026.11.1 SUN — 11.2 MON ／ 1泊2日</p>
   <h1>塩原 <span class="red">紅葉</span>の旅</h1>
-  <p class="lede">電車とJRバスで、やしおコース・紅の吊橋・もみじ谷大吊橋をめぐる2日間。1日目は14時チェックインを目標に組んでいます。</p>
+  <p class="lede">電車とJRバスで、やしおコース・紅の吊橋・もみじ谷大吊橋をめぐる2日間。1日目は予約したやまびこ205号に合わせて、15時チェックインで組んでいます。</p>
   <ul class="facts">
     <li><span class="k">宿</span><span class="v">光雲荘（門前温泉）</span></li>
     <li><span class="k">チェックイン／アウト</span><span class="v"><span class="num">14:00</span> ／ <span class="num">10:00</span></span></li>
@@ -208,8 +209,8 @@ html { scroll-behavior: smooth; }
   <div class="board" role="region" aria-label="主な発車時刻">
     <div class="board-title"><span>発車時刻</span><span>行き先</span></div>
     <ol>
-      <li><span class="t">6:40</span><div><div class="meta"><span>11/1 日</span><span>新幹線 やまびこ203号</span></div><div class="route">東京<span class="arr">→</span>那須塩原 7:49着</div><div class="sub">上野 6:46・大宮 7:05 からも乗れる</div></div></li>
-      <li><span class="t">8:35</span><div><div class="meta"><span>11/1 日</span><span>JRバス 塩原温泉BT行</span></div><div class="route">西那須野駅西口 11番のりば<span class="arr">→</span>塩原大網 9:06着</div><div class="sub">日曜は那須塩原駅発が14:35の1本だけ。西那須野から乗る</div></div></li>
+      <li><span class="t">7:44</span><div><div class="meta"><span>11/1 日</span><span>新幹線 やまびこ205号</span><span class="booked">予約済み・2名</span></div><div class="route">東京<span class="arr">→</span>那須塩原 8:56着</div><div class="sub">戸塚〜東京は予約と別にICで乗る</div></div></li>
+      <li><span class="t">9:35</span><div><div class="meta"><span>11/1 日</span><span>JRバス 塩原温泉BT行</span></div><div class="route">西那須野駅西口 11番のりば<span class="arr">→</span>塩原大網 10:06着</div><div class="sub">那須塩原 9:21発の宇都宮線で西那須野へ。日曜は那須塩原駅発のバスが14:35の1本だけ</div></div></li>
       <li><span class="t">10:35</span><div><div class="meta"><span>11/2 月</span><span>JRバス 西那須野駅行</span></div><div class="route">塩原温泉BT<span class="arr">→</span>回顧橋 10:49着</div><div class="sub">宿からBTまで約400m・徒歩5分</div></div></li>
       <li><span class="t">12:50</span><div><div class="meta"><span>11/2 月</span><span>JRバス 西那須野駅行</span></div><div class="route">もみじ谷大吊橋<span class="arr">→</span>西那須野駅西口 13:20着</div><div class="sub">予備は 13:30発 → 14:00着</div></div></li>
       <li><span class="t">16:03</span><div><div class="meta"><span>11/2 月</span><span>新幹線 なすの</span></div><div class="route">那須塩原<span class="arr">→</span>東京 17:10頃着</div><div class="sub">次は 17:03発 やまびこ</div></div></li>
@@ -223,32 +224,24 @@ html { scroll-behavior: smooth; }
     <h2 id="d1-h">やしおコースを歩いて温泉街へ</h2>
   </div>
   <ol class="tl">
-    <li class="ev" data-m="rail"><time>5:42</time><div class="body"><p class="what"><span class="mode">電車</span>戸塚発 東海道線（上野東京ライン）</p><p class="note">東京 6:20頃着。乗換案内で最終確認</p></div></li>
-    <li class="ev" data-m="rail"><time>6:40</time><div class="body"><p class="what"><span class="mode">新幹線</span>東京発 やまびこ203号</p><p class="note">那須塩原 <span class="num">7:49</span>着</p></div></li>
-    <li class="ev" data-m="rail"><time>8:03</time><div class="body"><p class="what"><span class="mode">電車</span>那須塩原発 宇都宮線（上り・宇都宮行）</p><p class="note">1駅で西那須野 <span class="num">8:08</span>着。次は <span class="num">8:22</span>発 → <span class="num">8:27</span>着</p></div></li>
-    <li class="ev" data-m="bus"><time>8:35</time><div class="body"><p class="what"><span class="mode">バス</span>西那須野駅西口 11番のりば発</p><p class="note">塩原温泉BT行。塩原大網 <span class="num">9:06</span>着</p></div></li>
-    <li class="ev"><time>9:15</time><div class="body"><p class="what"><span class="mode">歩く</span>箒川ダムからやしおコースへ</p><p class="note">バス停から約10分。ダムへは急な階段</p></div></li>
-    <li class="ev"><time>10:45</time><div class="body"><p class="what"><span class="mode">見る</span>塩原温泉ビジターセンター</p><p class="note">コースは3.7km・約90分。センターは 9:00〜16:30（火曜休）</p></div></li>
-    <li class="ev"><time>11:15</time><div class="body"><p class="what"><span class="mode">休む</span>七ツ岩吊橋を渡って足湯</p><p class="note">吊橋の駐車場にある無料の足湯。タオル持参</p></div></li>
-    <li class="ev"><time>11:50</time><div class="body"><p class="what"><span class="mode">歩く</span>国道400号沿いに温泉街へ</p><p class="note">塩釜・畑下を通って約1.6km・25分</p></div></li>
-    <li class="ev"><time>12:20</time><div class="body"><p class="what"><span class="mode">食べる</span>昼ごはん</p><p class="note">本命は宿近くの <a href="#lunch">そば処 是庵 たみ吉</a>。紅の吊橋を見下ろすなら洋燈、ラーメンなら幸楽かこばや食堂</p></div></li>
-    <li class="ev"><time>13:30</time><div class="body"><p class="what"><span class="mode">見る</span>紅の吊橋（昼）</p><p class="note">塩原もの語り館の裏手。対岸に約900mの遊歩道</p></div></li>
-    <li class="ev"><time>14:00</time><div class="body"><p class="what"><span class="mode">宿</span>光雲荘チェックイン</p><p class="note">もの語り館から約300m</p></div></li>
+    <li class="ev" data-m="rail"><time>6:46</time><div class="body"><p class="what"><span class="mode">電車</span>戸塚発 東海道線（上野東京ライン）</p><p class="note">東京 7:23頃着。遅くとも <span class="num">6:56</span>発に。東京駅は新幹線ホームまで10分ほど見ておく</p></div></li>
+    <li class="ev" data-m="rail"><time>7:44</time><div class="body"><p class="what"><span class="mode">新幹線</span>東京発 やまびこ205号（予約済み）</p><p class="note">那須塩原 <span class="num">8:56</span>着</p></div></li>
+    <li class="ev" data-m="rail"><time>9:21</time><div class="body"><p class="what"><span class="mode">電車</span>那須塩原発 宇都宮線（上り・宇都宮行）</p><p class="note">1駅で西那須野 <span class="num">9:26</span>着。新幹線を降りてから25分あるので、駅で一息</p></div></li>
+    <li class="ev" data-m="bus"><time>9:35</time><div class="body"><p class="what"><span class="mode">バス</span>西那須野駅西口 11番のりば発</p><p class="note">塩原温泉BT行。塩原大網 <span class="num">10:06</span>着</p></div></li>
+    <li class="ev"><time>10:15</time><div class="body"><p class="what"><span class="mode">歩く</span>箒川ダムからやしおコースへ</p><p class="note">バス停から約10分。ダムへは急な階段</p></div></li>
+    <li class="ev"><time>11:45</time><div class="body"><p class="what"><span class="mode">見る</span>塩原温泉ビジターセンター</p><p class="note">コースは3.7km・約90分。センターは 9:00〜16:30（火曜休）</p></div></li>
+    <li class="ev"><time>12:15</time><div class="body"><p class="what"><span class="mode">休む</span>七ツ岩吊橋を渡って足湯</p><p class="note">吊橋の駐車場にある無料の足湯。タオル持参</p></div></li>
+    <li class="ev"><time>12:50</time><div class="body"><p class="what"><span class="mode">歩く</span>国道400号沿いに温泉街へ</p><p class="note">塩釜・畑下を通って約1.6km・25分</p></div></li>
+    <li class="ev"><time>13:15</time><div class="body"><p class="what"><span class="mode">食べる</span>昼ごはん</p><p class="note">本命は宿近くの <a href="#lunch">そば処 是庵 たみ吉</a>。紅の吊橋を見下ろすなら洋燈、ラーメンなら幸楽かこばや食堂</p></div></li>
+    <li class="ev"><time>14:30</time><div class="body"><p class="what"><span class="mode">見る</span>紅の吊橋（昼）</p><p class="note">塩原もの語り館の裏手。対岸に約900mの遊歩道</p></div></li>
+    <li class="ev"><time>15:00</time><div class="body"><p class="what"><span class="mode">宿</span>光雲荘チェックイン</p><p class="note">もの語り館から約300m</p></div></li>
     <li class="ev"><time class="soft">夕方</time><div class="body"><p class="what"><span class="mode">宿</span>温泉・夕食</p><p class="note">夕食の時間はチェックイン時に確認</p></div></li>
     <li class="ev"><time>19:30頃</time><div class="body"><p class="what"><span class="mode">見る</span>紅の吊橋ライトアップ</p><p class="note">点灯 <span class="num">17:00〜21:00</span>。宿から徒歩5分、ライトがあると安心</p></div></li>
   </ol>
   <div class="aside">
-    <h3>15時チェックイン案（朝を1時間遅らせる）</h3>
-    <div class="chain">
-      <span class="step">戸塚 6:56頃</span><span class="arr">→</span>
-      <span class="step">上野 7:50 やまびこ205号</span><span class="arr">→</span>
-      <span class="step">那須塩原 8:56</span><span class="arr">→</span>
-      <span class="step">宇都宮線 9:21</span><span class="arr">→</span>
-      <span class="step">西那須野 9:26</span><span class="arr">→</span>
-      <span class="step">バス 9:35</span><span class="arr">→</span>
-      <span class="step">塩原大網 10:06</span>
-    </div>
-    <p>以降は上の時刻に約1時間足します。昼ごはんが13時過ぎになるので、行動食を持っておくと楽です。</p>
+    <h3>歩き疲れたら</h3>
+    <p>足湯のあと、七ツ岩吊橋バス停 <span class="num">12:50</span>発のJRバスに乗れば、塩原温泉BTに <span class="num">12:58</span>に着きます。温泉街までの25分の歩きを省けます。</p>
+    <p>昼ごはんが13時過ぎになるので、行動食を持っておくと楽です。</p>
   </div>
 </section>
 
@@ -285,7 +278,7 @@ html { scroll-behavior: smooth; }
   </div>
 
   <div class="lunch-day">
-    <h3>1日目 塩原温泉街 <small>12時半ごろ・日曜</small></h3>
+    <h3>1日目 塩原温泉街 <small>13時過ぎ・日曜</small></h3>
     <p class="lead-note">温泉街にはラーメン専門店がほとんどなく、ラーメンは食堂で食べる形になります。</p>
     <ul class="shops">
       <li class="shop pick"><p class="name">そば処 是庵 たみ吉 <span class="badge pick">本命</span></p><p>光雲荘から200mほどで、チェックイン前に一番動きやすい店。古民家を改装したそば屋で、天ぷらが評判です。</p><p class="hours"><span class="num">11:00〜15:00</span>・木曜定休</p></li>
@@ -338,7 +331,7 @@ html { scroll-behavior: smooth; }
     <li><label><input type="checkbox" id="pk-light"><span>ライト<span class="why">夜の吊橋の往復</span></span></label></li>
     <li><label><input type="checkbox" id="pk-ic"><span>交通系ICカード<span class="why">JRバスで使える</span></span></label></li>
     <li><label><input type="checkbox" id="pk-coin"><span>小銭<span class="why">もみじ谷大吊橋の渡橋料400円</span></span></label></li>
-    <li><label><input type="checkbox" id="pk-snack"><span>行動食<span class="why">15時チェックイン案のとき</span></span></label></li>
+    <li><label><input type="checkbox" id="pk-snack"><span>行動食<span class="why">昼ごはんが13時過ぎになる</span></span></label></li>
   </ul>
   <div class="pack-foot"><span id="pack-count" aria-live="polite">0 / 7</span><button type="button" id="pack-reset">チェックを外す</button></div>
 </section>
@@ -349,7 +342,9 @@ html { scroll-behavior: smooth; }
     <li><a href="https://www.jrbuskanto.co.jp/topics/time_nishinasuno0401.pdf">JRバス関東 塩原本線 時刻表（2024年4月1日改正）</a></li>
     <li><a href="https://www.navitime.co.jp/diagram/bus/00026027/00079663/1/">西那須野駅西口 塩原線 時刻表（NAVITIME）</a></li>
     <li><a href="https://www.navitime.co.jp/diagram/bus/00274258/00079662/1/">那須塩原駅西口 塩原線 時刻表（NAVITIME）</a></li>
-    <li><a href="https://timetables.jreast.co.jp/2610/train/005/008151.html">やまびこ203号 停車駅一覧（JR東日本）</a></li>
+    <li><a href="https://timetables.jreast.co.jp/2610/train/005/008251.html">やまびこ205号 停車駅一覧（JR東日本）</a></li>
+    <li><a href="https://timetables.jreast.co.jp/2608/timetable/tt1057/1057021.html">戸塚駅 東海道線 上り（JR東日本）</a></li>
+    <li><a href="https://timetables.jreast.co.jp/2608/timetable/tt1118/1118041.html">那須塩原駅 宇都宮線 上り 土休日（JR東日本）</a></li>
     <li><a href="https://ekitan.com/timetable/shinkansen/section/101/sf-1627/st-2680">上野→那須塩原 新幹線時刻表（駅探）</a></li>
     <li><a href="https://timetables.jreast.co.jp/2609/timetable/tt1118/1118020.html">那須塩原駅 東北新幹線 上り 平日（JR東日本）</a></li>
     <li><a href="https://timetables.jreast.co.jp/2609/timetable/tt1166/1166010.html">西那須野駅 宇都宮線 下り（JR東日本）</a></li>
